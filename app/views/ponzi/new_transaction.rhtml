@@ -1,0 +1,22 @@
+<%= form_tag :action => "create_transaction" %>
+<h1>Create a transaction</h1>
+
+<p>The total amount of this transaction is <b>$<%= sprintf("%.02f", @amount) %></b></p>
+
+<%= hidden_field_tag :total_amount, @amount %>
+
+<table>
+	<tr>
+		<th>User</th>
+		<th>Amount</th>
+	</tr>
+	<% @users.each do |user| %>
+		<tr>
+			<td><%= user.firstname %> <%= user.lastname %></td>
+			<td>$<%= text_field_tag "amount{#{user.id}}" %></td>
+		</tr>
+	<% end %>
+</table>
+
+<%= submit_tag %>
+<%= end_form_tag %>

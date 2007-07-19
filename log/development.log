@@ -1,0 +1,1939 @@
+  [4;36;1mSQL (0.001915)[0m   [0;1mCREATE TABLE schema_info (version int(11))[0m
+  [4;35;1mSQL (0.000601)[0m   [0mINSERT INTO schema_info (version) VALUES(0)[0m
+  [4;36;1mSQL (0.001509)[0m   [0;1mCREATE TABLE engine_schema_info (engine_name varchar(255), version int(11))[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'engine_schema_info' already exists: CREATE TABLE engine_schema_info (engine_name varchar(255), version int(11))[0m
+  [4;35;1mSQL (0.000343)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateChargeTransactions (1)
+  [4;36;1mSQL (0.035942)[0m   [0;1mCREATE TABLE charge_transactions (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `description` varchar(255), `transaction_date` date) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000339)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.000277)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateCharges (2)
+  [4;35;1mSQL (0.001758)[0m   [0mCREATE TABLE charges (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `transaction_id` int(11), `creditor_id` int(11), `debtor_id` int(11), `amount` float) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000297)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.000367)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.010541)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001965)[0m   [0mSHOW FIELDS FROM charge_transactions[0m
+  [4;36;1mSQL (0.077652)[0m   [0;1mSHOW KEYS FROM charge_transactions[0m
+  [4;35;1mSQL (0.002486)[0m   [0mSHOW FIELDS FROM charges[0m
+  [4;36;1mSQL (0.000967)[0m   [0;1mSHOW KEYS FROM charges[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'engine_schema_info' already exists: CREATE TABLE engine_schema_info (engine_name varchar(255), version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'engine_schema_info' already exists: CREATE TABLE engine_schema_info (engine_name varchar(255), version int(11))[0m
+  [4;36;1mSQL (0.000353)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000215)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000314)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000563)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.001997)[0m   [0;1mSHOW FIELDS FROM charge_transactions[0m
+  [4;35;1mSQL (0.000989)[0m   [0mSHOW KEYS FROM charge_transactions[0m
+  [4;36;1mSQL (0.016604)[0m   [0;1mSHOW FIELDS FROM charges[0m
+  [4;35;1mSQL (0.001026)[0m   [0mSHOW KEYS FROM charges[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'engine_schema_info' already exists: CREATE TABLE engine_schema_info (engine_name varchar(255), version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'engine_schema_info' already exists: CREATE TABLE engine_schema_info (engine_name varchar(255), version int(11))[0m
+  [4;36;1mSQL (0.000707)[0m   [0;1mSELECT version FROM engine_schema_info WHERE engine_name = 'login_engine'[0m
+  [4;35;1mSQL (0.000334)[0m   [0mINSERT INTO engine_schema_info (version, engine_name) VALUES (0,'login_engine')[0m
+Migrating to InitialSchema (1)
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S02Unknown table 'users': DROP TABLE users[0m
+  [4;35;1mSQL (0.013092)[0m   [0mCREATE TABLE users (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(80) DEFAULT '' NOT NULL, `salted_password` varchar(40) DEFAULT '' NOT NULL, `email` varchar(60) DEFAULT '' NOT NULL, `firstname` varchar(40), `lastname` varchar(40), `salt` varchar(40) DEFAULT '' NOT NULL, `verified` int(11) DEFAULT 0, `role` varchar(40), `security_token` varchar(40), `token_expiry` datetime, `created_at` datetime, `updated_at` datetime, `logged_in_at` datetime, `deleted` int(11) DEFAULT 0, `delete_after` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000301)[0m   [0;1mUPDATE engine_schema_info SET version = 1 WHERE engine_name = 'login_engine'[0m
+  [4;35;1mSQL (0.000334)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000668)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002585)[0m   [0mSHOW FIELDS FROM charge_transactions[0m
+  [4;36;1mSQL (0.001074)[0m   [0;1mSHOW KEYS FROM charge_transactions[0m
+  [4;35;1mSQL (0.002036)[0m   [0mSHOW FIELDS FROM charges[0m
+  [4;36;1mSQL (0.001024)[0m   [0;1mSHOW KEYS FROM charges[0m
+  [4;35;1mSQL (0.003092)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mSQL (0.001010)[0m   [0;1mSHOW KEYS FROM users[0m
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 22:46:29) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+
+
+NoMethodError (undefined method `find' for Transaction:Module):
+    .//app/controllers/ponzi_controller.rb:3:in `index'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:941:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 22:46:45) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;36;1mChargeTransaction Load (0.000591)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+Completed in 0.02473 (40 reqs/sec) | Rendering: 0.00107 (4%) | DB: 0.00059 (2%) | 200 OK [http://localhost/ponzi]
+  [4;36;1mChargeTransaction Columns (0.002252)[0m   [0;1mSHOW FIELDS FROM charge_transactions[0m
+  [4;35;1mCharge Columns (0.002082)[0m   [0mSHOW FIELDS FROM charges[0m
+
+
+Processing Base#index (for 127.0.0.1 at 2006-11-27 22:47:23) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {}
+
+
+ActionController::RoutingError (Recognition failed for "/login"):
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/routing.rb:522:in `recognition_failed'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/routing.rb:512:in `recognize!'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing UserController#index (for 127.0.0.1 at 2006-11-27 22:47:43) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"user"}
+
+
+ActionController::UnknownAction (No action responded to index):
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing UserController#home (for 127.0.0.1 at 2006-11-27 22:47:53) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"home", "controller"=>"user"}
+
+
+NoMethodError (undefined method `user?' for #<UserController:0x2556420>):
+    .//vendor/plugins/login_engine/app/controllers/user_controller.rb:6:in `home'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:941:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing UserController#signup (for 127.0.0.1 at 2006-11-27 22:48:00) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"signup", "controller"=>"user"}
+  [4;35;1mUser Columns (0.003713)[0m   [0mSHOW FIELDS FROM users[0m
+Rendering user/signup
+Rendered user/_edit (0.00200)
+Rendered user/_password (0.00138)
+Completed in 0.01145 (87 reqs/sec) | Rendering: 0.00601 (52%) | DB: 0.00371 (32%) | 200 OK [http://localhost/user/signup]
+
+
+Processing UserController#signup (for 127.0.0.1 at 2006-11-27 22:48:11) [POST]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"user"=>{"password_confirmation"=>"al1enat0", "lastname"=>"Budin", "firstname"=>"Nat", "login"=>"nbudin", "password"=>"al1enat0", "email"=>"natbudin@gmail.com"}, "commit"=>"Signup", "action"=>"signup", "controller"=>"user"}
+  [4;36;1mUser Columns (0.002847)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mSQL (0.000173)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.001141)[0m   [0;1mSELECT * FROM users WHERE (users.email = 'natbudin@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.001027)[0m   [0mSELECT * FROM users WHERE (users.login = 'nbudin') LIMIT 1[0m
+  [4;36;1mSQL (0.000482)[0m   [0;1mINSERT INTO users (`salt`, `delete_after`, `updated_at`, `role`, `security_token`, `firstname`, `lastname`, `deleted`, `token_expiry`, `verified`, `logged_in_at`, `login`, `salted_password`, `created_at`, `email`) VALUES('8fb5f258a45085e67d5ecc079afc7cd2deaffdc9', NULL, '2006-11-27 22:48:11', NULL, NULL, 'Nat', 'Budin', 0, NULL, 0, NULL, 'nbudin', 'a6ce943edcbaa07945a01901b2f319126516c663', '2006-11-27 22:48:11', 'natbudin@gmail.com')[0m
+  [4;35;1mUser Update (0.000563)[0m   [0mUPDATE users SET `created_at` = '2006-11-27 22:48:11', `deleted` = 0, `login` = 'nbudin', `lastname` = 'Budin', `delete_after` = NULL, `role` = NULL, `salt` = '8fb5f258a45085e67d5ecc079afc7cd2deaffdc9', `salted_password` = 'a6ce943edcbaa07945a01901b2f319126516c663', `verified` = 0, `security_token` = '3e35537a4e9bd02afcd30f64057527ddbb8370f8', `token_expiry` = '2006-11-28 22:48:11', `email` = 'natbudin@gmail.com', `logged_in_at` = NULL, `firstname` = 'Nat', `updated_at` = '2006-11-27 22:48:11' WHERE id = 1[0m
+Sent mail:
+ Date: Mon, 27 Nov 2006 22:48:11 -0500
+From: webmaster@your.company
+To: natbudin@gmail.com
+Subject: [TestApp] Welcome to TestApp!
+Content-Type: text/plain; charset=utf-8
+
+Welcome to TestApp, Nat Budin.
+
+Your login credentials are:
+
+  login:    nbudin
+  password: al1enat0
+
+Please click on the following link to confirm your registration:
+
+<a href="http://localhost:6500/user/home?key=3e35537a4e9bd02afcd30f64057527ddbb8370f8&user_id=1">Click me!</a>
+
+http://localhost:6500/user/home?key=3e35537a4e9bd02afcd30f64057527ddbb8370f8&user_id=1
+
+Redirected to http://localhost:6500/user/login
+  [4;36;1mSQL (0.015215)[0m   [0;1mCOMMIT[0m
+Completed in 0.16637 (6 reqs/sec) | DB: 0.02145 (12%) | 302 Found [http://localhost/user/signup]
+
+
+Processing UserController#login (for 127.0.0.1 at 2006-11-27 22:48:11) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"login", "controller"=>"user"}
+  [4;35;1mUser Columns (0.003604)[0m   [0mSHOW FIELDS FROM users[0m
+Rendering user/login
+Completed in 0.00822 (121 reqs/sec) | Rendering: 0.00289 (35%) | DB: 0.00360 (43%) | 200 OK [http://localhost/user/login]
+
+
+Processing UserController#login (for 127.0.0.1 at 2006-11-27 22:48:16) [POST]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"user"=>{"login"=>"nbudin", "password"=>"al1enat0"}, "commit"=>"Login", "action"=>"login", "controller"=>"user"}
+  [4;36;1mUser Columns (0.003386)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.019683)[0m   [0mSELECT * FROM users WHERE (login = 'nbudin' AND verified = 1 AND deleted = 0) LIMIT 1[0m
+Rendering user/login
+Completed in 0.08266 (12 reqs/sec) | Rendering: 0.05724 (69%) | DB: 0.02307 (27%) | 200 OK [http://localhost/user/login]
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 22:49:03) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+
+
+NoMethodError (undefined method `login_required' for #<PonziController:0x250aebc>):
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:399:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:399:in `call_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:394:in `call_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:383:in `before_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:365:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 22:49:48) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+
+
+NoMethodError (undefined method `login_required' for #<PonziController:0x24dfadc>):
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:399:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:399:in `call_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:394:in `call_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:383:in `before_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:365:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 22:50:33) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;36;1mChargeTransaction Load (0.000565)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+Completed in 0.02472 (40 reqs/sec) | Rendering: 0.00118 (4%) | DB: 0.00056 (2%) | 200 OK [http://localhost/ponzi]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing Base#index (for 127.0.0.1 at 2006-11-27 22:50:51) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {}
+
+
+ActionController::RoutingError (Recognition failed for "/"):
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/routing.rb:522:in `recognition_failed'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/routing.rb:512:in `recognize!'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 22:50:55) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;35;1mChargeTransaction Load (0.001132)[0m   [0mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+Completed in 0.00455 (219 reqs/sec) | Rendering: 0.00059 (13%) | DB: 0.00113 (24%) | 200 OK [http://localhost/ponzi]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing UserController#home (for 127.0.0.1 at 2006-11-27 22:51:04) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"home", "controller"=>"user"}
+
+
+NoMethodError (undefined method `user?' for #<UserController:0x2241794>):
+    .//vendor/plugins/login_engine/app/controllers/user_controller.rb:6:in `home'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:941:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing UserController#home (for 127.0.0.1 at 2006-11-27 22:52:46) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"home", "controller"=>"user"}
+
+
+NoMethodError (undefined method `user?' for #<UserController:0x250c5c8>):
+    .//vendor/plugins/login_engine/app/controllers/user_controller.rb:6:in `home'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:941:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing UserController#index (for 127.0.0.1 at 2006-11-27 22:52:54) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"user"}
+
+
+ActionController::UnknownAction (No action responded to index):
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing UserController#index (for 127.0.0.1 at 2006-11-27 22:54:03) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"user"}
+
+
+ActionController::UnknownAction (No action responded to index):
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing Base#index (for 127.0.0.1 at 2006-11-27 22:54:05) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {}
+
+
+ActionController::RoutingError (Recognition failed for "/"):
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/routing.rb:522:in `recognition_failed'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/routing.rb:512:in `recognize!'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 22:54:09) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;36;1mChargeTransaction Load (0.001057)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+Completed in 0.00423 (236 reqs/sec) | Rendering: 0.00053 (12%) | DB: 0.00106 (25%) | 200 OK [http://localhost/ponzi]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 22:54:10) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;35;1mChargeTransaction Load (0.000604)[0m   [0mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+Completed in 0.00423 (236 reqs/sec) | Rendering: 0.00046 (10%) | DB: 0.00060 (14%) | 200 OK [http://localhost/ponzi]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 22:54:13) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;36;1mChargeTransaction Load (0.000549)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+Completed in 0.00353 (283 reqs/sec) | Rendering: 0.00044 (12%) | DB: 0.00055 (15%) | 200 OK [http://localhost/ponzi]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 22:54:17) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;35;1mChargeTransaction Load (0.000554)[0m   [0mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+Completed in 0.00346 (288 reqs/sec) | Rendering: 0.00045 (12%) | DB: 0.00055 (15%) | 200 OK [http://localhost/ponzi]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 22:57:27) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;36;1mChargeTransaction Load (0.000530)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+
+
+ActionView::TemplateError (undefined local variable or method `new_transaction' for #<#<Class:0x24e5040>:0x24e5018>) on line #7 of app/views/ponzi/index.rhtml:
+4: 
+5: <% end %>
+6: 
+7: <% form_tag :action => new_transaction %>
+8: <h1>Enter a new transaction</h1>
+9: 
+10: <p>This transaction is a <% select_tag "type", options_for_select([["Debt", "Debt"], ["Payment", "Payment"]]) %>
+
+    #{RAILS_ROOT}/app/views/ponzi/index.rhtml:7:in `_run_rhtml_ponzi_index'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:316:in `compile_and_render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:292:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:251:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:726:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:648:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/layout.rb:253:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:942:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 22:57:35) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;35;1mChargeTransaction Load (0.000885)[0m   [0mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+
+
+ActionView::TemplateError (undefined local variable or method `end_form' for #<#<Class:0x2287104>:0x22870dc>) on line #12 of app/views/ponzi/index.rhtml:
+9: 
+10: <p>This transaction is a <% select_tag "type", options_for_select([["Debt", "Debt"], ["Payment", "Payment"]]) %>
+11: 	from me to </p>
+12: <% end_form %>
+    #{RAILS_ROOT}/app/views/ponzi/index.rhtml:12:in `_run_rhtml_ponzi_index'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:316:in `compile_and_render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:292:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:251:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:726:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:648:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/layout.rb:253:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:942:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 22:57:41) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;36;1mChargeTransaction Load (0.000574)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+Completed in 0.00472 (212 reqs/sec) | Rendering: 0.00163 (34%) | DB: 0.00057 (12%) | 200 OK [http://localhost/ponzi]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 22:57:59) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;35;1mChargeTransaction Load (0.000544)[0m   [0mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+Completed in 0.00466 (214 reqs/sec) | Rendering: 0.00144 (30%) | DB: 0.00054 (11%) | 200 OK [http://localhost/ponzi]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 22:58:58) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;36;1mChargeTransaction Load (0.000801)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+ERROR: compiling _run_rhtml_ponzi_index RAISED compile error
+script/../config/../app/views/ponzi/index.rhtml:10: odd number list for Hash
+_erbout.concat "<p>This transaction is a ";  select_tag "payment", options_for_select({ 0: "debt owed to me", 1: "payment made by me"}) ; _erbout.concat "\n"
+                                                                                          ^
+script/../config/../app/views/ponzi/index.rhtml:10: parse error, unexpected ':', expecting '}'
+_erbout.concat "<p>This transaction is a ";  select_tag "payment", options_for_select({ 0: "debt owed to me", 1: "payment made by me"}) ; _erbout.concat "\n"
+                                                                                          ^
+script/../config/../app/views/ponzi/index.rhtml:10: parse error, unexpected ',', expecting kEND
+_erbout.concat "<p>This transaction is a ";  select_tag "payment", options_for_select({ 0: "debt owed to me", 1: "payment made by me"}) ; _erbout.concat "\n"
+                                                                                                             ^
+script/../config/../app/views/ponzi/index.rhtml:10: parse error, unexpected '}', expecting kEND
+_erbout.concat "<p>This transaction is a ";  select_tag "payment", options_for_select({ 0: "debt owed to me", 1: "payment made by me"}) ; _erbout.concat "\n"
+                                                                                                                                      ^
+Function body: def _run_rhtml_ponzi_index(local_assigns)
+_erbout = '';  @transactions.each do |transaction| ; _erbout.concat "\n"
+_erbout.concat "\t\n"
+_erbout.concat "\t<p>Transaction: "; _erbout.concat(( @transaction.description ).to_s); _erbout.concat "</p>\n"
+_erbout.concat "\n"
+ end ; _erbout.concat "\n"
+_erbout.concat "\n"
+_erbout.concat(( form_tag :action => :new_transaction ).to_s); _erbout.concat "\n"
+_erbout.concat "<h1>Enter a new transaction</h1>\n"
+_erbout.concat "\n"
+_erbout.concat "<p>This transaction is a ";  select_tag "payment", options_for_select({ 0: "debt owed to me", 1: "payment made by me"}) ; _erbout.concat "\n"
+_erbout.concat "\tfrom me to </p>\n"
+_erbout.concat(( end_form_tag ).to_s); _erbout
+end
+Backtrace: script/../config/../app/views/ponzi/index.rhtml:13:in `compile_template'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:307:in `compile_and_render_template'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:292:in `render_template'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:251:in `render_file'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:726:in `render_file'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:648:in `render_with_no_layout'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/layout.rb:253:in `render_without_benchmark'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:53:in `render'
+/usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:53:in `render'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:942:in `perform_action_without_filters'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+/usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+/usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+/usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+/usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+/usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+/usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+/usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+/usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+/usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+script/server:3
+
+
+ActionView::TemplateError (compile error
+script/../config/../app/views/ponzi/index.rhtml:10: odd number list for Hash
+_erbout.concat "<p>This transaction is a ";  select_tag "payment", options_for_select({ 0: "debt owed to me", 1: "payment made by me"}) ; _erbout.concat "\n"
+                                                                                          ^
+script/../config/../app/views/ponzi/index.rhtml:10: parse error, unexpected ':', expecting '}'
+_erbout.concat "<p>This transaction is a ";  select_tag "payment", options_for_select({ 0: "debt owed to me", 1: "payment made by me"}) ; _erbout.concat "\n"
+                                                                                          ^
+script/../config/../app/views/ponzi/index.rhtml:10: parse error, unexpected ',', expecting kEND
+_erbout.concat "<p>This transaction is a ";  select_tag "payment", options_for_select({ 0: "debt owed to me", 1: "payment made by me"}) ; _erbout.concat "\n"
+                                                                                                             ^
+script/../config/../app/views/ponzi/index.rhtml:10: parse error, unexpected '}', expecting kEND
+_erbout.concat "<p>This transaction is a ";  select_tag "payment", options_for_select({ 0: "debt owed to me", 1: "payment made by me"}) ; _erbout.concat "\n"
+                                                                                                                                      ^) on line #10 of app/views/ponzi/index.rhtml:
+7: <%= form_tag :action => :new_transaction %>
+8: <h1>Enter a new transaction</h1>
+9: 
+10: <p>This transaction is a <% select_tag "payment", options_for_select({ 0: "debt owed to me", 1: "payment made by me"}) %>
+11: 	from me to </p>
+12: <%= end_form_tag %>
+    #{RAILS_ROOT}/app/views/ponzi/index.rhtml:13:in `compile_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:307:in `compile_and_render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:292:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:251:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:726:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:648:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/layout.rb:253:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:942:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 22:59:27) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;35;1mChargeTransaction Load (0.000687)[0m   [0mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+Completed in 0.00521 (191 reqs/sec) | Rendering: 0.00157 (30%) | DB: 0.00069 (13%) | 200 OK [http://localhost/ponzi]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 22:59:33) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;36;1mChargeTransaction Load (0.000858)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+Completed in 0.00518 (193 reqs/sec) | Rendering: 0.00179 (34%) | DB: 0.00086 (16%) | 200 OK [http://localhost/ponzi]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 22:59:50) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;35;1mChargeTransaction Load (0.000546)[0m   [0mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+Completed in 0.00439 (227 reqs/sec) | Rendering: 0.00142 (32%) | DB: 0.00055 (12%) | 200 OK [http://localhost/ponzi]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 23:00:14) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;36;1mChargeTransaction Load (0.000734)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+Completed in 0.00634 (157 reqs/sec) | Rendering: 0.00153 (24%) | DB: 0.00073 (11%) | 200 OK [http://localhost/ponzi]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 23:01:06) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;35;1mChargeTransaction Load (0.000703)[0m   [0mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+
+
+ActionView::TemplateError (undefined method `text_input_tag' for #<#<Class:0x220e36c>:0x220e308>) on line #12 of app/views/ponzi/index.rhtml:
+9: 
+10: <p>This transaction is a <%= select_tag "payment", options_for_select({ "debt owed to me" => 0, 
+11: 		"payment made by me" => 1}, 0) %>
+12: 	in the total amount of $<%= text_input_tag "amount" %>.
+13: 	</p>
+14: <%= end_form_tag %>
+    #{RAILS_ROOT}/app/views/ponzi/index.rhtml:12:in `_run_rhtml_ponzi_index'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:316:in `compile_and_render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:292:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:251:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:726:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:648:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/layout.rb:253:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:942:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 23:01:14) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;36;1mChargeTransaction Load (0.000954)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+
+
+ActionView::TemplateError (undefined method `input_tag' for #<#<Class:0x2346248>:0x2346220>) on line #12 of app/views/ponzi/index.rhtml:
+9: 
+10: <p>This transaction is a <%= select_tag "payment", options_for_select({ "debt owed to me" => 0, 
+11: 		"payment made by me" => 1}, 0) %>
+12: 	in the total amount of $<%= input_tag "amount" %>.
+13: 	</p>
+14: <%= end_form_tag %>
+    #{RAILS_ROOT}/app/views/ponzi/index.rhtml:12:in `_run_rhtml_ponzi_index'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:316:in `compile_and_render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:292:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:251:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:726:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:648:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/layout.rb:253:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:942:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 23:01:37) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;35;1mChargeTransaction Load (0.000808)[0m   [0mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+Completed in 0.00510 (195 reqs/sec) | Rendering: 0.00169 (33%) | DB: 0.00081 (15%) | 200 OK [http://localhost/ponzi]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 23:02:30) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;36;1mChargeTransaction Load (0.000873)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+Completed in 0.00532 (188 reqs/sec) | Rendering: 0.00168 (31%) | DB: 0.00087 (16%) | 200 OK [http://localhost/ponzi]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 23:05:37) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;35;1mChargeTransaction Load (0.000984)[0m   [0mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+  [4;36;1mUser Load (0.001267)[0m   [0;1mSELECT * FROM users [0m
+  [4;35;1mUser Columns (0.003261)[0m   [0mSHOW FIELDS FROM users[0m
+Completed in 0.01780 (56 reqs/sec) | Rendering: 0.00946 (53%) | DB: 0.00551 (30%) | 200 OK [http://localhost/ponzi]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 23:06:09) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;36;1mChargeTransaction Load (0.000899)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+  [4;35;1mUser Load (0.004333)[0m   [0mSELECT * FROM users [0m
+  [4;36;1mUser Columns (0.003001)[0m   [0;1mSHOW FIELDS FROM users[0m
+Completed in 0.02057 (48 reqs/sec) | Rendering: 0.00981 (47%) | DB: 0.00823 (40%) | 200 OK [http://localhost/ponzi]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 23:06:23) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;35;1mChargeTransaction Load (0.000544)[0m   [0mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+  [4;36;1mUser Load (0.001534)[0m   [0;1mSELECT * FROM users [0m
+  [4;35;1mUser Columns (0.003408)[0m   [0mSHOW FIELDS FROM users[0m
+Completed in 0.01725 (57 reqs/sec) | Rendering: 0.00942 (54%) | DB: 0.00549 (31%) | 200 OK [http://localhost/ponzi]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing UserController#signup (for 127.0.0.1 at 2006-11-27 23:06:32) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"signup", "controller"=>"user"}
+  [4;36;1mUser Columns (0.003156)[0m   [0;1mSHOW FIELDS FROM users[0m
+Rendering user/signup
+Rendered user/_edit (0.00197)
+Rendered user/_password (0.00137)
+Completed in 0.01078 (92 reqs/sec) | Rendering: 0.00597 (55%) | DB: 0.00316 (29%) | 200 OK [http://localhost/user/signup]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing UserController#signup (for 127.0.0.1 at 2006-11-27 23:07:28) [POST]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"user"=>{"password_confirmation"=>"fireships", "lastname"=>"Adams", "firstname"=>"Ian", "login"=>"iadams", "password"=>"fireships", "email"=>"dazura@gmail.com"}, "commit"=>"Signup", "action"=>"signup", "controller"=>"user"}
+  [4;35;1mUser Columns (0.003270)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mSQL (0.000171)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.001246)[0m   [0mSELECT * FROM users WHERE (users.email = 'dazura@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.001081)[0m   [0;1mSELECT * FROM users WHERE (users.login = 'iadams') LIMIT 1[0m
+  [4;35;1mSQL (0.000356)[0m   [0mINSERT INTO users (`salt`, `delete_after`, `updated_at`, `role`, `security_token`, `firstname`, `lastname`, `deleted`, `token_expiry`, `verified`, `logged_in_at`, `login`, `salted_password`, `created_at`, `email`) VALUES('45af504bb3d05a212b39634c4bb6f8f61d3bbcde', NULL, '2006-11-27 23:07:28', NULL, NULL, 'Ian', 'Adams', 0, NULL, 0, NULL, 'iadams', '2faba590c8574d06bbfe5e171e78397ae3d9fe98', '2006-11-27 23:07:28', 'dazura@gmail.com')[0m
+  [4;36;1mUser Update (0.000391)[0m   [0;1mUPDATE users SET `created_at` = '2006-11-27 23:07:28', `deleted` = 0, `login` = 'iadams', `lastname` = 'Adams', `delete_after` = NULL, `role` = NULL, `salt` = '45af504bb3d05a212b39634c4bb6f8f61d3bbcde', `salted_password` = '2faba590c8574d06bbfe5e171e78397ae3d9fe98', `verified` = 0, `security_token` = '8ca7fd7094cc3f21beea61cec129e9fd77c7474e', `token_expiry` = '2006-11-28 23:07:28', `email` = 'dazura@gmail.com', `logged_in_at` = NULL, `firstname` = 'Ian', `updated_at` = '2006-11-27 23:07:28' WHERE id = 2[0m
+Sent mail:
+ Date: Mon, 27 Nov 2006 23:07:28 -0500
+From: webmaster@your.company
+To: dazura@gmail.com
+Subject: [TestApp] Welcome to TestApp!
+Content-Type: text/plain; charset=utf-8
+
+Welcome to TestApp, Ian Adams.
+
+Your login credentials are:
+
+  login:    iadams
+  password: fireships
+
+Please click on the following link to confirm your registration:
+
+<a href="http://localhost:6500/user/home?key=8ca7fd7094cc3f21beea61cec129e9fd77c7474e&user_id=2">Click me!</a>
+
+http://localhost:6500/user/home?key=8ca7fd7094cc3f21beea61cec129e9fd77c7474e&user_id=2
+
+Redirected to http://localhost:6500/user/login
+  [4;35;1mSQL (0.000646)[0m   [0mCOMMIT[0m
+Completed in 0.02421 (41 reqs/sec) | DB: 0.00716 (29%) | 302 Found [http://localhost/user/signup]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing UserController#login (for 127.0.0.1 at 2006-11-27 23:07:29) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"login", "controller"=>"user"}
+  [4;36;1mUser Columns (0.003278)[0m   [0;1mSHOW FIELDS FROM users[0m
+Rendering user/login
+Completed in 0.00770 (129 reqs/sec) | Rendering: 0.00277 (35%) | DB: 0.00328 (42%) | 200 OK [http://localhost/user/login]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 23:07:35) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;35;1mChargeTransaction Load (0.000479)[0m   [0mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+  [4;36;1mUser Load (0.001587)[0m   [0;1mSELECT * FROM users [0m
+  [4;35;1mUser Columns (0.002958)[0m   [0mSHOW FIELDS FROM users[0m
+Completed in 0.01555 (64 reqs/sec) | Rendering: 0.00809 (52%) | DB: 0.00502 (32%) | 200 OK [http://localhost/ponzi]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 23:08:37) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;36;1mChargeTransaction Load (0.000938)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+  [4;35;1mUser Load (0.001303)[0m   [0mSELECT * FROM users [0m
+  [4;36;1mUser Columns (0.002903)[0m   [0;1mSHOW FIELDS FROM users[0m
+Completed in 0.01778 (56 reqs/sec) | Rendering: 0.00985 (55%) | DB: 0.00514 (28%) | 200 OK [http://localhost/ponzi]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#new_transaction (for 127.0.0.1 at 2006-11-27 23:08:39) [POST]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"commit"=>"Create transaction", "action"=>"new_transaction", "amount"=>"", "payment"=>"0", "controller"=>"ponzi", "other_users"=>["1"]}
+
+
+ActionController::UnknownAction (No action responded to new_transaction):
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#new_transaction (for 127.0.0.1 at 2006-11-27 23:10:47) [POST]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"commit"=>"Create transaction", "action"=>"new_transaction", "amount"=>"", "payment"=>"0", "controller"=>"ponzi", "other_users"=>["1"]}
+  [4;35;1mUser Load (0.001376)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+Rendering ponzi/new_transaction
+Completed in 0.00571 (175 reqs/sec) | Rendering: 0.00080 (13%) | DB: 0.00138 (24%) | 200 OK [http://localhost/ponzi/new_transaction]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#new_transaction (for 127.0.0.1 at 2006-11-27 23:12:22) [POST]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"commit"=>"Create transaction", "action"=>"new_transaction", "amount"=>"", "payment"=>"0", "controller"=>"ponzi", "other_users"=>["1"]}
+  [4;36;1mUser Load (0.001387)[0m   [0;1mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+Rendering ponzi/new_transaction
+Completed in 0.00575 (173 reqs/sec) | Rendering: 0.00114 (19%) | DB: 0.00139 (24%) | 200 OK [http://localhost/ponzi/new_transaction]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#new_transaction (for 127.0.0.1 at 2006-11-27 23:12:29) [POST]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"commit"=>"Create transaction", "action"=>"new_transaction", "amount"=>"50", "payment"=>"0", "controller"=>"ponzi", "other_users"=>["1", "2"]}
+  [4;35;1mUser Load (0.001889)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.001276)[0m   [0;1mSELECT * FROM users WHERE (users.id = '2') LIMIT 1[0m
+Rendering ponzi/new_transaction
+Completed in 0.00810 (123 reqs/sec) | Rendering: 0.00070 (8%) | DB: 0.00317 (39%) | 200 OK [http://localhost/ponzi/new_transaction]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#new_transaction (for 127.0.0.1 at 2006-11-27 23:12:57) [POST]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"commit"=>"Create transaction", "action"=>"new_transaction", "amount"=>"50", "payment"=>"0", "controller"=>"ponzi", "other_users"=>["1", "2"]}
+  [4;35;1mUser Load (0.001848)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.001577)[0m   [0;1mSELECT * FROM users WHERE (users.id = '2') LIMIT 1[0m
+Rendering ponzi/new_transaction
+
+
+ActionView::TemplateError (undefined method `float' for #<#<Class:0x235b83c>:0x235b814>) on line #4 of app/views/ponzi/new_transaction.rhtml:
+1: <%= form_tag :action => "create_transaction" %>
+2: <h1>Create a transaction</h1>
+3: 
+4: <p>The total amount of this transaction is $<%= float(params[:amount]) %>.</p>
+5: <%= end_form_tag %>
+    #{RAILS_ROOT}/app/views/ponzi/new_transaction.rhtml:4:in `_run_rhtml_ponzi_new_transaction'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:316:in `compile_and_render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:292:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:251:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:726:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:648:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/layout.rb:253:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:942:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#new_transaction (for 127.0.0.1 at 2006-11-27 23:13:09) [POST]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"commit"=>"Create transaction", "action"=>"new_transaction", "amount"=>"50", "payment"=>"0", "controller"=>"ponzi", "other_users"=>["1", "2"]}
+  [4;35;1mUser Load (0.001633)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.001455)[0m   [0;1mSELECT * FROM users WHERE (users.id = '2') LIMIT 1[0m
+Rendering ponzi/new_transaction
+
+
+ActionView::TemplateError (undefined method `new' for Fixnum:Class) on line #4 of app/views/ponzi/new_transaction.rhtml:
+1: <%= form_tag :action => "create_transaction" %>
+2: <h1>Create a transaction</h1>
+3: 
+4: <p>The total amount of this transaction is $<%= Fixnum.new(params[:amount]) %>.</p>
+5: <%= end_form_tag %>
+    #{RAILS_ROOT}/app/views/ponzi/new_transaction.rhtml:4:in `_run_rhtml_ponzi_new_transaction'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:316:in `compile_and_render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:292:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:251:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:726:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:648:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/layout.rb:253:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:942:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#new_transaction (for 127.0.0.1 at 2006-11-27 23:13:50) [POST]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"commit"=>"Create transaction", "action"=>"new_transaction", "amount"=>"50", "payment"=>"0", "controller"=>"ponzi", "other_users"=>["1", "2"]}
+  [4;35;1mUser Load (0.001379)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.001848)[0m   [0;1mSELECT * FROM users WHERE (users.id = '2') LIMIT 1[0m
+Rendering ponzi/new_transaction
+Completed in 0.00856 (116 reqs/sec) | Rendering: 0.00127 (14%) | DB: 0.00323 (37%) | 200 OK [http://localhost/ponzi/new_transaction]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#new_transaction (for 127.0.0.1 at 2006-11-27 23:14:55) [POST]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"commit"=>"Create transaction", "action"=>"new_transaction", "amount"=>"50", "payment"=>"0", "controller"=>"ponzi", "other_users"=>["1", "2"]}
+  [4;35;1mUser Load (0.001351)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.001126)[0m   [0;1mSELECT * FROM users WHERE (users.id = '2') LIMIT 1[0m
+Rendering ponzi/new_transaction
+Completed in 0.06440 (15 reqs/sec) | Rendering: 0.00117 (1%) | DB: 0.00248 (3%) | 200 OK [http://localhost/ponzi/new_transaction]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#new_transaction (for 127.0.0.1 at 2006-11-27 23:15:14) [POST]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"commit"=>"Create transaction", "action"=>"new_transaction", "amount"=>"50", "payment"=>"0", "controller"=>"ponzi", "other_users"=>["1", "2"]}
+  [4;35;1mUser Load (0.002002)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.001801)[0m   [0;1mSELECT * FROM users WHERE (users.id = '2') LIMIT 1[0m
+Rendering ponzi/new_transaction
+Completed in 0.01006 (99 reqs/sec) | Rendering: 0.00141 (14%) | DB: 0.00380 (37%) | 200 OK [http://localhost/ponzi/new_transaction]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#new_transaction (for 127.0.0.1 at 2006-11-27 23:16:48) [POST]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"commit"=>"Create transaction", "action"=>"new_transaction", "amount"=>"50", "payment"=>"0", "controller"=>"ponzi", "other_users"=>["1", "2"]}
+  [4;35;1mUser Load (0.001312)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.001122)[0m   [0;1mSELECT * FROM users WHERE (users.id = '2') LIMIT 1[0m
+Rendering ponzi/new_transaction
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occured while evaluating nil.firstname) on line #13 of app/views/ponzi/new_transaction.rhtml:
+10: 	</tr>
+11: 	<% @users.each do |user| %>
+12: 		<tr>
+13: 			<td><%= @user.firstname %> <%= @user.lastname %></td>
+14: 			<td>$<%= text_field "amount[#{@user.id}]" %></td>
+15: 		</tr>
+16: 	<% end %>
+
+    #{RAILS_ROOT}/app/views/ponzi/new_transaction.rhtml:13:in `_run_rhtml_ponzi_new_transaction'
+    #{RAILS_ROOT}/app/views/ponzi/new_transaction.rhtml:11:in `_run_rhtml_ponzi_new_transaction'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:316:in `compile_and_render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:292:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:251:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:726:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:648:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/layout.rb:253:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:942:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#new_transaction (for 127.0.0.1 at 2006-11-27 23:17:02) [POST]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"commit"=>"Create transaction", "action"=>"new_transaction", "amount"=>"50", "payment"=>"0", "controller"=>"ponzi", "other_users"=>["1", "2"]}
+  [4;35;1mUser Load (0.001762)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.001300)[0m   [0;1mSELECT * FROM users WHERE (users.id = '2') LIMIT 1[0m
+Rendering ponzi/new_transaction
+  [4;35;1mUser Columns (0.003843)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+ActionView::TemplateError (wrong number of arguments (1 for 2)) on line #14 of app/views/ponzi/new_transaction.rhtml:
+11: 	<% @users.each do |user| %>
+12: 		<tr>
+13: 			<td><%= user.firstname %> <%= user.lastname %></td>
+14: 			<td>$<%= text_field "amount[#{user.id}]" %></td>
+15: 		</tr>
+16: 	<% end %>
+17: </table>
+
+    #{RAILS_ROOT}/app/views/ponzi/new_transaction.rhtml:14:in `text_field'
+    #{RAILS_ROOT}/app/views/ponzi/new_transaction.rhtml:14:in `_run_rhtml_ponzi_new_transaction'
+    #{RAILS_ROOT}/app/views/ponzi/new_transaction.rhtml:11:in `_run_rhtml_ponzi_new_transaction'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:316:in `compile_and_render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:292:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:251:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:726:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:648:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/layout.rb:253:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:942:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#new_transaction (for 127.0.0.1 at 2006-11-27 23:17:14) [POST]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"commit"=>"Create transaction", "action"=>"new_transaction", "amount"=>"50", "payment"=>"0", "controller"=>"ponzi", "other_users"=>["1", "2"]}
+  [4;36;1mUser Load (0.002215)[0m   [0;1mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.001290)[0m   [0mSELECT * FROM users WHERE (users.id = '2') LIMIT 1[0m
+Rendering ponzi/new_transaction
+  [4;36;1mUser Columns (0.003224)[0m   [0;1mSHOW FIELDS FROM users[0m
+Completed in 0.01513 (66 reqs/sec) | Rendering: 0.00418 (27%) | DB: 0.01057 (69%) | 200 OK [http://localhost/ponzi/new_transaction]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#new_transaction (for 127.0.0.1 at 2006-11-27 23:18:08) [POST]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"commit"=>"Create transaction", "action"=>"new_transaction", "amount"=>"50", "payment"=>"0", "controller"=>"ponzi", "other_users"=>["1", "2"]}
+  [4;35;1mUser Load (0.001711)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.002060)[0m   [0;1mSELECT * FROM users WHERE (users.id = '2') LIMIT 1[0m
+Rendering ponzi/new_transaction
+  [4;35;1mUser Columns (0.003491)[0m   [0mSHOW FIELDS FROM users[0m
+Completed in 0.01379 (72 reqs/sec) | Rendering: 0.00280 (20%) | DB: 0.00726 (52%) | 200 OK [http://localhost/ponzi/new_transaction]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#new_transaction (for 127.0.0.1 at 2006-11-27 23:19:00) [POST]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"commit"=>"Create transaction", "action"=>"new_transaction", "amount"=>"50", "payment"=>"0", "controller"=>"ponzi", "other_users"=>["1", "2"]}
+  [4;36;1mUser Load (0.002005)[0m   [0;1mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.001267)[0m   [0mSELECT * FROM users WHERE (users.id = '2') LIMIT 1[0m
+Rendering ponzi/new_transaction
+  [4;36;1mUser Columns (0.003745)[0m   [0;1mSHOW FIELDS FROM users[0m
+Completed in 0.07247 (13 reqs/sec) | Rendering: 0.06184 (85%) | DB: 0.00702 (9%) | 200 OK [http://localhost/ponzi/new_transaction]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#new_transaction (for 127.0.0.1 at 2006-11-27 23:19:16) [POST]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"commit"=>"Create transaction", "action"=>"new_transaction", "amount"=>"50", "payment"=>"0", "controller"=>"ponzi", "other_users"=>["1", "2"]}
+  [4;35;1mUser Load (0.003315)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.001367)[0m   [0;1mSELECT * FROM users WHERE (users.id = '2') LIMIT 1[0m
+Rendering ponzi/new_transaction
+  [4;35;1mUser Columns (0.003793)[0m   [0mSHOW FIELDS FROM users[0m
+Completed in 0.02035 (49 reqs/sec) | Rendering: 0.00809 (39%) | DB: 0.00848 (41%) | 200 OK [http://localhost/ponzi/new_transaction]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#new_transaction (for 127.0.0.1 at 2006-11-27 23:19:58) [POST]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"commit"=>"Create transaction", "action"=>"new_transaction", "amount"=>"50", "payment"=>"0", "controller"=>"ponzi", "other_users"=>["1", "2"]}
+  [4;36;1mUser Load (0.001321)[0m   [0;1mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.001120)[0m   [0mSELECT * FROM users WHERE (users.id = '2') LIMIT 1[0m
+Rendering ponzi/new_transaction
+  [4;36;1mUser Columns (0.003043)[0m   [0;1mSHOW FIELDS FROM users[0m
+Completed in 0.01339 (74 reqs/sec) | Rendering: 0.00460 (34%) | DB: 0.00548 (40%) | 200 OK [http://localhost/ponzi/new_transaction]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#create_transaction (for 127.0.0.1 at 2006-11-27 23:20:10) [POST]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"commit"=>"Save changes", "total_amount"=>"50.0", "action"=>"create_transaction", "controller"=>"ponzi", "amount{2}"=>"20", "amount{1}"=>"10"}
+
+
+ActionController::UnknownAction (No action responded to create_transaction):
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#new_transaction (for 127.0.0.1 at 2006-11-27 23:22:06) [POST]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"commit"=>"Create transaction", "action"=>"new_transaction", "amount"=>"50", "payment"=>"0", "controller"=>"ponzi", "other_users"=>["1", "2"]}
+  [4;35;1mUser Load (0.002051)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.001497)[0m   [0;1mSELECT * FROM users WHERE (users.id = '2') LIMIT 1[0m
+Rendering ponzi/new_transaction
+  [4;35;1mUser Columns (0.003401)[0m   [0mSHOW FIELDS FROM users[0m
+Completed in 0.01449 (69 reqs/sec) | Rendering: 0.00317 (21%) | DB: 0.00695 (47%) | 200 OK [http://localhost/ponzi/new_transaction]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#create_transaction (for 127.0.0.1 at 2006-11-27 23:22:07) [POST]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"commit"=>"Save changes", "total_amount"=>"50.0", "action"=>"create_transaction", "controller"=>"ponzi", "amount{2}"=>"20", "amount{1}"=>"10"}
+
+
+NoMethodError (You have a nil object when you didn't expect it!
+The error occured while evaluating nil.each_value):
+    .//app/controllers/ponzi_controller.rb:16:in `create_transaction'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:941:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing Base#index (for 127.0.0.1 at 2006-11-27 23:37:00) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {}
+
+
+ActionController::RoutingError (Recognition failed for "/"):
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/routing.rb:522:in `recognition_failed'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/routing.rb:512:in `recognize!'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:115:in `handle_dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:81:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/webrick_server.rb:67:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/commands/server.rb:30
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-1.3.1/lib/active_support/dependencies.rb:147:in `require'
+    script/server:3
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2006-11-27 23:37:04) [GET]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;36;1mChargeTransaction Load (0.000881)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+  [4;35;1mUser Load (0.001318)[0m   [0mSELECT * FROM users [0m
+  [4;36;1mUser Columns (0.003127)[0m   [0;1mSHOW FIELDS FROM users[0m
+Completed in 0.01598 (62 reqs/sec) | Rendering: 0.00821 (51%) | DB: 0.00533 (33%) | 200 OK [http://localhost/ponzi]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#new_transaction (for 127.0.0.1 at 2006-11-27 23:37:17) [POST]
+  Session ID: 225c756d02d01b81983a66464162ae1e
+  Parameters: {"commit"=>"Create transaction", "action"=>"new_transaction", "amount"=>"", "payment"=>"0", "controller"=>"ponzi", "other_users"=>["2"]}
+  [4;35;1mUser Load (0.001701)[0m   [0mSELECT * FROM users WHERE (users.id = '2') LIMIT 1[0m
+Rendering ponzi/new_transaction
+  [4;36;1mUser Columns (0.003388)[0m   [0;1mSHOW FIELDS FROM users[0m
+Completed in 0.01127 (88 reqs/sec) | Rendering: 0.00293 (25%) | DB: 0.00509 (45%) | 200 OK [http://localhost/ponzi/new_transaction]
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing Base#index (for 127.0.0.1 at 2007-07-19 00:22:53) [GET]
+  Session ID: 45a61f1134317a2b4832cdcba5b6c7f9
+  Parameters: {}
+
+
+ActionController::RoutingError (Recognition failed for "/"):
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/routing.rb:522:in `recognition_failed'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/routing.rb:512:in `recognize!'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/fcgi_handler.rb:150:in `process_request'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/fcgi_handler.rb:54:in `process!'
+    /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:600:in `each_cgi'
+    /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:117:in `session'
+    /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:104:in `each_request'
+    /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:36:in `each'
+    /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:597:in `each_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/fcgi_handler.rb:53:in `process!'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/fcgi_handler.rb:23:in `process!'
+    /Users/nbudin/Work/code/ponzi/public/dispatch.fcgi:24
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2007-07-19 00:23:39) [GET]
+  Session ID: 45a61f1134317a2b4832cdcba5b6c7f9
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+
+
+Mysql::Error (Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)):
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/connection_adapters/mysql_adapter.rb:330:in `real_connect'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/connection_adapters/mysql_adapter.rb:330:in `connect'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/connection_adapters/mysql_adapter.rb:87:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/connection_adapters/mysql_adapter.rb:36:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/connection_adapters/mysql_adapter.rb:36:in `mysql_connection'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/connection_adapters/abstract/connection_specification.rb:251:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/connection_adapters/abstract/connection_specification.rb:251:in `connection_without_query_cache='
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/query_cache.rb:54:in `connection='
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/connection_adapters/abstract/connection_specification.rb:220:in `retrieve_connection'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/connection_adapters/abstract/connection_specification.rb:78:in `connection'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/base.rb:1046:in `add_limit!'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/base.rb:1017:in `construct_finder_sql'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/base.rb:924:in `find_every'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/base.rb:381:in `find'
+    /app/controllers/ponzi_controller.rb:3:in `index'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:941:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:941:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/fcgi_handler.rb:150:in `process_request'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/fcgi_handler.rb:54:in `process!'
+    /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:600:in `each_cgi'
+    /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:117:in `session'
+    /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:104:in `each_request'
+    /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:36:in `each'
+    /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:597:in `each_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/fcgi_handler.rb:53:in `process!'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/fcgi_handler.rb:23:in `process!'
+    /Users/nbudin/Work/code/ponzi/public/dispatch.fcgi:24
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2007-07-19 00:24:12) [GET]
+  Session ID: 45a61f1134317a2b4832cdcba5b6c7f9
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+
+
+Mysql::Error (Unknown database 'ponzi_development'):
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/connection_adapters/mysql_adapter.rb:330:in `real_connect'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/connection_adapters/mysql_adapter.rb:330:in `connect'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/connection_adapters/mysql_adapter.rb:87:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/connection_adapters/mysql_adapter.rb:36:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/connection_adapters/mysql_adapter.rb:36:in `mysql_connection'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/connection_adapters/abstract/connection_specification.rb:251:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/connection_adapters/abstract/connection_specification.rb:251:in `connection_without_query_cache='
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/query_cache.rb:54:in `connection='
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/connection_adapters/abstract/connection_specification.rb:220:in `retrieve_connection'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/connection_adapters/abstract/connection_specification.rb:78:in `connection'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/base.rb:1046:in `add_limit!'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/base.rb:1017:in `construct_finder_sql'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/base.rb:924:in `find_every'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/base.rb:381:in `find'
+    /app/controllers/ponzi_controller.rb:3:in `index'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:941:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:941:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/fcgi_handler.rb:150:in `process_request'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/fcgi_handler.rb:54:in `process!'
+    /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:600:in `each_cgi'
+    /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:117:in `session'
+    /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:104:in `each_request'
+    /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:36:in `each'
+    /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:597:in `each_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/fcgi_handler.rb:53:in `process!'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/fcgi_handler.rb:23:in `process!'
+    /Users/nbudin/Work/code/ponzi/public/dispatch.fcgi:24
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+  [4;36;1mSQL (0.077618)[0m   [0;1mCREATE TABLE schema_info (version int(11))[0m
+  [4;35;1mSQL (0.013244)[0m   [0mINSERT INTO schema_info (version) VALUES(0)[0m
+  [4;36;1mSQL (0.001773)[0m   [0;1mCREATE TABLE engine_schema_info (engine_name varchar(255), version int(11))[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Table 'engine_schema_info' already exists: CREATE TABLE engine_schema_info (engine_name varchar(255), version int(11))[0m
+  [4;35;1mSQL (0.002411)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateChargeTransactions (1)
+  [4;36;1mSQL (0.082263)[0m   [0;1mCREATE TABLE charge_transactions (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `description` varchar(255), `transaction_date` date) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.001070)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.000168)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateCharges (2)
+  [4;35;1mSQL (0.008335)[0m   [0mCREATE TABLE charges (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `transaction_id` int(11), `creditor_id` int(11), `debtor_id` int(11), `amount` float) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000384)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.000246)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.013476)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001516)[0m   [0mSHOW FIELDS FROM charge_transactions[0m
+  [4;36;1mSQL (0.000515)[0m   [0;1mSHOW KEYS FROM charge_transactions[0m
+  [4;35;1mSQL (0.023228)[0m   [0mSHOW FIELDS FROM charges[0m
+  [4;36;1mSQL (0.000550)[0m   [0;1mSHOW KEYS FROM charges[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'engine_schema_info' already exists: CREATE TABLE engine_schema_info (engine_name varchar(255), version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'engine_schema_info' already exists: CREATE TABLE engine_schema_info (engine_name varchar(255), version int(11))[0m
+  [4;36;1mSQL (0.000217)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000112)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000159)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000395)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.001633)[0m   [0;1mSHOW FIELDS FROM charge_transactions[0m
+  [4;35;1mSQL (0.015881)[0m   [0mSHOW KEYS FROM charge_transactions[0m
+  [4;36;1mSQL (0.001694)[0m   [0;1mSHOW FIELDS FROM charges[0m
+  [4;35;1mSQL (0.000437)[0m   [0mSHOW KEYS FROM charges[0m
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2007-07-19 00:24:55) [GET]
+  Session ID: 45a61f1134317a2b4832cdcba5b6c7f9
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;36;1mChargeTransaction Load (0.000368)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+  [4;35;1mUser Load (0.000000)[0m   [0mMysql::Error: Table 'ponzi_development.users' doesn't exist: SELECT * FROM users [0m
+
+
+ActionView::TemplateError (Mysql::Error: Table 'ponzi_development.users' doesn't exist: SELECT * FROM users ) on line #16 of app/views/ponzi/index.rhtml:
+13: 	</p>
+14: 	
+15: <p>The other people in this transaction are:
+16: 	<%= select_tag "other_users[]", options_for_select(User.find(:all).collect { |u| [ "#{u.firstname} #{u.lastname}", u.id]}), :multiple => true %></p>
+17: 
+18: <p><%= submit_tag "Create transaction" %></p>
+19: <%= end_form_tag %>
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/connection_adapters/abstract_adapter.rb:120:in `log'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/connection_adapters/mysql_adapter.rb:184:in `execute'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/connection_adapters/mysql_adapter.rb:336:in `select'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/connection_adapters/mysql_adapter.rb:175:in `select_all'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/base.rb:390:in `find_by_sql'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/base.rb:924:in `find_every'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-1.14.4/lib/active_record/base.rb:381:in `find'
+    #{RAILS_ROOT}/app/views/ponzi/index.rhtml:16:in `_run_rhtml_ponzi_index'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:316:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:316:in `compile_and_render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:292:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_view/base.rb:251:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:726:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:648:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/layout.rb:253:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:942:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/base.rb:408:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/session_management.rb:117:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/fcgi_handler.rb:150:in `process_request'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/fcgi_handler.rb:54:in `process!'
+    /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:600:in `each_cgi'
+    /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:117:in `session'
+    /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:104:in `each_request'
+    /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:36:in `each'
+    /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:597:in `each_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/fcgi_handler.rb:53:in `process!'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/fcgi_handler.rb:23:in `process!'
+    /Users/nbudin/Work/code/ponzi/public/dispatch.fcgi:24
+
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)

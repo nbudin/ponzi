@@ -1,0 +1,2 @@
+module PonziHelper
+end

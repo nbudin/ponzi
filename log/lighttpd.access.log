@@ -1,0 +1,5 @@
+127.0.0.1 localhost:3000 - [19/Jul/2007:00:22:53 -0400] "GET / HTTP/1.1" 404 601 "-" "Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US; rv:1.8.1.5) Gecko/20070713 Firefox/2.0.0.5"
+127.0.0.1 localhost:3000 - [19/Jul/2007:00:22:53 -0400] "GET /favicon.ico HTTP/1.1" 200 0 "-" "Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US; rv:1.8.1.5) Gecko/20070713 Firefox/2.0.0.5"
+127.0.0.1 localhost:3000 - [19/Jul/2007:00:23:39 -0400] "GET /ponzi HTTP/1.1" 500 11780 "-" "Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US; rv:1.8.1.5) Gecko/20070713 Firefox/2.0.0.5"
+127.0.0.1 localhost:3000 - [19/Jul/2007:00:24:12 -0400] "GET /ponzi HTTP/1.1" 500 11744 "-" "Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US; rv:1.8.1.5) Gecko/20070713 Firefox/2.0.0.5"
+127.0.0.1 localhost:3000 - [19/Jul/2007:00:24:56 -0400] "GET /ponzi HTTP/1.1" 500 11264 "-" "Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US; rv:1.8.1.5) Gecko/20070713 Firefox/2.0.0.5"

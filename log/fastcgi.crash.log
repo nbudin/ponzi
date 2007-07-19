@@ -1,0 +1,23 @@
+# Logfile created on Thu Jul 19 00:22:49 -0400 2007 by logger.rb/1.5.2.9
+[19/Jul/2007:00:22:49 :: 819] starting
+[19/Jul/2007:00:24:16 :: 819] Dispatcher failed to catch:  (Interrupt)
+  /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:113:in `accept'
+  /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:113:in `session'
+  /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:104:in `each_request'
+  /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:36:in `each'
+  /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:597:in `each_cgi'
+  /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/fcgi_handler.rb:53:in `process!'
+  /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/fcgi_handler.rb:23:in `process!'
+  /Users/nbudin/Work/code/ponzi/public/dispatch.fcgi:24
+killed by this error
+[19/Jul/2007:00:24:55 :: 900] starting
+[19/Jul/2007:08:39:49 :: 900] Dispatcher failed to catch:  (Interrupt)
+  /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:113:in `accept'
+  /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:113:in `session'
+  /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:104:in `each_request'
+  /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:36:in `each'
+  /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:597:in `each_cgi'
+  /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/fcgi_handler.rb:53:in `process!'
+  /usr/local/lib/ruby/gems/1.8/gems/rails-1.1.6/lib/fcgi_handler.rb:23:in `process!'
+  /Users/nbudin/Work/code/ponzi/public/dispatch.fcgi:24
+killed by this error

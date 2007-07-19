@@ -1,14 +1,14 @@
 class Charge < ActiveRecord::Base
   belongs_to :charge_transaction
-  has_one :creditor, :class_name => "User"
-  has_one :debtor, :class_name => "User"
+  has_one :creditor, :class_name => "Person"
+  has_one :debtor, :class_name => "Person"
   
-  def balance(user)
-    if user == debtor and user == creditor
+  def balance(person)
+    if person == debtor and person == creditor
       return 0
-    elsif user == debtor
+    elsif person == debtor
       return -amount
-    elsif user == creditor
+    elsif person == creditor
       return amount
     else
       return 0

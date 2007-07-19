@@ -13,7 +13,7 @@
 	</p>
 	
 <p>The other people in this transaction are:
-	<%= select_tag "other_users[]", options_for_select(User.find(:all).collect { |u| [ "#{u.firstname} #{u.lastname}", u.id]}), :multiple => true %></p>
+	<%= select_tag "other_users[]", options_for_select(Person.find(:all).collect { |u| [ "#{u.firstname} #{u.lastname}", u.id]}), :multiple => true %></p>
 
 <p><%= submit_tag "Create transaction" %></p>
 <%= end_form_tag %>

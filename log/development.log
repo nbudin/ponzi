@@ -1937,3 +1937,1931 @@ ActionView::TemplateError (Mysql::Error: Table 'ponzi_development.users' doesn't
 
 
 Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-1.12.5/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+Rails final load path: .
+Rails final dependency load path: /home/nbudin/ponzi/config/../vendor/plugins/engines/lib
+enginizing plugin: ae_forms from /home/nbudin/ponzi/config/../vendor/plugins/ae_forms
+Plugin 'ae_forms': starting load.
+Plugin 'ae_forms': loaded.
+enginizing plugin: ae_users from /home/nbudin/ponzi/config/../vendor/plugins/ae_users
+Plugin 'ae_users': starting load.
+Attempting to copy plugin plugin asset files from '/home/nbudin/ponzi/config/../vendor/plugins/ae_users/assets' to '/home/nbudin/ponzi/config/../public/plugin_assets'
+Plugin 'ae_users': loaded.
+enginizing plugin: engines from /home/nbudin/ponzi/config/../vendor/plugins/engines
+Plugin 'engines': starting load.
+Plugin 'engines': loaded.
+plugins is now: ae_forms, ae_users, engines
+Creating public engine files directory '/home/nbudin/ponzi/config/../public/plugin_assets'
+engines has started.
+Rails final load path: .
+Rails final dependency load path: /home/nbudin/ponzi/config/../vendor/plugins/engines/lib
+enginizing plugin: ae_forms from /home/nbudin/ponzi/config/../vendor/plugins/ae_forms
+Plugin 'ae_forms': starting load.
+Plugin 'ae_forms': loaded.
+enginizing plugin: ae_users from /home/nbudin/ponzi/config/../vendor/plugins/ae_users
+Plugin 'ae_users': starting load.
+Attempting to copy plugin plugin asset files from '/home/nbudin/ponzi/config/../vendor/plugins/ae_users/assets' to '/home/nbudin/ponzi/config/../public/plugin_assets'
+Plugin 'ae_users': loaded.
+enginizing plugin: engines from /home/nbudin/ponzi/config/../vendor/plugins/engines
+Plugin 'engines': starting load.
+Plugin 'engines': loaded.
+plugins is now: ae_forms, ae_users, engines
+engines has started.
+  [4;36;1mSQL (0.041895)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S02Table 'ponzi_development.schema_info' doesn't exist: SELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.101442)[0m   [0;1mCREATE TABLE schema_info (version int(11))[0m
+  [4;35;1mSQL (0.000365)[0m   [0mINSERT INTO schema_info (version) VALUES(0)[0m
+  [4;36;1mSQL (0.007994)[0m   [0;1m CREATE TABLE plugin_schema_info 
+ (plugin_name varchar(255), version int(11))
+[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'plugin_schema_info' already exists: CREATE TABLE plugin_schema_info 
+ (plugin_name varchar(255), version int(11))
+[0m
+  [4;35;1mSQL (0.000412)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateChargeTransactions (1)
+  [4;36;1mSQL (0.066512)[0m   [0;1mCREATE TABLE charge_transactions (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `description` varchar(255) DEFAULT NULL, `transaction_date` date DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000864)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.000511)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateCharges (2)
+  [4;35;1mSQL (0.059614)[0m   [0mCREATE TABLE charges (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `transaction_id` int(11) DEFAULT NULL, `creditor_id` int(11) DEFAULT NULL, `debtor_id` int(11) DEFAULT NULL, `amount` float DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.003462)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.014559)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.015729)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.059968)[0m   [0mSHOW FIELDS FROM charge_transactions[0m
+  [4;36;1mSQL (0.001295)[0m   [0;1mSHOW KEYS FROM charge_transactions[0m
+  [4;35;1mSQL (0.001532)[0m   [0mSHOW FIELDS FROM charges[0m
+  [4;36;1mSQL (0.001660)[0m   [0;1mSHOW KEYS FROM charges[0m
+Rails final load path: .
+Rails final dependency load path: script/../config/../vendor/plugins/engines/lib
+enginizing plugin: ae_forms from script/../config/../vendor/plugins/ae_forms
+Plugin 'ae_forms': starting load.
+Plugin 'ae_forms': loaded.
+enginizing plugin: ae_users from script/../config/../vendor/plugins/ae_users
+Plugin 'ae_users': starting load.
+Attempting to copy plugin plugin asset files from 'script/../config/../vendor/plugins/ae_users/assets' to 'script/../config/../public/plugin_assets'
+Plugin 'ae_users': loaded.
+enginizing plugin: engines from script/../config/../vendor/plugins/engines
+Plugin 'engines': starting load.
+Plugin 'engines': loaded.
+plugins is now: ae_forms, ae_users, engines
+engines has started.
+  [4;36;1mSQL (0.000162)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000471)[0m   [0mSELECT version FROM schema_info[0m
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-07-19 15:29:23) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/" with {:method=>:get}):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/routing.rb:1282:in `recognize'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:40:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/servers/mongrel.rb:60
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'ponzi_controller'
+checking plugin 'ae_users' for 'ponzi_controller'
+checking plugin 'engines' for 'ponzi_controller'
+loading from application: ponzi_controller
+checking plugin 'ae_forms' for 'ponzi_helper'
+checking plugin 'ae_users' for 'ponzi_helper'
+checking plugin 'engines' for 'ponzi_helper'
+loading from application: ponzi_helper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2007-07-19 15:29:26) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;36;1mChargeTransaction Load (0.000944)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+
+
+ActionView::TemplateError (uninitialized constant ActionView::Base::CompiledTemplates::User) on line #16 of app/views/ponzi/index.rhtml:
+13: 	</p>
+14: 	
+15: <p>The other people in this transaction are:
+16: 	<%= select_tag "other_users[]", options_for_select(User.find(:all).collect { |u| [ "#{u.firstname} #{u.lastname}", u.id]}), :multiple => true %></p>
+17: 
+18: <p><%= submit_tag "Create transaction" %></p>
+19: <%= end_form_tag %>
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:263:in `load_missing_constant'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:452:in `const_missing'
+    #{RAILS_ROOT}/app/views/ponzi/index.rhtml:16:in `_run_rhtml_47app47views47ponzi47index46rhtml'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/base.rb:326:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/base.rb:326:in `compile_and_render_template'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/base.rb:301:in `render_template'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/base.rb:260:in `render_file'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:806:in `render_file'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:711:in `render_with_no_layout'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/layout.rb:256:in `render_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:50:in `render'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:50:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1096:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:632:in `call_filter'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/rescue.rb:83:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/session_management.rb:114:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:330:in `process'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:41:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/servers/mongrel.rb:60
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'ponzi_controller'
+checking plugin 'ae_users' for 'ponzi_controller'
+checking plugin 'engines' for 'ponzi_controller'
+loading from application: ponzi_controller
+checking plugin 'ae_forms' for 'ponzi_helper'
+checking plugin 'ae_users' for 'ponzi_helper'
+checking plugin 'engines' for 'ponzi_helper'
+loading from application: ponzi_helper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2007-07-19 15:30:23) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;35;1mChargeTransaction Load (0.001136)[0m   [0mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+  [4;36;1mSQL (0.000136)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mPerson Load (0.032888)[0m   [0mSELECT * FROM people [0m
+  [4;36;1mPerson Columns (0.001567)[0m   [0;1mSHOW FIELDS FROM people[0m
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47ponzi47index46rhtml at script/../config/../app/views/ponzi/index.rhtml:19)
+Completed in 0.08092 (12 reqs/sec) | Rendering: 0.07428 (91%) | DB: 0.00114 (1%) | 200 OK [http://localhost/ponzi]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'ponzi_controller'
+checking plugin 'ae_users' for 'ponzi_controller'
+checking plugin 'engines' for 'ponzi_controller'
+loading from application: ponzi_controller
+checking plugin 'ae_forms' for 'ponzi_helper'
+checking plugin 'ae_users' for 'ponzi_helper'
+checking plugin 'engines' for 'ponzi_helper'
+loading from application: ponzi_helper
+
+
+Processing PonziController#new_transaction (for 127.0.0.1 at 2007-07-19 16:26:04) [POST]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"commit"=>"Create transaction", "action"=>"new_transaction", "payment"=>"1", "amount"=>"200", "controller"=>"ponzi", "other_users"=>["2"]}
+
+
+NameError (uninitialized constant PonziController::User):
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:477:in `const_missing'
+    .//app/controllers/ponzi_controller.rb:8:in `new_transaction'
+    .//app/controllers/ponzi_controller.rb:7:in `collect'
+    .//app/controllers/ponzi_controller.rb:7:in `new_transaction'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1095:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1095:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:632:in `call_filter'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/rescue.rb:83:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/session_management.rb:114:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:330:in `process'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:41:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/servers/mongrel.rb:60
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'ponzi_controller'
+checking plugin 'ae_users' for 'ponzi_controller'
+checking plugin 'engines' for 'ponzi_controller'
+loading from application: ponzi_controller
+checking plugin 'ae_forms' for 'ponzi_helper'
+checking plugin 'ae_users' for 'ponzi_helper'
+checking plugin 'engines' for 'ponzi_helper'
+loading from application: ponzi_helper
+
+
+Processing PonziController#new_transaction (for 127.0.0.1 at 2007-07-19 16:26:34) [POST]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"commit"=>"Create transaction", "action"=>"new_transaction", "payment"=>"1", "amount"=>"200", "controller"=>"ponzi", "other_users"=>["2"]}
+  [4;35;1mSQL (0.000165)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mPerson Columns (0.033593)[0m   [0;1mSHOW FIELDS FROM people[0m
+  [4;35;1mPerson Load (0.001082)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+Rendering ponzi/new_transaction
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47ponzi47new_transaction46rhtml at script/../config/../app/views/ponzi/new_transaction.rhtml:22)
+Completed in 0.11244 (8 reqs/sec) | Rendering: 0.03121 (27%) | DB: 0.00000 (0%) | 200 OK [http://localhost/ponzi/new_transaction]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'ponzi_controller'
+checking plugin 'ae_users' for 'ponzi_controller'
+checking plugin 'engines' for 'ponzi_controller'
+loading from application: ponzi_controller
+checking plugin 'ae_forms' for 'ponzi_helper'
+checking plugin 'ae_users' for 'ponzi_helper'
+checking plugin 'engines' for 'ponzi_helper'
+loading from application: ponzi_helper
+
+
+Processing PonziController#create_transaction (for 127.0.0.1 at 2007-07-19 16:26:45) [POST]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"total_amount"=>"200.0", "commit"=>"Save changes", "action"=>"create_transaction", "controller"=>"ponzi", "amount{2}"=>"200"}
+
+
+NoMethodError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.each_value):
+    .//app/controllers/ponzi_controller.rb:16:in `create_transaction'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1095:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1095:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:632:in `call_filter'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/rescue.rb:83:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/session_management.rb:114:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:330:in `process'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:41:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/servers/mongrel.rb:60
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'ponzi_controller'
+checking plugin 'ae_users' for 'ponzi_controller'
+checking plugin 'engines' for 'ponzi_controller'
+loading from application: ponzi_controller
+checking plugin 'ae_forms' for 'ponzi_helper'
+checking plugin 'ae_users' for 'ponzi_helper'
+checking plugin 'engines' for 'ponzi_helper'
+loading from application: ponzi_helper
+
+
+Processing PonziController#new_transaction (for 127.0.0.1 at 2007-07-19 16:27:23) [POST]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"commit"=>"Create transaction", "action"=>"new_transaction", "payment"=>"1", "amount"=>"200", "controller"=>"ponzi", "other_users"=>["2"]}
+  [4;36;1mSQL (0.000158)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mPerson Columns (0.001651)[0m   [0mSHOW FIELDS FROM people[0m
+  [4;36;1mPerson Load (0.000757)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+Rendering ponzi/new_transaction
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47ponzi47new_transaction46rhtml at script/../config/../app/views/ponzi/new_transaction.rhtml:22)
+Completed in 0.01733 (57 reqs/sec) | Rendering: 0.00402 (23%) | DB: 0.00000 (0%) | 200 OK [http://localhost/ponzi/new_transaction]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'ponzi_controller'
+checking plugin 'ae_users' for 'ponzi_controller'
+checking plugin 'engines' for 'ponzi_controller'
+loading from application: ponzi_controller
+checking plugin 'ae_forms' for 'ponzi_helper'
+checking plugin 'ae_users' for 'ponzi_helper'
+checking plugin 'engines' for 'ponzi_helper'
+loading from application: ponzi_helper
+
+
+Processing PonziController#create_transaction (for 127.0.0.1 at 2007-07-19 16:27:27) [POST]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"total_amount"=>"200.0", "commit"=>"Save changes", "action"=>"create_transaction", "amount"=>{"2"=>"200"}, "controller"=>"ponzi"}
+
+
+NameError (undefined local variable or method `total' for #<PonziController:0xb69c7640>):
+    .//app/controllers/ponzi_controller.rb:20:in `create_transaction'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1095:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1095:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:632:in `call_filter'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/rescue.rb:83:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/session_management.rb:114:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:330:in `process'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:41:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/servers/mongrel.rb:60
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'ponzi_controller'
+checking plugin 'ae_users' for 'ponzi_controller'
+checking plugin 'engines' for 'ponzi_controller'
+loading from application: ponzi_controller
+checking plugin 'ae_forms' for 'ponzi_helper'
+checking plugin 'ae_users' for 'ponzi_helper'
+checking plugin 'engines' for 'ponzi_helper'
+loading from application: ponzi_helper
+
+
+Processing PonziController#create_transaction (for 127.0.0.1 at 2007-07-19 16:27:48) [POST]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"total_amount"=>"200.0", "commit"=>"Save changes", "action"=>"create_transaction", "amount"=>{"2"=>"200"}, "controller"=>"ponzi"}
+DEPRECATION WARNING: @flash is deprecated! Call flash.[]= instead of @flash.[]=. Args: [:errors, "Those amounts don't add up to $.  Try again."]  See http://www.rubyonrails.org/deprecation for details. (called from create_transaction at ./script/../config/../app/controllers/ponzi_controller.rb:20)
+Redirected to http://localhost:4242/ponzi/new_transaction
+Completed in 0.00202 (495 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/ponzi/create_transaction]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'ponzi_controller'
+checking plugin 'ae_users' for 'ponzi_controller'
+checking plugin 'engines' for 'ponzi_controller'
+loading from application: ponzi_controller
+checking plugin 'ae_forms' for 'ponzi_helper'
+checking plugin 'ae_users' for 'ponzi_helper'
+checking plugin 'engines' for 'ponzi_helper'
+loading from application: ponzi_helper
+
+
+Processing PonziController#new_transaction (for 127.0.0.1 at 2007-07-19 16:27:48) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"new_transaction", "controller"=>"ponzi"}
+
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.collect):
+    .//app/controllers/ponzi_controller.rb:7:in `new_transaction'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1095:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1095:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:632:in `call_filter'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/rescue.rb:83:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/session_management.rb:114:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:330:in `process'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:41:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/servers/mongrel.rb:60
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'ponzi_controller'
+checking plugin 'ae_users' for 'ponzi_controller'
+checking plugin 'engines' for 'ponzi_controller'
+loading from application: ponzi_controller
+checking plugin 'ae_forms' for 'ponzi_helper'
+checking plugin 'ae_users' for 'ponzi_helper'
+checking plugin 'engines' for 'ponzi_helper'
+loading from application: ponzi_helper
+
+
+Processing PonziController#new_transaction (for 127.0.0.1 at 2007-07-19 16:28:06) [POST]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"commit"=>"Create transaction", "action"=>"new_transaction", "payment"=>"1", "amount"=>"200", "controller"=>"ponzi", "other_users"=>["2"]}
+  [4;35;1mSQL (0.000148)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mPerson Columns (0.001645)[0m   [0;1mSHOW FIELDS FROM people[0m
+  [4;35;1mPerson Load (0.013675)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+Rendering ponzi/new_transaction
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47ponzi47new_transaction46rhtml at script/../config/../app/views/ponzi/new_transaction.rhtml:22)
+Completed in 0.04392 (22 reqs/sec) | Rendering: 0.00275 (6%) | DB: 0.00000 (0%) | 200 OK [http://localhost/ponzi/new_transaction]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'ponzi_controller'
+checking plugin 'ae_users' for 'ponzi_controller'
+checking plugin 'engines' for 'ponzi_controller'
+loading from application: ponzi_controller
+checking plugin 'ae_forms' for 'ponzi_helper'
+checking plugin 'ae_users' for 'ponzi_helper'
+checking plugin 'engines' for 'ponzi_helper'
+loading from application: ponzi_helper
+
+
+Processing PonziController#create_transaction (for 127.0.0.1 at 2007-07-19 16:28:08) [POST]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"total_amount"=>"200.0", "commit"=>"Save changes", "action"=>"create_transaction", "amount"=>{"2"=>"200"}, "controller"=>"ponzi"}
+DEPRECATION WARNING: @flash is deprecated! Call flash.[]= instead of @flash.[]=. Args: [:errors, "Those amounts don't add up to $.  Try again."]  See http://www.rubyonrails.org/deprecation for details. (called from create_transaction at ./script/../config/../app/controllers/ponzi_controller.rb:20)
+Redirected to http://localhost:4242/ponzi/new_transaction
+Completed in 0.00183 (545 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/ponzi/create_transaction]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'ponzi_controller'
+checking plugin 'ae_users' for 'ponzi_controller'
+checking plugin 'engines' for 'ponzi_controller'
+loading from application: ponzi_controller
+checking plugin 'ae_forms' for 'ponzi_helper'
+checking plugin 'ae_users' for 'ponzi_helper'
+checking plugin 'engines' for 'ponzi_helper'
+loading from application: ponzi_helper
+
+
+Processing PonziController#new_transaction (for 127.0.0.1 at 2007-07-19 16:28:08) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"new_transaction", "controller"=>"ponzi"}
+
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.collect):
+    .//app/controllers/ponzi_controller.rb:7:in `new_transaction'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1095:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1095:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:632:in `call_filter'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/rescue.rb:83:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/session_management.rb:114:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:330:in `process'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:41:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/servers/mongrel.rb:60
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'ponzi_controller'
+checking plugin 'ae_users' for 'ponzi_controller'
+checking plugin 'engines' for 'ponzi_controller'
+loading from application: ponzi_controller
+checking plugin 'ae_forms' for 'ponzi_helper'
+checking plugin 'ae_users' for 'ponzi_helper'
+checking plugin 'engines' for 'ponzi_helper'
+loading from application: ponzi_helper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2007-07-19 16:28:35) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;36;1mChargeTransaction Load (0.000466)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering ponzi/index
+  [4;35;1mSQL (0.000175)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mPerson Load (0.000840)[0m   [0;1mSELECT * FROM people [0m
+  [4;35;1mPerson Columns (0.001787)[0m   [0mSHOW FIELDS FROM people[0m
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47ponzi47index46rhtml at script/../config/../app/views/ponzi/index.rhtml:19)
+Completed in 0.04013 (24 reqs/sec) | Rendering: 0.01863 (46%) | DB: 0.00047 (1%) | 200 OK [http://localhost/ponzi]
+Rails final load path: .
+Rails final dependency load path: script/../config/../vendor/plugins/engines/lib
+enginizing plugin: ae_forms from script/../config/../vendor/plugins/ae_forms
+Plugin 'ae_forms': starting load.
+Plugin 'ae_forms': loaded.
+enginizing plugin: ae_users from script/../config/../vendor/plugins/ae_users
+Plugin 'ae_users': starting load.
+Attempting to copy plugin plugin asset files from 'script/../config/../vendor/plugins/ae_users/assets' to 'script/../config/../public/plugin_assets'
+Plugin 'ae_users': loaded.
+enginizing plugin: engines from script/../config/../vendor/plugins/engines
+Plugin 'engines': starting load.
+Plugin 'engines': loaded.
+plugins is now: ae_forms, ae_users, engines
+engines has started.
+  [4;36;1mSQL (0.000147)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000243)[0m   [0mSELECT version FROM schema_info[0m
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'auth_controller'
+checking plugin 'ae_users' for 'auth_controller'
+==> loading from plugin 'ae_users'
+checking plugin 'ae_forms' for 'auth_helper'
+checking plugin 'ae_users' for 'auth_helper'
+==> loading from plugin 'ae_users'
+checking plugin 'engines' for 'auth_helper'
+(file not found in application)
+checking plugin 'engines' for 'auth_controller'
+(file not found in application)
+
+
+Processing AuthController#login (for 127.0.0.1 at 2007-07-19 16:30:43) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"login", "controller"=>"auth"}
+Rendering auth/login
+Rendered auth/_auth_form (0.00480)
+Completed in 0.03129 (31 reqs/sec) | Rendering: 0.03043 (97%) | DB: 0.00000 (0%) | 200 OK [http://localhost/auth/login]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'auth_controller'
+checking plugin 'ae_users' for 'auth_controller'
+==> loading from plugin 'ae_users'
+checking plugin 'ae_forms' for 'auth_helper'
+checking plugin 'ae_users' for 'auth_helper'
+==> loading from plugin 'ae_users'
+checking plugin 'engines' for 'auth_helper'
+(file not found in application)
+checking plugin 'engines' for 'auth_controller'
+(file not found in application)
+
+
+Processing AuthController#login (for 127.0.0.1 at 2007-07-19 16:34:16) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"login", "controller"=>"auth"}
+Rendering  within layouts/global
+Rendering auth/login
+Rendered auth/_auth_form (0.00273)
+Completed in 0.00985 (101 reqs/sec) | Rendering: 0.00893 (90%) | DB: 0.00000 (0%) | 200 OK [http://localhost/auth/login]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-07-19 16:34:17) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/stylesheets/ponzi.css" with {:method=>:get}):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/routing.rb:1282:in `recognize'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:40:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/servers/mongrel.rb:60
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'auth_controller'
+checking plugin 'ae_users' for 'auth_controller'
+==> loading from plugin 'ae_users'
+checking plugin 'ae_forms' for 'auth_helper'
+checking plugin 'ae_users' for 'auth_helper'
+==> loading from plugin 'ae_users'
+checking plugin 'engines' for 'auth_helper'
+(file not found in application)
+checking plugin 'engines' for 'auth_controller'
+(file not found in application)
+
+
+Processing AuthController#login (for 127.0.0.1 at 2007-07-19 16:34:27) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"login", "controller"=>"auth"}
+Rendering  within layouts/global
+Rendering auth/login
+Rendered auth/_auth_form (0.00257)
+Completed in 0.00919 (108 reqs/sec) | Rendering: 0.00838 (91%) | DB: 0.00000 (0%) | 200 OK [http://localhost/auth/login]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-07-19 16:34:28) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/stylesheets/ponzi.css" with {:method=>:get}):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/routing.rb:1282:in `recognize'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:40:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/servers/mongrel.rb:60
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'auth_controller'
+checking plugin 'ae_users' for 'auth_controller'
+==> loading from plugin 'ae_users'
+checking plugin 'ae_forms' for 'auth_helper'
+checking plugin 'ae_users' for 'auth_helper'
+==> loading from plugin 'ae_users'
+checking plugin 'engines' for 'auth_helper'
+(file not found in application)
+checking plugin 'engines' for 'auth_controller'
+(file not found in application)
+
+
+Processing AuthController#login (for 127.0.0.1 at 2007-07-19 16:34:41) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"login", "controller"=>"auth"}
+Rendering  within layouts/global
+Rendering auth/login
+Rendered auth/_auth_form (0.00265)
+Completed in 0.00973 (102 reqs/sec) | Rendering: 0.00887 (91%) | DB: 0.00000 (0%) | 200 OK [http://localhost/auth/login]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-07-19 16:34:41) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/stylesheets/ponzi.css" with {:method=>:get}):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/routing.rb:1282:in `recognize'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:40:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/servers/mongrel.rb:60
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'ponzi_controller'
+checking plugin 'ae_users' for 'ponzi_controller'
+checking plugin 'engines' for 'ponzi_controller'
+loading from application: ponzi_controller
+checking plugin 'ae_forms' for 'ponzi_helper'
+checking plugin 'ae_users' for 'ponzi_helper'
+checking plugin 'engines' for 'ponzi_helper'
+loading from application: ponzi_helper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2007-07-19 16:34:49) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;36;1mChargeTransaction Load (0.004556)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering  within layouts/global
+Rendering ponzi/index
+  [4;35;1mSQL (0.000138)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mPerson Load (0.000783)[0m   [0;1mSELECT * FROM people [0m
+  [4;35;1mPerson Columns (0.001559)[0m   [0mSHOW FIELDS FROM people[0m
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47ponzi47index46rhtml at script/../config/../app/views/ponzi/index.rhtml:19)
+Completed in 0.02991 (33 reqs/sec) | Rendering: 0.01944 (65%) | DB: 0.00456 (15%) | 200 OK [http://localhost/ponzi]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-07-19 16:34:49) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/stylesheets/ponzi.css" with {:method=>:get}):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/routing.rb:1282:in `recognize'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:40:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/servers/mongrel.rb:60
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+Rails final load path: .
+Rails final dependency load path: script/../config/../vendor/plugins/engines/lib
+enginizing plugin: ae_forms from script/../config/../vendor/plugins/ae_forms
+Plugin 'ae_forms': starting load.
+Plugin 'ae_forms': loaded.
+enginizing plugin: ae_users from script/../config/../vendor/plugins/ae_users
+Plugin 'ae_users': starting load.
+Attempting to copy plugin plugin asset files from 'script/../config/../vendor/plugins/ae_users/assets' to 'script/../config/../public/plugin_assets'
+Plugin 'ae_users': loaded.
+enginizing plugin: engines from script/../config/../vendor/plugins/engines
+Plugin 'engines': starting load.
+Plugin 'engines': loaded.
+plugins is now: ae_forms, ae_users, engines
+engines has started.
+  [4;36;1mSQL (0.000140)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000285)[0m   [0mSELECT version FROM schema_info[0m
+Rails final load path: .
+Rails final dependency load path: script/../config/../vendor/plugins/engines/lib
+enginizing plugin: ae_forms from script/../config/../vendor/plugins/ae_forms
+Plugin 'ae_forms': starting load.
+Plugin 'ae_forms': loaded.
+enginizing plugin: ae_users from script/../config/../vendor/plugins/ae_users
+Plugin 'ae_users': starting load.
+Attempting to copy plugin plugin asset files from 'script/../config/../vendor/plugins/ae_users/assets' to 'script/../config/../public/plugin_assets'
+Plugin 'ae_users': loaded.
+enginizing plugin: engines from script/../config/../vendor/plugins/engines
+Plugin 'engines': starting load.
+Plugin 'engines': loaded.
+plugins is now: ae_forms, ae_users, engines
+engines has started.
+  [4;36;1mSQL (0.000140)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000238)[0m   [0mSELECT version FROM schema_info[0m
+Rails final load path: .
+Rails final dependency load path: script/../config/../vendor/plugins/engines/lib
+enginizing plugin: ae_forms from script/../config/../vendor/plugins/ae_forms
+Plugin 'ae_forms': starting load.
+Plugin 'ae_forms': loaded.
+enginizing plugin: ae_users from script/../config/../vendor/plugins/ae_users
+Plugin 'ae_users': starting load.
+Attempting to copy plugin plugin asset files from 'script/../config/../vendor/plugins/ae_users/assets' to 'script/../config/../public/plugin_assets'
+Plugin 'ae_users': loaded.
+enginizing plugin: engines from script/../config/../vendor/plugins/engines
+Plugin 'engines': starting load.
+Plugin 'engines': loaded.
+plugins is now: ae_forms, ae_users, engines
+engines has started.
+  [4;36;1mSQL (0.000138)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000233)[0m   [0mSELECT version FROM schema_info[0m
+Rails final load path: .
+Rails final dependency load path: script/../config/../vendor/plugins/engines/lib
+enginizing plugin: ae_forms from script/../config/../vendor/plugins/ae_forms
+Plugin 'ae_forms': starting load.
+Plugin 'ae_forms': loaded.
+enginizing plugin: ae_users from script/../config/../vendor/plugins/ae_users
+Plugin 'ae_users': starting load.
+Attempting to copy plugin plugin asset files from 'script/../config/../vendor/plugins/ae_users/assets' to 'script/../config/../public/plugin_assets'
+Plugin 'ae_users': loaded.
+enginizing plugin: engines from script/../config/../vendor/plugins/engines
+Plugin 'engines': starting load.
+Plugin 'engines': loaded.
+plugins is now: ae_forms, ae_users, engines
+engines has started.
+  [4;36;1mSQL (0.000140)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000338)[0m   [0mSELECT version FROM schema_info[0m
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'ponzi_controller'
+checking plugin 'ae_users' for 'ponzi_controller'
+checking plugin 'engines' for 'ponzi_controller'
+loading from application: ponzi_controller
+checking plugin 'ae_forms' for 'ponzi_helper'
+checking plugin 'ae_users' for 'ponzi_helper'
+checking plugin 'engines' for 'ponzi_helper'
+loading from application: ponzi_helper
+
+
+Processing PonziController#index (for 127.0.0.1 at 2007-07-19 16:36:59) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"ponzi"}
+  [4;36;1mChargeTransaction Load (0.000441)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering  within layouts/global
+Rendering ponzi/index
+  [4;35;1mSQL (0.000139)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mPerson Load (0.000790)[0m   [0;1mSELECT * FROM people [0m
+  [4;35;1mPerson Columns (0.002216)[0m   [0mSHOW FIELDS FROM people[0m
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47ponzi47index46rhtml at script/../config/../app/views/ponzi/index.rhtml:19)
+Completed in 0.03079 (32 reqs/sec) | Rendering: 0.02445 (79%) | DB: 0.00092 (2%) | 200 OK [http://localhost/ponzi]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-07-19 16:37:00) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/stylesheets/ponzi.css" with {:method=>:get}):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/routing.rb:1282:in `recognize'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:40:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/servers/mongrel.rb:60
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'auth_controller'
+checking plugin 'ae_users' for 'auth_controller'
+==> loading from plugin 'ae_users'
+checking plugin 'ae_forms' for 'auth_helper'
+checking plugin 'ae_users' for 'auth_helper'
+==> loading from plugin 'ae_users'
+checking plugin 'engines' for 'auth_helper'
+(file not found in application)
+checking plugin 'engines' for 'auth_controller'
+(file not found in application)
+
+
+Processing AuthController#login (for 127.0.0.1 at 2007-07-19 16:37:02) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"login", "controller"=>"auth"}
+Rendering  within layouts/global
+Rendering auth/login
+Rendered auth/_auth_form (0.00448)
+Completed in 0.00891 (112 reqs/sec) | Rendering: 0.00802 (90%) | DB: 0.00000 (0%) | 200 OK [http://localhost/auth/login]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-07-19 16:37:03) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/stylesheets/ponzi.css" with {:method=>:get}):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/routing.rb:1282:in `recognize'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:40:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/servers/mongrel.rb:60
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'auth_controller'
+checking plugin 'ae_users' for 'auth_controller'
+==> loading from plugin 'ae_users'
+checking plugin 'ae_forms' for 'auth_helper'
+checking plugin 'ae_users' for 'auth_helper'
+==> loading from plugin 'ae_users'
+checking plugin 'engines' for 'auth_helper'
+(file not found in application)
+checking plugin 'engines' for 'auth_controller'
+(file not found in application)
+
+
+Processing AuthController#login (for 127.0.0.1 at 2007-07-19 16:37:07) [POST]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"commit"=>"Log in", "action"=>"login", "controller"=>"auth", "login"=>{"password"=>"al1enat0", "email"=>"natbudin@gmail.com"}}
+  [4;36;1mSQL (0.000142)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mEmailAddress Columns (0.017383)[0m   [0mSHOW FIELDS FROM email_addresses[0m
+  [4;36;1mEmailAddress Load (0.000796)[0m   [0;1mSELECT * FROM email_addresses WHERE (email_addresses.`address` = 'natbudin@gmail.com') LIMIT 1[0m
+  [4;35;1mSQL (0.000132)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mAccount Columns (0.004504)[0m   [0;1mSHOW FIELDS FROM accounts[0m
+  [4;35;1mAccount Load (0.000719)[0m   [0mSELECT * FROM accounts WHERE (accounts.`id` = 1) [0m
+  [4;36;1mSQL (0.000141)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mPerson Load (0.000881)[0m   [0mSELECT * FROM people WHERE (people.account_id = 1) LIMIT 1[0m
+  [4;36;1mPerson Columns (0.024569)[0m   [0;1mSHOW FIELDS FROM people[0m
+  [4;35;1mHousemate Columns (0.000000)[0m   [0mMysql::Error: #42S02Table 'ponzi_development.housemates' doesn't exist: SHOW FIELDS FROM housemates[0m
+
+
+ActiveRecord::StatementInvalid (Mysql::Error: #42S02Table 'ponzi_development.housemates' doesn't exist: SHOW FIELDS FROM housemates):
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/connection_adapters/abstract_adapter.rb:128:in `log'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/connection_adapters/mysql_adapter.rb:243:in `execute'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/connection_adapters/mysql_adapter.rb:348:in `columns'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/base.rb:763:in `columns'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/base.rb:776:in `column_names'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/base.rb:789:in `column_methods_hash'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/base.rb:1262:in `all_attributes_exists?'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/base.rb:1940:in `all?'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/base.rb:1262:in `each'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/base.rb:1262:in `all?'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/base.rb:1262:in `all_attributes_exists?'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/base.rb:1196:in `method_missing'
+    /home/nbudin/ponzi/vendor/plugins/ae_users/app/controllers/auth_controller.rb:69:in `attempt_login'
+    /home/nbudin/ponzi/vendor/plugins/ae_users/app/controllers/auth_controller.rb:5:in `login'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1095:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1095:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:632:in `call_filter'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/rescue.rb:83:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/session_management.rb:114:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:330:in `process'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:41:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/servers/mongrel.rb:60
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+Rails final load path: .
+Rails final dependency load path: /home/nbudin/ponzi/config/../vendor/plugins/engines/lib
+enginizing plugin: ae_forms from /home/nbudin/ponzi/config/../vendor/plugins/ae_forms
+Plugin 'ae_forms': starting load.
+Plugin 'ae_forms': loaded.
+enginizing plugin: ae_users from /home/nbudin/ponzi/config/../vendor/plugins/ae_users
+Plugin 'ae_users': starting load.
+Attempting to copy plugin plugin asset files from '/home/nbudin/ponzi/config/../vendor/plugins/ae_users/assets' to '/home/nbudin/ponzi/config/../public/plugin_assets'
+Plugin 'ae_users': loaded.
+enginizing plugin: engines from /home/nbudin/ponzi/config/../vendor/plugins/engines
+Plugin 'engines': starting load.
+Plugin 'engines': loaded.
+plugins is now: ae_forms, ae_users, engines
+engines has started.
+  [4;36;1mSQL (0.000154)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000255)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'plugin_schema_info' already exists: CREATE TABLE plugin_schema_info 
+ (plugin_name varchar(255), version int(11))
+[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'plugin_schema_info' already exists: CREATE TABLE plugin_schema_info 
+ (plugin_name varchar(255), version int(11))
+[0m
+  [4;36;1mSQL (0.000319)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000245)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000245)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateHousemates (3)
+  [4;35;1mSQL (0.041089)[0m   [0mCREATE TABLE housemates (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `person_id` int(11) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.013694)[0m   [0;1mUPDATE schema_info SET version = 3[0m
+  [4;35;1mSQL (0.000586)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000491)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001160)[0m   [0mSHOW FIELDS FROM charge_transactions[0m
+  [4;36;1mSQL (0.001238)[0m   [0;1mSHOW KEYS FROM charge_transactions[0m
+  [4;35;1mSQL (0.001387)[0m   [0mSHOW FIELDS FROM charges[0m
+  [4;36;1mSQL (0.001289)[0m   [0;1mSHOW KEYS FROM charges[0m
+  [4;35;1mSQL (0.001189)[0m   [0mSHOW FIELDS FROM housemates[0m
+  [4;36;1mSQL (0.001151)[0m   [0;1mSHOW KEYS FROM housemates[0m
+Rails final load path: .
+Rails final dependency load path: script/../config/../vendor/plugins/engines/lib
+enginizing plugin: ae_forms from script/../config/../vendor/plugins/ae_forms
+Plugin 'ae_forms': starting load.
+Plugin 'ae_forms': loaded.
+enginizing plugin: ae_users from script/../config/../vendor/plugins/ae_users
+Plugin 'ae_users': starting load.
+Attempting to copy plugin plugin asset files from 'script/../config/../vendor/plugins/ae_users/assets' to 'script/../config/../public/plugin_assets'
+Plugin 'ae_users': loaded.
+enginizing plugin: engines from script/../config/../vendor/plugins/engines
+Plugin 'engines': starting load.
+Plugin 'engines': loaded.
+plugins is now: ae_forms, ae_users, engines
+engines has started.
+  [4;36;1mSQL (0.000138)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000353)[0m   [0mSELECT version FROM schema_info[0m
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'auth_controller'
+checking plugin 'ae_users' for 'auth_controller'
+==> loading from plugin 'ae_users'
+checking plugin 'ae_forms' for 'auth_helper'
+checking plugin 'ae_users' for 'auth_helper'
+==> loading from plugin 'ae_users'
+checking plugin 'engines' for 'auth_helper'
+(file not found in application)
+checking plugin 'engines' for 'auth_controller'
+(file not found in application)
+
+
+Processing AuthController#login (for 127.0.0.1 at 2007-07-19 16:37:23) [POST]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"commit"=>"Log in", "action"=>"login", "controller"=>"auth", "login"=>{"password"=>"al1enat0", "email"=>"natbudin@gmail.com"}}
+  [4;36;1mSQL (0.000174)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mEmailAddress Columns (0.001728)[0m   [0mSHOW FIELDS FROM email_addresses[0m
+  [4;36;1mEmailAddress Load (0.000684)[0m   [0;1mSELECT * FROM email_addresses WHERE (email_addresses.`address` = 'natbudin@gmail.com') LIMIT 1[0m
+  [4;35;1mSQL (0.000250)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mAccount Columns (0.001653)[0m   [0;1mSHOW FIELDS FROM accounts[0m
+  [4;35;1mAccount Load (0.001019)[0m   [0mSELECT * FROM accounts WHERE (accounts.`id` = 1) [0m
+  [4;36;1mSQL (0.000251)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mPerson Load (0.000804)[0m   [0mSELECT * FROM people WHERE (people.account_id = 1) LIMIT 1[0m
+  [4;36;1mPerson Columns (0.001910)[0m   [0;1mSHOW FIELDS FROM people[0m
+  [4;35;1mHousemate Columns (0.001310)[0m   [0mSHOW FIELDS FROM housemates[0m
+  [4;36;1mHousemate Load (0.000650)[0m   [0;1mSELECT * FROM housemates WHERE (housemates.`person_id` = 1) LIMIT 1[0m
+Redirected to http://localhost:4242/auth/needs_profile?account=1
+Completed in 0.05662 (17 reqs/sec) | DB: 0.00245 (4%) | 302 Found [http://localhost/auth/login]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'auth_controller'
+checking plugin 'ae_users' for 'auth_controller'
+==> loading from plugin 'ae_users'
+checking plugin 'ae_forms' for 'auth_helper'
+checking plugin 'ae_users' for 'auth_helper'
+==> loading from plugin 'ae_users'
+checking plugin 'engines' for 'auth_helper'
+(file not found in application)
+checking plugin 'engines' for 'auth_controller'
+(file not found in application)
+
+
+Processing AuthController#needs_profile (for 127.0.0.1 at 2007-07-19 16:37:24) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"account"=>"1", "action"=>"needs_profile", "controller"=>"auth"}
+  [4;35;1mSQL (0.000136)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mAccount Columns (0.001375)[0m   [0;1mSHOW FIELDS FROM accounts[0m
+  [4;35;1mAccount Load (0.000638)[0m   [0mSELECT * FROM accounts WHERE (accounts.`id` = 1) [0m
+Redirected to http://localhost:4242/main
+Completed in 0.01391 (71 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/auth/needs_profile?account=1]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-07-19 16:37:24) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/main" with {:method=>:get}):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/routing.rb:1282:in `recognize'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:40:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/servers/mongrel.rb:60
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+Rails final load path: .
+Rails final dependency load path: script/../config/../vendor/plugins/engines/lib
+enginizing plugin: ae_forms from script/../config/../vendor/plugins/ae_forms
+Plugin 'ae_forms': starting load.
+Plugin 'ae_forms': loaded.
+enginizing plugin: ae_users from script/../config/../vendor/plugins/ae_users
+Plugin 'ae_users': starting load.
+Attempting to copy plugin plugin asset files from 'script/../config/../vendor/plugins/ae_users/assets' to 'script/../config/../public/plugin_assets'
+Plugin 'ae_users': loaded.
+enginizing plugin: engines from script/../config/../vendor/plugins/engines
+Plugin 'engines': starting load.
+Plugin 'engines': loaded.
+plugins is now: ae_forms, ae_users, engines
+engines has started.
+  [4;36;1mSQL (0.000174)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000267)[0m   [0mSELECT version FROM schema_info[0m
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-07-19 16:38:32) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/" with {:method=>:get}):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/routing.rb:1282:in `recognize'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:40:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/servers/mongrel.rb:60
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'main_controller'
+checking plugin 'ae_users' for 'main_controller'
+checking plugin 'engines' for 'main_controller'
+loading from application: main_controller
+checking plugin 'ae_forms' for 'main_helper'
+checking plugin 'ae_users' for 'main_helper'
+checking plugin 'engines' for 'main_helper'
+loading from application: main_helper
+
+
+Processing MainController#index (for 127.0.0.1 at 2007-07-19 16:38:35) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;36;1mChargeTransaction Load (0.000448)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering  within layouts/global
+Rendering main/index
+  [4;35;1mSQL (0.000160)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mPerson Load (0.000840)[0m   [0;1mSELECT * FROM people [0m
+  [4;35;1mPerson Columns (0.001806)[0m   [0mSHOW FIELDS FROM people[0m
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47main47index46rhtml at script/../config/../app/views/main/index.rhtml:19)
+Completed in 0.08739 (11 reqs/sec) | Rendering: 0.08105 (92%) | DB: 0.00089 (1%) | 200 OK [http://localhost/main]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-07-19 16:38:36) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/stylesheets/ponzi.css" with {:method=>:get}):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/routing.rb:1282:in `recognize'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:40:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/servers/mongrel.rb:60
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'auth_controller'
+checking plugin 'ae_users' for 'auth_controller'
+==> loading from plugin 'ae_users'
+checking plugin 'ae_forms' for 'auth_helper'
+checking plugin 'ae_users' for 'auth_helper'
+==> loading from plugin 'ae_users'
+checking plugin 'engines' for 'auth_helper'
+(file not found in application)
+checking plugin 'engines' for 'auth_controller'
+(file not found in application)
+
+
+Processing AuthController#login (for 127.0.0.1 at 2007-07-19 16:38:38) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"login", "controller"=>"auth"}
+Rendering  within layouts/global
+Rendering auth/login
+Rendered auth/_auth_form (0.00439)
+Completed in 0.00886 (112 reqs/sec) | Rendering: 0.00798 (90%) | DB: 0.00000 (0%) | 200 OK [http://localhost/auth/login]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-07-19 16:38:39) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/stylesheets/ponzi.css" with {:method=>:get}):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/routing.rb:1282:in `recognize'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:40:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/servers/mongrel.rb:60
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'auth_controller'
+checking plugin 'ae_users' for 'auth_controller'
+==> loading from plugin 'ae_users'
+checking plugin 'ae_forms' for 'auth_helper'
+checking plugin 'ae_users' for 'auth_helper'
+==> loading from plugin 'ae_users'
+checking plugin 'engines' for 'auth_helper'
+(file not found in application)
+checking plugin 'engines' for 'auth_controller'
+(file not found in application)
+
+
+Processing AuthController#login (for 127.0.0.1 at 2007-07-19 16:38:43) [POST]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"commit"=>"Log in", "action"=>"login", "controller"=>"auth", "login"=>{"password"=>"al1enat0", "email"=>"natbudin@gmail.com"}}
+  [4;36;1mSQL (0.000190)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mEmailAddress Columns (0.001696)[0m   [0mSHOW FIELDS FROM email_addresses[0m
+  [4;36;1mEmailAddress Load (0.000855)[0m   [0;1mSELECT * FROM email_addresses WHERE (email_addresses.`address` = 'natbudin@gmail.com') LIMIT 1[0m
+  [4;35;1mSQL (0.000166)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mAccount Columns (0.001506)[0m   [0;1mSHOW FIELDS FROM accounts[0m
+  [4;35;1mAccount Load (0.000918)[0m   [0mSELECT * FROM accounts WHERE (accounts.`id` = 1) [0m
+  [4;36;1mSQL (0.000156)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mPerson Load (0.000751)[0m   [0mSELECT * FROM people WHERE (people.account_id = 1) LIMIT 1[0m
+  [4;36;1mPerson Columns (0.001752)[0m   [0;1mSHOW FIELDS FROM people[0m
+  [4;35;1mHousemate Columns (0.001268)[0m   [0mSHOW FIELDS FROM housemates[0m
+  [4;36;1mHousemate Load (0.000380)[0m   [0;1mSELECT * FROM housemates WHERE (housemates.`person_id` = 1) LIMIT 1[0m
+Redirected to http://localhost:4242/auth/needs_profile?account=1
+Completed in 0.09899 (10 reqs/sec) | DB: 0.00165 (1%) | 302 Found [http://localhost/auth/login]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'auth_controller'
+checking plugin 'ae_users' for 'auth_controller'
+==> loading from plugin 'ae_users'
+checking plugin 'ae_forms' for 'auth_helper'
+checking plugin 'ae_users' for 'auth_helper'
+==> loading from plugin 'ae_users'
+checking plugin 'engines' for 'auth_helper'
+(file not found in application)
+checking plugin 'engines' for 'auth_controller'
+(file not found in application)
+
+
+Processing AuthController#needs_profile (for 127.0.0.1 at 2007-07-19 16:38:43) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"account"=>"1", "action"=>"needs_profile", "controller"=>"auth"}
+  [4;35;1mSQL (0.000156)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mAccount Columns (0.001451)[0m   [0;1mSHOW FIELDS FROM accounts[0m
+  [4;35;1mAccount Load (0.000609)[0m   [0mSELECT * FROM accounts WHERE (accounts.`id` = 1) [0m
+Redirected to http://localhost:4242/main
+Completed in 0.01402 (71 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/auth/needs_profile?account=1]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'main_controller'
+checking plugin 'ae_users' for 'main_controller'
+checking plugin 'engines' for 'main_controller'
+loading from application: main_controller
+checking plugin 'ae_forms' for 'main_helper'
+checking plugin 'ae_users' for 'main_helper'
+checking plugin 'engines' for 'main_helper'
+loading from application: main_helper
+
+
+Processing MainController#index (for 127.0.0.1 at 2007-07-19 16:38:43) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;36;1mChargeTransaction Load (0.000437)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering  within layouts/global
+Rendering main/index
+  [4;35;1mSQL (0.000136)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mPerson Load (0.000766)[0m   [0;1mSELECT * FROM people [0m
+  [4;35;1mPerson Columns (0.001584)[0m   [0mSHOW FIELDS FROM people[0m
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47main47index46rhtml at script/../config/../app/views/main/index.rhtml:19)
+Completed in 0.02515 (39 reqs/sec) | Rendering: 0.01839 (73%) | DB: 0.00044 (1%) | 200 OK [http://localhost/main]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-07-19 16:38:44) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {}
+
+
+ActionController::RoutingError (no route found to match "/stylesheets/ponzi.css" with {:method=>:get}):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/routing.rb:1292:in `recognize_path'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/routing.rb:1282:in `recognize'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:40:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/servers/mongrel.rb:60
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)

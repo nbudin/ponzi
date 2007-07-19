@@ -13,7 +13,7 @@
 	<% @users.each do |user| %>
 		<tr>
 			<td><%= user.firstname %> <%= user.lastname %></td>
-			<td>$<%= text_field_tag "amount{#{user.id}}" %></td>
+			<td>$<%= text_field_tag "amount[#{user.id}]" %></td>
 		</tr>
 	<% end %>
 </table>

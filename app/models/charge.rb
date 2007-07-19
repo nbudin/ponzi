@@ -1,7 +1,7 @@
 class Charge < ActiveRecord::Base
   belongs_to :charge_transaction
-  has_one :creditor, :class_name => "Person"
-  has_one :debtor, :class_name => "Person"
+  belongs_to :creditor, :foreign_key => "creditor_id", :class_name => "Person"
+  belongs_to :debtor, :foreign_key => "debtor_id", :class_name => "Person"
   
   def balance(person)
     if person == debtor and person == creditor
@@ -12,6 +12,14 @@ class Charge < ActiveRecord::Base
       return amount
     else
       return 0
+    end
+  end
+  
+  def other(person)
+    if person == debtor
+      return creditor
+    elsif person == creditor
+      return debtor
     end
   end
 end

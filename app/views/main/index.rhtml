@@ -1,3 +1,39 @@
+<table>
+    <tr>
+        <th>
+            Owes &rarr;<br/>
+            &uarr;
+        </th>
+        <% @people.each do |person| -%>
+            <th><%=person.name%></th>
+        <% end -%>
+    </tr>
+    <% @people.each do |debtor| -%>
+        <tr>
+            <th><%=debtor.name%></th>
+            <% @people.each do |creditor| -%>
+                <% balance = @debt[debtor][creditor] -%>
+                <td 
+                    <% if debtor == creditor -%>
+                        class="blackout"
+                    <% elsif balance < 0.0 -%>
+                        class="debt"
+                    <% elsif balance > 0.0 -%>
+                        class="credit"
+                    <% end -%>
+                >
+                    <% if debtor == creditor -%>
+                      X
+                    <% else -%>
+                      $<%= sprintf("%.02f", balance) %>
+                    <% end -%>
+                </td>
+            <% end -%>
+        </tr>
+    <% end -%>
+</table>
+
+
 <% @transactions.each do |transaction| %>
 	
 	<p>Transaction: <%= @transaction.description %></p>

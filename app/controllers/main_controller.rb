@@ -1,5 +1,20 @@
 class MainController < ApplicationController
   def index
+    @people = Housemate.find(:all).collect { |h| h.person }
+    @debt = {}
+    @people.each do |p|
+      balances = {}
+      @people.each do |o|
+        balances[o] = 0.0
+      end
+      Charge.find_all_by_debtor_id(p).each do |c|
+        balances[c.creditor] += c.balance(p)
+      end
+      Charge.find_all_by_creditor_id(p).each do |c|
+        balances[c.debtor] += c.balance(p)
+      end
+      @debt[p] = balances
+    end
     @transactions = ChargeTransaction.find :all
   end
   

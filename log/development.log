@@ -4738,3 +4738,890 @@ Rendering main/index
   [4;36;1mPerson Load (0.000844)[0m   [0;1mSELECT * FROM people [0m
 DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47main47index46rhtml at script/../config/../app/views/main/index.rhtml:55)
 Completed in 0.05507 (18 reqs/sec) | Rendering: 0.00886 (16%) | DB: 0.00631 (11%) | 200 OK [http://localhost/main]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'main_controller'
+checking plugin 'ae_users' for 'main_controller'
+checking plugin 'engines' for 'main_controller'
+loading from application: main_controller
+checking plugin 'ae_forms' for 'main_helper'
+checking plugin 'ae_users' for 'main_helper'
+checking plugin 'engines' for 'main_helper'
+loading from application: main_helper
+
+
+Processing MainController#index (for 127.0.0.1 at 2007-07-19 18:00:34) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;35;1mHousemate Load (0.000642)[0m   [0mSELECT * FROM housemates [0m
+  [4;36;1mHousemate Columns (0.196622)[0m   [0;1mSHOW FIELDS FROM housemates[0m
+  [4;35;1mSQL (0.000175)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mPerson Columns (0.001758)[0m   [0;1mSHOW FIELDS FROM people[0m
+  [4;35;1mPerson Load (0.001098)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mPerson Load (0.001050)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mCharge Columns (0.001534)[0m   [0mSHOW FIELDS FROM charges[0m
+  [4;36;1mCharge Load (0.000917)[0m   [0;1mSELECT * FROM charges WHERE (charges.`debtor_id` = 1) [0m
+  [4;35;1mCharge Load (0.000831)[0m   [0mSELECT * FROM charges WHERE (charges.`creditor_id` = 1) [0m
+  [4;36;1mPerson Load (0.000809)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mPerson Load (0.000791)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mCharge Load (0.000746)[0m   [0;1mSELECT * FROM charges WHERE (charges.`debtor_id` = 2) [0m
+  [4;35;1mPerson Load (0.000807)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mPerson Load (0.003927)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mCharge Load (0.000854)[0m   [0mSELECT * FROM charges WHERE (charges.`creditor_id` = 2) [0m
+  [4;36;1mChargeTransaction Load (0.034498)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering  within layouts/global
+Rendering main/index
+  [4;35;1mPerson Load (0.001118)[0m   [0mSELECT * FROM people [0m
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47main47index46rhtml at script/../config/../app/views/main/index.rhtml:55)
+Completed in 0.39460 (2 reqs/sec) | Rendering: 0.00940 (2%) | DB: 0.23664 (59%) | 200 OK [http://localhost/main]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'main_controller'
+checking plugin 'ae_users' for 'main_controller'
+checking plugin 'engines' for 'main_controller'
+loading from application: main_controller
+checking plugin 'ae_forms' for 'main_helper'
+checking plugin 'ae_users' for 'main_helper'
+checking plugin 'engines' for 'main_helper'
+loading from application: main_helper
+
+
+Processing MainController#index (for 127.0.0.1 at 2007-07-19 18:00:59) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;36;1mHousemate Load (0.000473)[0m   [0;1mSELECT * FROM housemates [0m
+  [4;35;1mHousemate Columns (0.001438)[0m   [0mSHOW FIELDS FROM housemates[0m
+  [4;36;1mSQL (0.000165)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mPerson Columns (0.001751)[0m   [0mSHOW FIELDS FROM people[0m
+  [4;36;1mPerson Load (0.000824)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mPerson Load (0.000773)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mCharge Columns (0.001599)[0m   [0;1mSHOW FIELDS FROM charges[0m
+  [4;35;1mCharge Load (0.000587)[0m   [0mSELECT * FROM charges WHERE (charges.`debtor_id` = 1) [0m
+  [4;36;1mCharge Load (0.000668)[0m   [0;1mSELECT * FROM charges WHERE (charges.`creditor_id` = 1) [0m
+  [4;35;1mPerson Load (0.000805)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mPerson Load (0.000809)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mCharge Load (0.000672)[0m   [0mSELECT * FROM charges WHERE (charges.`debtor_id` = 2) [0m
+  [4;36;1mPerson Load (0.000770)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mPerson Load (0.000866)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mCharge Load (0.000601)[0m   [0;1mSELECT * FROM charges WHERE (charges.`creditor_id` = 2) [0m
+  [4;35;1mChargeTransaction Load (0.000450)[0m   [0mSELECT * FROM charge_transactions [0m
+Rendering  within layouts/global
+Rendering main/index
+  [4;36;1mPerson Load (0.000843)[0m   [0;1mSELECT * FROM people [0m
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47main47index46rhtml at script/../config/../app/views/main/index.rhtml:55)
+Completed in 0.06740 (14 reqs/sec) | Rendering: 0.00915 (13%) | DB: 0.00649 (9%) | 200 OK [http://localhost/main]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'main_controller'
+checking plugin 'ae_users' for 'main_controller'
+checking plugin 'engines' for 'main_controller'
+loading from application: main_controller
+checking plugin 'ae_forms' for 'main_helper'
+checking plugin 'ae_users' for 'main_helper'
+checking plugin 'engines' for 'main_helper'
+loading from application: main_helper
+
+
+Processing MainController#index (for 127.0.0.1 at 2007-07-19 18:01:11) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;35;1mHousemate Load (0.004270)[0m   [0mSELECT * FROM housemates [0m
+  [4;36;1mHousemate Columns (0.007670)[0m   [0;1mSHOW FIELDS FROM housemates[0m
+  [4;35;1mSQL (0.000220)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mPerson Columns (0.001566)[0m   [0;1mSHOW FIELDS FROM people[0m
+  [4;35;1mPerson Load (0.006043)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mPerson Load (0.000771)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mCharge Columns (0.001392)[0m   [0mSHOW FIELDS FROM charges[0m
+  [4;36;1mCharge Load (0.000554)[0m   [0;1mSELECT * FROM charges WHERE (charges.`debtor_id` = 1) [0m
+  [4;35;1mCharge Load (0.000633)[0m   [0mSELECT * FROM charges WHERE (charges.`creditor_id` = 1) [0m
+  [4;36;1mPerson Load (0.000755)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mPerson Load (0.000751)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mCharge Load (0.001729)[0m   [0;1mSELECT * FROM charges WHERE (charges.`debtor_id` = 2) [0m
+  [4;35;1mPerson Load (0.000763)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mPerson Load (0.000770)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mCharge Load (0.001451)[0m   [0mSELECT * FROM charges WHERE (charges.`creditor_id` = 2) [0m
+  [4;36;1mChargeTransaction Load (0.000565)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering  within layouts/global
+Rendering main/index
+  [4;35;1mPerson Load (0.000880)[0m   [0mSELECT * FROM people [0m
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47main47index46rhtml at script/../config/../app/views/main/index.rhtml:55)
+Completed in 0.13149 (7 reqs/sec) | Rendering: 0.00934 (7%) | DB: 0.01826 (13%) | 200 OK [http://localhost/main]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'main_controller'
+checking plugin 'ae_users' for 'main_controller'
+checking plugin 'engines' for 'main_controller'
+loading from application: main_controller
+checking plugin 'ae_forms' for 'main_helper'
+checking plugin 'ae_users' for 'main_helper'
+checking plugin 'engines' for 'main_helper'
+loading from application: main_helper
+
+
+Processing MainController#index (for 127.0.0.1 at 2007-07-19 18:16:09) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;36;1mHousemate Load (0.000686)[0m   [0;1mSELECT * FROM housemates [0m
+  [4;35;1mHousemate Columns (0.001213)[0m   [0mSHOW FIELDS FROM housemates[0m
+  [4;36;1mSQL (0.000152)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mPerson Columns (0.039782)[0m   [0mSHOW FIELDS FROM people[0m
+  [4;36;1mPerson Load (0.001084)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mPerson Load (0.016792)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mCharge Columns (0.009723)[0m   [0;1mSHOW FIELDS FROM charges[0m
+  [4;35;1mCharge Load (0.000801)[0m   [0mSELECT * FROM charges WHERE (charges.`debtor_id` = 1) [0m
+  [4;36;1mCharge Load (0.000711)[0m   [0;1mSELECT * FROM charges WHERE (charges.`creditor_id` = 1) [0m
+  [4;35;1mPerson Load (0.014483)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mPerson Load (0.000901)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mCharge Load (0.002356)[0m   [0mSELECT * FROM charges WHERE (charges.`debtor_id` = 2) [0m
+  [4;36;1mPerson Load (0.000744)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mPerson Load (0.000735)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mCharge Load (0.000732)[0m   [0;1mSELECT * FROM charges WHERE (charges.`creditor_id` = 2) [0m
+  [4;35;1mChargeTransaction Load (0.000560)[0m   [0mSELECT * FROM charge_transactions [0m
+Rendering  within layouts/global
+Rendering main/index
+
+
+ActionView::TemplateError (undefined method `money' for #<#<Class:0xb6a0371c>:0xb6a036f4>) on line #28 of app/views/main/index.rhtml:
+25:                     <% if debtor == creditor -%>
+26:                       X
+27:                     <% else -%>
+28:                       <%= money balance%>
+29:                     <% end -%>
+30:                 </td>
+31:             <% end -%>
+
+    #{RAILS_ROOT}/app/views/main/index.rhtml:28:in `_run_rhtml_47app47views47main47index46rhtml'
+    #{RAILS_ROOT}/app/views/main/index.rhtml:14:in `each'
+    #{RAILS_ROOT}/app/views/main/index.rhtml:14:in `_run_rhtml_47app47views47main47index46rhtml'
+    #{RAILS_ROOT}/app/views/main/index.rhtml:11:in `each'
+    #{RAILS_ROOT}/app/views/main/index.rhtml:11:in `_run_rhtml_47app47views47main47index46rhtml'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/base.rb:326:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/base.rb:326:in `compile_and_render_template'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/base.rb:301:in `render_template'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/base.rb:260:in `render_file'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:806:in `render_file'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:711:in `render_with_no_layout'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/layout.rb:247:in `render_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:50:in `render'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:50:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1096:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:632:in `call_filter'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/rescue.rb:83:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/session_management.rb:114:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:330:in `process'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:41:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/servers/mongrel.rb:60
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+Rails final load path: .
+Rails final dependency load path: script/../config/../vendor/plugins/engines/lib
+enginizing plugin: ae_forms from script/../config/../vendor/plugins/ae_forms
+Plugin 'ae_forms': starting load.
+Plugin 'ae_forms': loaded.
+enginizing plugin: ae_users from script/../config/../vendor/plugins/ae_users
+Plugin 'ae_users': starting load.
+Attempting to copy plugin plugin asset files from 'script/../config/../vendor/plugins/ae_users/assets' to 'script/../config/../public/plugin_assets'
+Plugin 'ae_users': loaded.
+enginizing plugin: engines from script/../config/../vendor/plugins/engines
+Plugin 'engines': starting load.
+Plugin 'engines': loaded.
+plugins is now: ae_forms, ae_users, engines
+engines has started.
+  [4;36;1mSQL (0.000165)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.226559)[0m   [0mSELECT version FROM schema_info[0m
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+ApplicationController: missing default helper module ApplicationHelper
+checking plugin 'ae_forms' for 'main_controller'
+checking plugin 'ae_users' for 'main_controller'
+checking plugin 'engines' for 'main_controller'
+loading from application: main_controller
+checking plugin 'ae_forms' for 'main_helper'
+checking plugin 'ae_users' for 'main_helper'
+checking plugin 'engines' for 'main_helper'
+loading from application: main_helper
+
+
+Processing MainController#index (for 127.0.0.1 at 2007-07-19 18:16:43) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;36;1mHousemate Load (0.000652)[0m   [0;1mSELECT * FROM housemates [0m
+  [4;35;1mHousemate Columns (0.001289)[0m   [0mSHOW FIELDS FROM housemates[0m
+  [4;36;1mSQL (0.000155)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mPerson Columns (0.001565)[0m   [0mSHOW FIELDS FROM people[0m
+  [4;36;1mPerson Load (0.001028)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mPerson Load (0.000761)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mCharge Columns (0.001962)[0m   [0;1mSHOW FIELDS FROM charges[0m
+  [4;35;1mCharge Load (0.000746)[0m   [0mSELECT * FROM charges WHERE (charges.`debtor_id` = 1) [0m
+  [4;36;1mCharge Load (0.000947)[0m   [0;1mSELECT * FROM charges WHERE (charges.`creditor_id` = 1) [0m
+  [4;35;1mPerson Load (0.000769)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mPerson Load (0.000753)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mCharge Load (0.000910)[0m   [0mSELECT * FROM charges WHERE (charges.`debtor_id` = 2) [0m
+  [4;36;1mPerson Load (0.000769)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mPerson Load (0.000952)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mCharge Load (0.000506)[0m   [0;1mSELECT * FROM charges WHERE (charges.`creditor_id` = 2) [0m
+  [4;35;1mChargeTransaction Load (0.000657)[0m   [0mSELECT * FROM charge_transactions [0m
+Rendering  within layouts/global
+Rendering main/index
+
+
+ActionView::TemplateError (undefined method `money' for #<#<Class:0xb67c133c>:0xb67c1314>) on line #28 of app/views/main/index.rhtml:
+25:                     <% if debtor == creditor -%>
+26:                       X
+27:                     <% else -%>
+28:                       <%= money balance%>
+29:                     <% end -%>
+30:                 </td>
+31:             <% end -%>
+
+    #{RAILS_ROOT}/app/views/main/index.rhtml:28:in `_run_rhtml_47app47views47main47index46rhtml'
+    #{RAILS_ROOT}/app/views/main/index.rhtml:14:in `each'
+    #{RAILS_ROOT}/app/views/main/index.rhtml:14:in `_run_rhtml_47app47views47main47index46rhtml'
+    #{RAILS_ROOT}/app/views/main/index.rhtml:11:in `each'
+    #{RAILS_ROOT}/app/views/main/index.rhtml:11:in `_run_rhtml_47app47views47main47index46rhtml'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/base.rb:326:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/base.rb:326:in `compile_and_render_template'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/base.rb:301:in `render_template'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/base.rb:260:in `render_file'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:806:in `render_file'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:711:in `render_with_no_layout'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/layout.rb:247:in `render_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:50:in `render'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:50:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1096:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:632:in `call_filter'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/rescue.rb:83:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/session_management.rb:114:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:330:in `process'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:41:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:488:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/servers/mongrel.rb:60
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:495:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+checking plugin 'ae_forms' for 'main_controller'
+checking plugin 'ae_users' for 'main_controller'
+checking plugin 'engines' for 'main_controller'
+loading from application: main_controller
+checking plugin 'ae_forms' for 'main_helper'
+checking plugin 'ae_users' for 'main_helper'
+checking plugin 'engines' for 'main_helper'
+loading from application: main_helper
+
+
+Processing MainController#index (for 127.0.0.1 at 2007-07-19 18:17:18) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;36;1mHousemate Load (0.012512)[0m   [0;1mSELECT * FROM housemates [0m
+  [4;35;1mHousemate Columns (0.009580)[0m   [0mSHOW FIELDS FROM housemates[0m
+  [4;36;1mSQL (0.000157)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mPerson Columns (0.002893)[0m   [0mSHOW FIELDS FROM people[0m
+  [4;36;1mPerson Load (0.015984)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mPerson Load (0.018290)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mCharge Columns (0.002897)[0m   [0;1mSHOW FIELDS FROM charges[0m
+  [4;35;1mCharge Load (0.000561)[0m   [0mSELECT * FROM charges WHERE (charges.`debtor_id` = 1) [0m
+  [4;36;1mCharge Load (0.000569)[0m   [0;1mSELECT * FROM charges WHERE (charges.`creditor_id` = 1) [0m
+  [4;35;1mPerson Load (0.092591)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mPerson Load (0.013010)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mCharge Load (0.002633)[0m   [0mSELECT * FROM charges WHERE (charges.`debtor_id` = 2) [0m
+  [4;36;1mPerson Load (0.004528)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mPerson Load (0.007070)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mCharge Load (0.000569)[0m   [0;1mSELECT * FROM charges WHERE (charges.`creditor_id` = 2) [0m
+  [4;35;1mChargeTransaction Load (0.000446)[0m   [0mSELECT * FROM charge_transactions [0m
+Rendering  within layouts/global
+Rendering main/index
+  [4;36;1mPerson Load (0.001053)[0m   [0;1mSELECT * FROM people [0m
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47main47index46rhtml at script/../config/../app/views/main/index.rhtml:55)
+Completed in 0.33340 (2 reqs/sec) | Rendering: 0.04029 (12%) | DB: 0.02977 (8%) | 200 OK [http://localhost/main]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+checking plugin 'ae_forms' for 'main_controller'
+checking plugin 'ae_users' for 'main_controller'
+checking plugin 'engines' for 'main_controller'
+loading from application: main_controller
+checking plugin 'ae_forms' for 'main_helper'
+checking plugin 'ae_users' for 'main_helper'
+checking plugin 'engines' for 'main_helper'
+loading from application: main_helper
+
+
+Processing MainController#index (for 127.0.0.1 at 2007-07-19 18:19:05) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;35;1mHousemate Load (0.004870)[0m   [0mSELECT * FROM housemates [0m
+  [4;36;1mHousemate Columns (0.001454)[0m   [0;1mSHOW FIELDS FROM housemates[0m
+  [4;35;1mSQL (0.000230)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mPerson Columns (0.001903)[0m   [0;1mSHOW FIELDS FROM people[0m
+  [4;35;1mPerson Load (0.001097)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mPerson Load (0.000826)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mCharge Columns (0.001467)[0m   [0mSHOW FIELDS FROM charges[0m
+  [4;36;1mCharge Load (0.000609)[0m   [0;1mSELECT * FROM charges WHERE (charges.`debtor_id` = 1) [0m
+  [4;35;1mCharge Load (0.000518)[0m   [0mSELECT * FROM charges WHERE (charges.`creditor_id` = 1) [0m
+  [4;36;1mPerson Load (0.000752)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mPerson Load (0.000725)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mCharge Load (0.000551)[0m   [0;1mSELECT * FROM charges WHERE (charges.`debtor_id` = 2) [0m
+  [4;35;1mPerson Load (0.000735)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mPerson Load (0.000716)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mCharge Load (0.000496)[0m   [0mSELECT * FROM charges WHERE (charges.`creditor_id` = 2) [0m
+  [4;36;1mChargeTransaction Load (0.000552)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering  within layouts/global
+Rendering main/index
+  [4;35;1mPerson Load (0.000855)[0m   [0mSELECT * FROM people [0m
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47main47index46rhtml at script/../config/../app/views/main/index.rhtml:55)
+Completed in 0.05350 (18 reqs/sec) | Rendering: 0.00581 (10%) | DB: 0.01052 (19%) | 200 OK [http://localhost/main]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+checking plugin 'ae_forms' for 'main_controller'
+checking plugin 'ae_users' for 'main_controller'
+checking plugin 'engines' for 'main_controller'
+loading from application: main_controller
+checking plugin 'ae_forms' for 'main_helper'
+checking plugin 'ae_users' for 'main_helper'
+checking plugin 'engines' for 'main_helper'
+loading from application: main_helper
+
+
+Processing MainController#index (for 127.0.0.1 at 2007-07-19 18:19:15) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;36;1mHousemate Load (0.000426)[0m   [0;1mSELECT * FROM housemates [0m
+  [4;35;1mHousemate Columns (0.001116)[0m   [0mSHOW FIELDS FROM housemates[0m
+  [4;36;1mSQL (0.000131)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mPerson Columns (0.001472)[0m   [0mSHOW FIELDS FROM people[0m
+  [4;36;1mPerson Load (0.000715)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mPerson Load (0.000696)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mCharge Columns (0.001375)[0m   [0;1mSHOW FIELDS FROM charges[0m
+  [4;35;1mCharge Load (0.000486)[0m   [0mSELECT * FROM charges WHERE (charges.`debtor_id` = 1) [0m
+  [4;36;1mCharge Load (0.000538)[0m   [0;1mSELECT * FROM charges WHERE (charges.`creditor_id` = 1) [0m
+  [4;35;1mPerson Load (0.000710)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mPerson Load (0.000705)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mCharge Load (0.000566)[0m   [0mSELECT * FROM charges WHERE (charges.`debtor_id` = 2) [0m
+  [4;36;1mPerson Load (0.000706)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mPerson Load (0.000696)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mCharge Load (0.000466)[0m   [0;1mSELECT * FROM charges WHERE (charges.`creditor_id` = 2) [0m
+  [4;35;1mChargeTransaction Load (0.000393)[0m   [0mSELECT * FROM charge_transactions [0m
+Rendering  within layouts/global
+Rendering main/index
+  [4;36;1mPerson Load (0.000807)[0m   [0;1mSELECT * FROM people [0m
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47main47index46rhtml at script/../config/../app/views/main/index.rhtml:55)
+Completed in 0.04560 (21 reqs/sec) | Rendering: 0.00567 (12%) | DB: 0.00537 (11%) | 200 OK [http://localhost/main]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+checking plugin 'ae_forms' for 'main_controller'
+checking plugin 'ae_users' for 'main_controller'
+checking plugin 'engines' for 'main_controller'
+loading from application: main_controller
+checking plugin 'ae_forms' for 'main_helper'
+checking plugin 'ae_users' for 'main_helper'
+checking plugin 'engines' for 'main_helper'
+loading from application: main_helper
+
+
+Processing MainController#index (for 127.0.0.1 at 2007-07-19 18:19:34) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;35;1mHousemate Load (0.000462)[0m   [0mSELECT * FROM housemates [0m
+  [4;36;1mHousemate Columns (0.001386)[0m   [0;1mSHOW FIELDS FROM housemates[0m
+  [4;35;1mSQL (0.000165)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mPerson Columns (0.002442)[0m   [0;1mSHOW FIELDS FROM people[0m
+  [4;35;1mPerson Load (0.000962)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mPerson Load (0.000918)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mCharge Columns (0.002418)[0m   [0mSHOW FIELDS FROM charges[0m
+  [4;36;1mCharge Load (0.000584)[0m   [0;1mSELECT * FROM charges WHERE (charges.`debtor_id` = 1) [0m
+  [4;35;1mCharge Load (0.000612)[0m   [0mSELECT * FROM charges WHERE (charges.`creditor_id` = 1) [0m
+  [4;36;1mPerson Load (0.000811)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mPerson Load (0.000802)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mCharge Load (0.000622)[0m   [0;1mSELECT * FROM charges WHERE (charges.`debtor_id` = 2) [0m
+  [4;35;1mPerson Load (0.000818)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mPerson Load (0.000810)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mCharge Load (0.000560)[0m   [0mSELECT * FROM charges WHERE (charges.`creditor_id` = 2) [0m
+  [4;36;1mChargeTransaction Load (0.000441)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering  within layouts/global
+Rendering main/index
+  [4;35;1mPerson Load (0.000863)[0m   [0mSELECT * FROM people [0m
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47main47index46rhtml at script/../config/../app/views/main/index.rhtml:55)
+Completed in 0.05706 (17 reqs/sec) | Rendering: 0.00630 (11%) | DB: 0.00708 (12%) | 200 OK [http://localhost/main]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+checking plugin 'ae_forms' for 'main_controller'
+checking plugin 'ae_users' for 'main_controller'
+checking plugin 'engines' for 'main_controller'
+loading from application: main_controller
+checking plugin 'ae_forms' for 'main_helper'
+checking plugin 'ae_users' for 'main_helper'
+checking plugin 'engines' for 'main_helper'
+loading from application: main_helper
+
+
+Processing MainController#index (for 127.0.0.1 at 2007-07-19 18:19:50) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;36;1mHousemate Load (0.000420)[0m   [0;1mSELECT * FROM housemates [0m
+  [4;35;1mHousemate Columns (0.001267)[0m   [0mSHOW FIELDS FROM housemates[0m
+  [4;36;1mSQL (0.000148)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mPerson Columns (0.001544)[0m   [0mSHOW FIELDS FROM people[0m
+  [4;36;1mPerson Load (0.000968)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mPerson Load (0.000785)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mCharge Columns (0.001589)[0m   [0;1mSHOW FIELDS FROM charges[0m
+  [4;35;1mCharge Load (0.000577)[0m   [0mSELECT * FROM charges WHERE (charges.`debtor_id` = 1) [0m
+  [4;36;1mCharge Load (0.000639)[0m   [0;1mSELECT * FROM charges WHERE (charges.`creditor_id` = 1) [0m
+  [4;35;1mPerson Load (0.000790)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mPerson Load (0.000804)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mCharge Load (0.000606)[0m   [0mSELECT * FROM charges WHERE (charges.`debtor_id` = 2) [0m
+  [4;36;1mPerson Load (0.000792)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mPerson Load (0.000798)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mCharge Load (0.000559)[0m   [0;1mSELECT * FROM charges WHERE (charges.`creditor_id` = 2) [0m
+  [4;35;1mChargeTransaction Load (0.000453)[0m   [0mSELECT * FROM charge_transactions [0m
+Rendering  within layouts/global
+Rendering main/index
+  [4;36;1mPerson Load (0.000868)[0m   [0;1mSELECT * FROM people [0m
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47main47index46rhtml at script/../config/../app/views/main/index.rhtml:53)
+Completed in 0.05548 (18 reqs/sec) | Rendering: 0.00934 (16%) | DB: 0.00611 (11%) | 200 OK [http://localhost/main]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+checking plugin 'ae_forms' for 'main_controller'
+checking plugin 'ae_users' for 'main_controller'
+checking plugin 'engines' for 'main_controller'
+loading from application: main_controller
+checking plugin 'ae_forms' for 'main_helper'
+checking plugin 'ae_users' for 'main_helper'
+checking plugin 'engines' for 'main_helper'
+loading from application: main_helper
+
+
+Processing MainController#index (for 127.0.0.1 at 2007-07-19 18:20:23) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;35;1mHousemate Load (0.000511)[0m   [0mSELECT * FROM housemates [0m
+  [4;36;1mHousemate Columns (0.001242)[0m   [0;1mSHOW FIELDS FROM housemates[0m
+  [4;35;1mSQL (0.000152)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mPerson Columns (0.025709)[0m   [0;1mSHOW FIELDS FROM people[0m
+  [4;35;1mPerson Load (0.000765)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mPerson Load (0.000739)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mCharge Columns (0.001344)[0m   [0mSHOW FIELDS FROM charges[0m
+  [4;36;1mCharge Load (0.000623)[0m   [0;1mSELECT * FROM charges WHERE (charges.`debtor_id` = 1) [0m
+  [4;35;1mCharge Load (0.000531)[0m   [0mSELECT * FROM charges WHERE (charges.`creditor_id` = 1) [0m
+  [4;36;1mPerson Load (0.000741)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mPerson Load (0.000735)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mCharge Load (0.000550)[0m   [0;1mSELECT * FROM charges WHERE (charges.`debtor_id` = 2) [0m
+  [4;35;1mPerson Load (0.000762)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mPerson Load (0.000724)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mCharge Load (0.000496)[0m   [0mSELECT * FROM charges WHERE (charges.`creditor_id` = 2) [0m
+  [4;36;1mChargeTransaction Load (0.000417)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering  within layouts/global
+Rendering main/index
+  [4;35;1mPerson Load (0.000822)[0m   [0mSELECT * FROM people [0m
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47main47index46rhtml at script/../config/../app/views/main/index.rhtml:53)
+Completed in 0.07450 (13 reqs/sec) | Rendering: 0.00585 (7%) | DB: 0.00571 (7%) | 200 OK [http://localhost/main]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+checking plugin 'ae_forms' for 'main_controller'
+checking plugin 'ae_users' for 'main_controller'
+checking plugin 'engines' for 'main_controller'
+loading from application: main_controller
+checking plugin 'ae_forms' for 'main_helper'
+checking plugin 'ae_users' for 'main_helper'
+checking plugin 'engines' for 'main_helper'
+loading from application: main_helper
+
+
+Processing MainController#index (for 127.0.0.1 at 2007-07-19 18:20:36) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;36;1mHousemate Load (0.000558)[0m   [0;1mSELECT * FROM housemates [0m
+  [4;35;1mHousemate Columns (0.001266)[0m   [0mSHOW FIELDS FROM housemates[0m
+  [4;36;1mSQL (0.000133)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mPerson Columns (0.001463)[0m   [0mSHOW FIELDS FROM people[0m
+  [4;36;1mPerson Load (0.000825)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mPerson Load (0.000706)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mCharge Columns (0.001394)[0m   [0;1mSHOW FIELDS FROM charges[0m
+  [4;35;1mCharge Load (0.000603)[0m   [0mSELECT * FROM charges WHERE (charges.`debtor_id` = 1) [0m
+  [4;36;1mCharge Load (0.000517)[0m   [0;1mSELECT * FROM charges WHERE (charges.`creditor_id` = 1) [0m
+  [4;35;1mPerson Load (0.000719)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mPerson Load (0.000945)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mCharge Load (0.003475)[0m   [0mSELECT * FROM charges WHERE (charges.`debtor_id` = 2) [0m
+  [4;36;1mPerson Load (0.000733)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mPerson Load (0.000710)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mCharge Load (0.000486)[0m   [0;1mSELECT * FROM charges WHERE (charges.`creditor_id` = 2) [0m
+  [4;35;1mChargeTransaction Load (0.000583)[0m   [0mSELECT * FROM charge_transactions [0m
+Rendering  within layouts/global
+Rendering main/index
+  [4;36;1mPerson Load (0.001028)[0m   [0;1mSELECT * FROM people [0m
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47main47index46rhtml at script/../config/../app/views/main/index.rhtml:53)
+Completed in 0.05274 (18 reqs/sec) | Rendering: 0.00613 (11%) | DB: 0.00888 (16%) | 200 OK [http://localhost/main]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+checking plugin 'ae_forms' for 'main_controller'
+checking plugin 'ae_users' for 'main_controller'
+checking plugin 'engines' for 'main_controller'
+loading from application: main_controller
+checking plugin 'ae_forms' for 'main_helper'
+checking plugin 'ae_users' for 'main_helper'
+checking plugin 'engines' for 'main_helper'
+loading from application: main_helper
+
+
+Processing MainController#index (for 127.0.0.1 at 2007-07-19 18:21:59) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;35;1mHousemate Load (0.000449)[0m   [0mSELECT * FROM housemates [0m
+  [4;36;1mHousemate Columns (0.001263)[0m   [0;1mSHOW FIELDS FROM housemates[0m
+  [4;35;1mSQL (0.000162)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mPerson Columns (0.001796)[0m   [0;1mSHOW FIELDS FROM people[0m
+  [4;35;1mPerson Load (0.000854)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mPerson Load (0.000851)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mCharge Columns (0.001608)[0m   [0mSHOW FIELDS FROM charges[0m
+  [4;36;1mCharge Load (0.000597)[0m   [0;1mSELECT * FROM charges WHERE (charges.`debtor_id` = 1) [0m
+  [4;35;1mCharge Load (0.000620)[0m   [0mSELECT * FROM charges WHERE (charges.`creditor_id` = 1) [0m
+  [4;36;1mPerson Load (0.000859)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mPerson Load (0.000843)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mCharge Load (0.000646)[0m   [0;1mSELECT * FROM charges WHERE (charges.`debtor_id` = 2) [0m
+  [4;35;1mPerson Load (0.000838)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mPerson Load (0.000860)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mCharge Load (0.000634)[0m   [0mSELECT * FROM charges WHERE (charges.`creditor_id` = 2) [0m
+  [4;36;1mChargeTransaction Load (0.000466)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering  within layouts/global
+Rendering main/index
+  [4;35;1mPerson Load (0.000907)[0m   [0mSELECT * FROM people [0m
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47main47index46rhtml at script/../config/../app/views/main/index.rhtml:52)
+Completed in 0.11934 (8 reqs/sec) | Rendering: 0.00998 (8%) | DB: 0.00628 (5%) | 200 OK [http://localhost/main]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+checking plugin 'ae_forms' for 'main_controller'
+checking plugin 'ae_users' for 'main_controller'
+checking plugin 'engines' for 'main_controller'
+loading from application: main_controller
+checking plugin 'ae_forms' for 'main_helper'
+checking plugin 'ae_users' for 'main_helper'
+checking plugin 'engines' for 'main_helper'
+loading from application: main_helper
+
+
+Processing MainController#index (for 127.0.0.1 at 2007-07-19 18:22:56) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;36;1mHousemate Load (0.000456)[0m   [0;1mSELECT * FROM housemates [0m
+  [4;35;1mHousemate Columns (0.001500)[0m   [0mSHOW FIELDS FROM housemates[0m
+  [4;36;1mSQL (0.000172)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mPerson Columns (0.001774)[0m   [0mSHOW FIELDS FROM people[0m
+  [4;36;1mPerson Load (0.000809)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mPerson Load (0.000814)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mCharge Columns (0.001555)[0m   [0;1mSHOW FIELDS FROM charges[0m
+  [4;35;1mCharge Load (0.000561)[0m   [0mSELECT * FROM charges WHERE (charges.`debtor_id` = 1) [0m
+  [4;36;1mCharge Load (0.000591)[0m   [0;1mSELECT * FROM charges WHERE (charges.`creditor_id` = 1) [0m
+  [4;35;1mPerson Load (0.000810)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mPerson Load (0.000837)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mCharge Load (0.000608)[0m   [0mSELECT * FROM charges WHERE (charges.`debtor_id` = 2) [0m
+  [4;36;1mPerson Load (0.000810)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mPerson Load (0.000809)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mCharge Load (0.000565)[0m   [0;1mSELECT * FROM charges WHERE (charges.`creditor_id` = 2) [0m
+  [4;35;1mChargeTransaction Load (0.000441)[0m   [0mSELECT * FROM charge_transactions [0m
+Rendering  within layouts/global
+Rendering main/index
+  [4;36;1mPerson Load (0.000890)[0m   [0;1mSELECT * FROM people [0m
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47main47index46rhtml at script/../config/../app/views/main/index.rhtml:52)
+Completed in 0.05659 (17 reqs/sec) | Rendering: 0.00930 (16%) | DB: 0.00628 (11%) | 200 OK [http://localhost/main]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+checking plugin 'ae_forms' for 'main_controller'
+checking plugin 'ae_users' for 'main_controller'
+checking plugin 'engines' for 'main_controller'
+loading from application: main_controller
+checking plugin 'ae_forms' for 'main_helper'
+checking plugin 'ae_users' for 'main_helper'
+checking plugin 'engines' for 'main_helper'
+loading from application: main_helper
+
+
+Processing MainController#index (for 127.0.0.1 at 2007-07-19 18:23:03) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;35;1mHousemate Load (0.000446)[0m   [0mSELECT * FROM housemates [0m
+  [4;36;1mHousemate Columns (0.001441)[0m   [0;1mSHOW FIELDS FROM housemates[0m
+  [4;35;1mSQL (0.000167)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mPerson Columns (0.001802)[0m   [0;1mSHOW FIELDS FROM people[0m
+  [4;35;1mPerson Load (0.000805)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mPerson Load (0.000790)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mCharge Columns (0.001535)[0m   [0mSHOW FIELDS FROM charges[0m
+  [4;36;1mCharge Load (0.000620)[0m   [0;1mSELECT * FROM charges WHERE (charges.`debtor_id` = 1) [0m
+  [4;35;1mCharge Load (0.000595)[0m   [0mSELECT * FROM charges WHERE (charges.`creditor_id` = 1) [0m
+  [4;36;1mPerson Load (0.000802)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mPerson Load (0.000868)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mCharge Load (0.000604)[0m   [0;1mSELECT * FROM charges WHERE (charges.`debtor_id` = 2) [0m
+  [4;35;1mPerson Load (0.000802)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mPerson Load (0.000835)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mCharge Load (0.000559)[0m   [0mSELECT * FROM charges WHERE (charges.`creditor_id` = 2) [0m
+  [4;36;1mChargeTransaction Load (0.000474)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering  within layouts/global
+Rendering main/index
+  [4;35;1mPerson Load (0.000916)[0m   [0mSELECT * FROM people [0m
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47main47index46rhtml at script/../config/../app/views/main/index.rhtml:52)
+Completed in 0.11836 (8 reqs/sec) | Rendering: 0.00915 (7%) | DB: 0.00627 (5%) | 200 OK [http://localhost/main]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+checking plugin 'ae_forms' for 'main_controller'
+checking plugin 'ae_users' for 'main_controller'
+checking plugin 'engines' for 'main_controller'
+loading from application: main_controller
+checking plugin 'ae_forms' for 'main_helper'
+checking plugin 'ae_users' for 'main_helper'
+checking plugin 'engines' for 'main_helper'
+loading from application: main_helper
+
+
+Processing MainController#index (for 127.0.0.1 at 2007-07-19 18:24:26) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;36;1mHousemate Load (0.007637)[0m   [0;1mSELECT * FROM housemates [0m
+  [4;35;1mHousemate Columns (0.002603)[0m   [0mSHOW FIELDS FROM housemates[0m
+  [4;36;1mSQL (0.000171)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mPerson Columns (0.001686)[0m   [0mSHOW FIELDS FROM people[0m
+  [4;36;1mPerson Load (0.000955)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mPerson Load (0.000882)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mCharge Columns (0.001696)[0m   [0;1mSHOW FIELDS FROM charges[0m
+  [4;35;1mCharge Load (0.000597)[0m   [0mSELECT * FROM charges WHERE (charges.`debtor_id` = 1) [0m
+  [4;36;1mCharge Load (0.000601)[0m   [0;1mSELECT * FROM charges WHERE (charges.`creditor_id` = 1) [0m
+  [4;35;1mPerson Load (0.000806)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mPerson Load (0.000809)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mCharge Load (0.000665)[0m   [0mSELECT * FROM charges WHERE (charges.`debtor_id` = 2) [0m
+  [4;36;1mPerson Load (0.000800)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mPerson Load (0.000800)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mCharge Load (0.000580)[0m   [0;1mSELECT * FROM charges WHERE (charges.`creditor_id` = 2) [0m
+  [4;35;1mChargeTransaction Load (0.000450)[0m   [0mSELECT * FROM charge_transactions [0m
+Rendering  within layouts/global
+Rendering main/index
+  [4;36;1mPerson Load (0.000863)[0m   [0;1mSELECT * FROM people [0m
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47main47index46rhtml at script/../config/../app/views/main/index.rhtml:52)
+Completed in 0.07106 (14 reqs/sec) | Rendering: 0.00900 (12%) | DB: 0.01483 (20%) | 200 OK [http://localhost/main]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+checking plugin 'ae_forms' for 'main_controller'
+checking plugin 'ae_users' for 'main_controller'
+checking plugin 'engines' for 'main_controller'
+loading from application: main_controller
+checking plugin 'ae_forms' for 'main_helper'
+checking plugin 'ae_users' for 'main_helper'
+checking plugin 'engines' for 'main_helper'
+loading from application: main_helper
+
+
+Processing MainController#index (for 127.0.0.1 at 2007-07-19 18:25:23) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;35;1mHousemate Load (0.000473)[0m   [0mSELECT * FROM housemates [0m
+  [4;36;1mHousemate Columns (0.001425)[0m   [0;1mSHOW FIELDS FROM housemates[0m
+  [4;35;1mSQL (0.000153)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mPerson Columns (0.001462)[0m   [0;1mSHOW FIELDS FROM people[0m
+  [4;35;1mPerson Load (0.000884)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mPerson Load (0.000741)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mCharge Columns (0.001401)[0m   [0mSHOW FIELDS FROM charges[0m
+  [4;36;1mCharge Load (0.000525)[0m   [0;1mSELECT * FROM charges WHERE (charges.`debtor_id` = 1) [0m
+  [4;35;1mCharge Load (0.000502)[0m   [0mSELECT * FROM charges WHERE (charges.`creditor_id` = 1) [0m
+  [4;36;1mPerson Load (0.000707)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mPerson Load (0.000749)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mCharge Load (0.000536)[0m   [0;1mSELECT * FROM charges WHERE (charges.`debtor_id` = 2) [0m
+  [4;35;1mPerson Load (0.000704)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mPerson Load (0.000725)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mCharge Load (0.000495)[0m   [0mSELECT * FROM charges WHERE (charges.`creditor_id` = 2) [0m
+  [4;36;1mChargeTransaction Load (0.000415)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering  within layouts/global
+Rendering main/index
+  [4;35;1mPerson Load (0.000817)[0m   [0mSELECT * FROM people [0m
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47main47index46rhtml at script/../config/../app/views/main/index.rhtml:52)
+Completed in 0.16151 (6 reqs/sec) | Rendering: 0.00839 (5%) | DB: 0.00577 (3%) | 200 OK [http://localhost/main]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+checking plugin 'ae_forms' for 'main_controller'
+checking plugin 'ae_users' for 'main_controller'
+checking plugin 'engines' for 'main_controller'
+loading from application: main_controller
+checking plugin 'ae_forms' for 'main_helper'
+checking plugin 'ae_users' for 'main_helper'
+checking plugin 'engines' for 'main_helper'
+loading from application: main_helper
+
+
+Processing MainController#index (for 127.0.0.1 at 2007-07-19 18:26:34) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;36;1mHousemate Load (0.000594)[0m   [0;1mSELECT * FROM housemates [0m
+  [4;35;1mHousemate Columns (0.001359)[0m   [0mSHOW FIELDS FROM housemates[0m
+  [4;36;1mSQL (0.000143)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mPerson Columns (0.001505)[0m   [0mSHOW FIELDS FROM people[0m
+  [4;36;1mPerson Load (0.000787)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mPerson Load (0.000704)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mCharge Columns (0.001428)[0m   [0;1mSHOW FIELDS FROM charges[0m
+  [4;35;1mCharge Load (0.000513)[0m   [0mSELECT * FROM charges WHERE (charges.`debtor_id` = 1) [0m
+  [4;36;1mCharge Load (0.000527)[0m   [0;1mSELECT * FROM charges WHERE (charges.`creditor_id` = 1) [0m
+  [4;35;1mPerson Load (0.000730)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mPerson Load (0.000724)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mCharge Load (0.000550)[0m   [0mSELECT * FROM charges WHERE (charges.`debtor_id` = 2) [0m
+  [4;36;1mPerson Load (0.000715)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;35;1mPerson Load (0.000730)[0m   [0mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;36;1mCharge Load (0.000494)[0m   [0;1mSELECT * FROM charges WHERE (charges.`creditor_id` = 2) [0m
+  [4;35;1mChargeTransaction Load (0.000419)[0m   [0mSELECT * FROM charge_transactions [0m
+Rendering  within layouts/global
+Rendering main/index
+  [4;36;1mPerson Load (0.000815)[0m   [0;1mSELECT * FROM people [0m
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47main47index46rhtml at script/../config/../app/views/main/index.rhtml:52)
+Completed in 0.09543 (10 reqs/sec) | Rendering: 0.00588 (6%) | DB: 0.00588 (6%) | 200 OK [http://localhost/main]
+checking plugin 'ae_forms' for 'application_helper'
+checking plugin 'ae_users' for 'application_helper'
+checking plugin 'engines' for 'application_helper'
+loading from application: application_helper
+checking plugin 'ae_forms' for 'main_controller'
+checking plugin 'ae_users' for 'main_controller'
+checking plugin 'engines' for 'main_controller'
+loading from application: main_controller
+checking plugin 'ae_forms' for 'main_helper'
+checking plugin 'ae_users' for 'main_helper'
+checking plugin 'engines' for 'main_helper'
+loading from application: main_helper
+
+
+Processing MainController#index (for 127.0.0.1 at 2007-07-19 18:26:51) [GET]
+  Session ID: 3c427566234200bfc280b8145cd0f557
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;35;1mHousemate Load (0.000417)[0m   [0mSELECT * FROM housemates [0m
+  [4;36;1mHousemate Columns (0.001210)[0m   [0;1mSHOW FIELDS FROM housemates[0m
+  [4;35;1mSQL (0.000139)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mPerson Columns (0.001505)[0m   [0;1mSHOW FIELDS FROM people[0m
+  [4;35;1mPerson Load (0.000786)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mPerson Load (0.000763)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mCharge Columns (0.001361)[0m   [0mSHOW FIELDS FROM charges[0m
+  [4;36;1mCharge Load (0.000564)[0m   [0;1mSELECT * FROM charges WHERE (charges.`debtor_id` = 1) [0m
+  [4;35;1mCharge Load (0.000625)[0m   [0mSELECT * FROM charges WHERE (charges.`creditor_id` = 1) [0m
+  [4;36;1mPerson Load (0.000746)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mPerson Load (0.000719)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mCharge Load (0.000529)[0m   [0;1mSELECT * FROM charges WHERE (charges.`debtor_id` = 2) [0m
+  [4;35;1mPerson Load (0.000702)[0m   [0mSELECT * FROM people WHERE (people.`id` = 1) [0m
+  [4;36;1mPerson Load (0.000704)[0m   [0;1mSELECT * FROM people WHERE (people.`id` = 2) [0m
+  [4;35;1mCharge Load (0.000480)[0m   [0mSELECT * FROM charges WHERE (charges.`creditor_id` = 2) [0m
+  [4;36;1mChargeTransaction Load (0.000411)[0m   [0;1mSELECT * FROM charge_transactions [0m
+Rendering  within layouts/global
+Rendering main/index
+  [4;35;1mPerson Load (0.000991)[0m   [0mSELECT * FROM people [0m
+DEPRECATION WARNING: end_form_tag is deprecated and will be removed from Rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from _run_rhtml_47app47views47main47index46rhtml at script/../config/../app/views/main/index.rhtml:52)
+Completed in 0.04863 (20 reqs/sec) | Rendering: 0.00588 (12%) | DB: 0.00560 (11%) | 200 OK [http://localhost/main]

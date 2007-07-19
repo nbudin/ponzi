@@ -1,0 +1,22 @@
+body {
+    font-family: sans-serif;
+}
+
+td.debt {
+    color: #700;
+    background-color: #fcc;
+}
+
+td.credit {
+    color: #070;
+    background-color: #cfc;
+}
+
+td.blackout {
+    background-color: #aaa;
+}
+
+table.debtboard {
+    border: 1px black solid;
+    background-color: #eee;
+}

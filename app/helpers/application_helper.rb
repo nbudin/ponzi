@@ -1,8 +1,10 @@
 # Methods added to this helper will be available to all templates in the application.
-module ApplicationHelper
-  include LoginEngine
-  helper :user
-  model :user
-  
-  before_filter :login_required
+module ApplicationHelper   
+  def money(amount)
+    if amount < 0.0
+      "($#{sprintf('%.02d', amount * -1)})"
+    else
+      "$#{sprintf('%.02d', amount)}"
+    end
+  end
 end

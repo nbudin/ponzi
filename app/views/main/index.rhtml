@@ -1,11 +1,10 @@
-<table>
+<table class="debtboard">
     <tr>
         <th>
-            Owes &rarr;<br/>
-            &uarr;
+            Owes &#8599;
         </th>
         <% @people.each do |person| -%>
-            <th><%=person.name%></th>
+            <th style="vertical-align: top;"><%=person.name%></th>
         <% end -%>
     </tr>
     <% @people.each do |debtor| -%>
@@ -13,7 +12,7 @@
             <th><%=debtor.name%></th>
             <% @people.each do |creditor| -%>
                 <% balance = @debt[debtor][creditor] -%>
-                <td 
+                <td style="text-align: center;"
                     <% if debtor == creditor -%>
                         class="blackout"
                     <% elsif balance < 0.0 -%>
@@ -22,10 +21,8 @@
                         class="credit"
                     <% end -%>
                 >
-                    <% if debtor == creditor -%>
-                      X
-                    <% else -%>
-                      $<%= sprintf("%.02f", balance) %>
+                    <% if debtor != creditor -%>
+                      <%= money balance%>
                     <% end -%>
                 </td>
             <% end -%>

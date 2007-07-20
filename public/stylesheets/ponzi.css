@@ -1,22 +1,80 @@
 body {
     font-family: sans-serif;
+    margin-left: 170px;
+    background-color: #dfd;
 }
 
-td.debt {
+a {
+    color: #454;
+}
+
+img {
+    border: 0;
+}
+
+div#sidebar {
+    position: fixed;
+    top: 1em;
+    left: 0;
+    width: 135px;
+    border: 1px black solid;
+    border-left: none;
+    padding: 10px;
+    background-color: #eee;
+}
+
+div#sidebar h1 {
+    margin-top: 0;
+}
+
+div#authbox {
+    background-color: #ccc;
+    text-align: right;
+}
+
+.debt {
     color: #700;
     background-color: #fcc;
 }
 
-td.credit {
+.credit {
     color: #070;
     background-color: #cfc;
 }
 
-td.blackout {
+.blackout {
     background-color: #aaa;
 }
 
 table.debtboard {
     border: 1px black solid;
     background-color: #eee;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table.debtboard .me {
+    background-color: #ffc;
+}
+
+div#newtransaction {
+    margin-top: 1em;
+    padding: 1em;
+    background-color: #ccc;
+    text-align: left;
+    border: 1px black solid;
+    width: auto;
+}
+
+div#debt {
+    text-align: center;
+}
+
+div#login {
+    width: 350px;
+    background-color: #ccc;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px black solid;
 }

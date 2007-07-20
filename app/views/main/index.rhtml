@@ -1,34 +1,79 @@
-<table class="debtboard">
-    <tr>
-        <th>
-            Owes &#8599;
-        </th>
-        <% @people.each do |person| -%>
-            <th style="vertical-align: top;"><%=person.name%></th>
-        <% end -%>
-    </tr>
-    <% @people.each do |debtor| -%>
+<div id="debt">
+    <h1>Debt Board</h1>
+    
+    <table class="debtboard">
         <tr>
-            <th><%=debtor.name%></th>
-            <% @people.each do |creditor| -%>
-                <% balance = @debt[debtor][creditor] -%>
-                <td style="text-align: center;"
-                    <% if debtor == creditor -%>
-                        class="blackout"
-                    <% elsif balance < 0.0 -%>
-                        class="debt"
-                    <% elsif balance > 0.0 -%>
-                        class="credit"
-                    <% end -%>
-                >
-                    <% if debtor != creditor -%>
-                      <%= money balance%>
-                    <% end -%>
-                </td>
+            <th>
+                Owes &#8599;
+            </th>
+            <% @people.each do |person| -%>
+                <th style="vertical-align: top;"
+                    <% if session[:account] and session[:account].person == person%>class="me"<%end%>
+                    ><%=person.name%></th>
             <% end -%>
         </tr>
-    <% end -%>
-</table>
+        <% @people.each do |debtor| -%>
+            <tr<% if session[:account] and session[:account].person == debtor%> class="me"<%end%>>
+                <th><%=debtor.name%></th>
+                <% @people.each do |creditor| -%>
+                    <% balance = @debt[debtor][creditor] -%>
+                    <td style="text-align: center;"
+                        <% 	if debtor == creditor
+								cc = "blackout" 
+							elsif balance < 0.0
+								cc = "debt"
+							elsif balance > 0.0
+								cc = "credit"
+							else
+								cc = ""
+							end
+							if session[:account] and session[:account].person == creditor and cc == ""
+								cc = "me"
+							end -%>
+                        class="<%=cc%>">
+                        <% if debtor != creditor -%>
+                          <%= money balance%>
+                        <% end -%>
+                    </td>
+                <% end -%>
+            </tr>
+        <% end -%>
+    </table>
+    
+    <div id="newtransaction">
+        <p><b>Enter a new transaction</b></p>
+        
+        <% ae_form_for "transaction", @charge_transaction, :url => new_charge_transaction_url do |f|%>
+            <label>Type of transaction</label>
+            <%= select_tag "reason", options_for_select([["", "none"], 
+				["I went shopping", "shopping"], 
+				["I paid a bill", "bill"], 
+				["I lent someone money", "lender"], 
+				["Someone lent me money", "borrower"], 
+				["Other", "other"]], "none") %>
+            <div id="none">
+                
+            </div>
+            <div id="shopping">
+                <%= f.select "store", ["", "Shaw's", "Foodmaster", "White Hen Pantry"]%>
+            </div>
+            <div id="bill">
+                <%= f.select "company", ["", "NStar", "RCN", "ADT"] %>
+            </div>
+            <div id="lender">
+                lender!
+            </div>
+            <div id="borrower">
+                borrower!
+            </div>
+            <div id="other">
+                other!
+            </div>
+        <% end %>
+        
+        <div style="clear: both;"></div>
+    </div>
+</div>
 
 
 <% @transactions.each do |transaction| %>

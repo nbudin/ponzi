@@ -8,10 +8,14 @@ class MainController < ApplicationController
         balances[o] = 0.0
       end
       Charge.find_all_by_debtor_id(p).each do |c|
-        balances[c.creditor] += c.balance(p)
+        if balances.has_key? c.creditor
+          balances[c.creditor] += c.balance(p)
+        end
       end
       Charge.find_all_by_creditor_id(p).each do |c|
-        balances[c.debtor] += c.balance(p)
+        if balances.has_key? c.debtor
+          balances[c.debtor] += c.balance(p)
+        end
       end
       @debt[p] = balances
     end

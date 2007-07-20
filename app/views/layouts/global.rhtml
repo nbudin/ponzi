@@ -20,17 +20,26 @@
 	<% end %>
 <% end %>
 
-<div id="header">
-    <table width="100%">
-        <tr>
-            <td>
-            	<h1><%= link_to "Ponzi", :controller => "main", :action => "index" %></h1>
-            </td>
-            <td align="right" valign="bottom">
-  	          
-            </td>
-        </tr>
-    </table>
+<div id="sidebar">
+    <h1><%= link_to "Ponzi", :controller => "main", :action => "index" %></h1>
+    <div id="authbox">
+      <% if session[:account] -%>
+          <%= link_to image_tag('user.png'),
+    		:controller => 'account', :action => 'edit_profile' %>
+          <%= link_to  session[:account].person.name, 
+    		:controller => 'account', :action => 'edit_profile' %>
+          <br/>
+          <%= link_to "Log out", :controller => 'auth', :action => 'logout' %>
+      <% else -%>
+          <%= link_to "Log in", :controller => 'auth', :action => 'login' %>
+      <% end -%>
+    </div>
+    
+    <% if session[:account] -%>
+        <div id="financials">
+            <b>Balance:</b> <%= app_profile.balance %>
+        </div>
+    <% end -%>
 </div>
 
 <% if flash[:error_messages] -%>
@@ -39,23 +48,7 @@
 			<li><%= error %></li>
 		<% end -%>
 	</ul>
-    <script type="text/javascript">
-        Nifty("ul#errors", "bottom");
-    </script>
 <% end %>
-
-<div id="authbox">
-  <% if session[:account] -%>
-      <%= link_to image_tag('user.png'),
-		:controller => 'account', :action => 'edit_profile' %>
-      <%= link_to  session[:account].person.name, 
-		:controller => 'account', :action => 'edit_profile' %>
-      |
-      <%= link_to "Log out", :controller => 'auth', :action => 'logout' %>
-  <% else -%>
-      You are not logged in.  <%= link_to "Click here to log in.", :controller => 'auth', :action => 'login' %>
-  <% end -%>
-</div>
 
 <div style="clear: both;"></div>
 

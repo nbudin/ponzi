@@ -35,6 +35,34 @@ class ChargeTransactionsController < ApplicationController
   # POST /charge_transactions.xml
   def create
     @charge_transaction = ChargeTransaction.new(params[:charge_transaction])
+    if params[:transaction]
+      # they used the form on main/index
+      t = params[:transaction]
+      
+      @charge_transaction.description = t[:description]
+      
+      amount = t[:amount].to_f
+      t[:other_people].each do |p|
+        other = Person.find p
+        charge = Charge.new
+        if t[:is_creditor] == '0'
+          charge.debtor = session[:account].person
+          charge.creditor = other
+        elsif t[:is_creditor] == '1'
+          charge.creditor = session[:account].person
+          charge.debtor = other
+        else
+          flash[:error_messages] = ["You must select who paid in the transaction."]
+          redirect_to :controller => :main, :action => :index
+        end
+        
+        charge.amount = amount / (t[:other_people].length)
+        charge.save
+        @charge_transaction.charges.push charge
+      end
+      
+      @charge_transaction.save
+    end
 
     respond_to do |format|
       if @charge_transaction.save

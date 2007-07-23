@@ -16,6 +16,11 @@ ActiveRecord::Schema.define(:version => 3) do
     t.column "amount",         :float
   end
 
+  create_table "engine_schema_info", :id => false, :force => true do |t|
+    t.column "engine_name", :string
+    t.column "version",     :integer
+  end
+
   create_table "housemates", :force => true do |t|
     t.column "person_id", :integer
   end

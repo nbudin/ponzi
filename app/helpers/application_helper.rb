@@ -2,9 +2,9 @@
 module ApplicationHelper   
   def money(amount)
     if amount < 0.0
-      "($#{sprintf('%0.02d', amount * -1)})"
-    elsif amoutn > 0.0
-      "$#{sprintf('%0.02d', amount)}"
+      "($#{sprintf('%0.02f', amount * -1)})"
+    elsif amount > 0.0
+      "$#{sprintf('%0.02f', amount)}"
     end
   end
   

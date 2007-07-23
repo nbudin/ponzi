@@ -31,8 +31,8 @@
 								cc = "me"
 							end -%>
                         class="<%=cc%>">
-                        <% if debtor != creditor -%>
-                          <%= money balance%>
+                        <% if debtor != creditor and balance < 0.0 -%>
+                          <%= money (balance*-1)%>
                         <% end -%>
                     </td>
                 <% end -%>
@@ -40,58 +40,44 @@
         <% end -%>
     </table>
     
+    <ul id="outstanding">
+      <% has_outstanding = false -%>
+      <% @people.each do |other| -%>
+        <% balance = @debt[session[:account].person][other] -%>
+        <% if balance != 0.0 -%>
+          <% has_outstanding = true %>
+          <li>
+            You <%= balance < 0.0 ? "owe" : "are owed" %>
+            <%= display_balance balance %> 
+            <%= balance < 0.0 ? "to" : "by" %>
+            <b><%= other.name %></b>.
+          </li>
+        <% end -%>
+      <% end -%>
+      <% if not has_outstanding -%>
+        <li>
+          You have no outstanding balances.
+        </li>
+      <% end -%>
+    </ul>
+    
     <div id="newtransaction">
-        <p><b>Enter a new transaction</b></p>
+        <p style="margin: 0"><b><%= link_to_function("Enter a new transaction", update_page do |page|
+            page.show 'newtransaction_form'
+          end)%></b></p>
         
-        <% ae_form_for "transaction", @charge_transaction, :url => new_charge_transaction_url do |f|%>
-            <label>Type of transaction</label>
-            <%= select_tag "reason", options_for_select([["", "none"], 
-				["I went shopping", "shopping"], 
-				["I paid a bill", "bill"], 
-				["I lent someone money", "lender"], 
-				["Someone lent me money", "borrower"], 
-				["Other", "other"]], "none") %>
-            <div id="none">
-                
-            </div>
-            <div id="shopping">
-                <%= f.select "store", ["", "Shaw's", "Foodmaster", "White Hen Pantry"]%>
-            </div>
-            <div id="bill">
-                <%= f.select "company", ["", "NStar", "RCN", "ADT"] %>
-            </div>
-            <div id="lender">
-                lender!
-            </div>
-            <div id="borrower">
-                borrower!
-            </div>
-            <div id="other">
-                other!
+        
+        <% ae_form_for "transaction", @charge_transaction, :url => charge_transactions_path, :html => {:style => 'display: none; margin-top: 1em;', :id => 'newtransaction_form' } do |f|%>
+            <%= f.select "is_creditor", [["", ""], ["me", "1"], ["other people", "0"]], :label => "Who paid money in this transaction" %>
+            <%= f.text_field "description" %>
+            <%= f.text_field "amount", :label => "Total amount", :field_prefix => "$" %>
+            <label for="other_people[]">Others involved in the transaction:</label>
+            <%= select_tag "transaction[other_people][]", options_for_select(Housemate.find(:all, :conditions => ["person_id != ?", session[:account].person.id ]).collect { |h| [h.person.name, h.person.id] }), :multiple => true  %>
+            <div style="clear: both;">
+              <%= submit_tag %>
             </div>
         <% end %>
         
         <div style="clear: both;"></div>
     </div>
 </div>
-
-
-<% @transactions.each do |transaction| %>
-	
-	<p>Transaction: <%= @transaction.description %></p>
-
-<% end %>
-
-<%= form_tag :action => :new_transaction %>
-<h1>Enter a new transaction</h1>
-
-<p>This transaction is a <%= select_tag "payment", options_for_select({ "debt owed to me" => 0, 
-		"payment made by me" => 1}, 0) %>
-	in the total amount of $<%= text_field_tag "amount" %>.
-	</p>
-	
-<p>The other people in this transaction are:
-	<%= select_tag "other_users[]", options_for_select(Person.find(:all).collect { |u| [ "#{u.firstname} #{u.lastname}", u.id]}), :multiple => true %></p>
-
-<p><%= submit_tag "Create transaction" %></p>
-<%= end_form_tag %>

@@ -1,5 +1,5 @@
 class Charge < ActiveRecord::Base
-  belongs_to :charge_transaction
+  belongs_to :charge_transaction, :foreign_key => "transaction_id"
   belongs_to :creditor, :foreign_key => "creditor_id", :class_name => "Person"
   belongs_to :debtor, :foreign_key => "debtor_id", :class_name => "Person"
   

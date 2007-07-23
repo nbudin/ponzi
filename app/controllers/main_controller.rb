@@ -1,4 +1,6 @@
 class MainController < ApplicationController
+  require_login
+  
   def index
     @people = Housemate.find(:all).collect { |h| h.person }
     @debt = {}

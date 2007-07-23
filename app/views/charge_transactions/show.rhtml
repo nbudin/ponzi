@@ -1,3 +1,11 @@
+<p><b>Charge transaction for <%=@charge_transaction.description %></b></p>
+
+<ul>
+  <% @charge_transaction.charges.each do |charge| %>
+    <li><%= charge.debtor.name %> owes <%= charge.creditor.name %> <%= display_balance charge.amount %></li>
+  <% end -%>
+</ul>
+
 
 <%= link_to 'Edit', edit_charge_transaction_path(@charge_transaction) %> |
 <%= link_to 'Back', charge_transactions_path %>

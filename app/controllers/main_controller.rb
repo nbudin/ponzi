@@ -42,4 +42,11 @@ class MainController < ApplicationController
       redirect_to :action => :new_transaction
     end
   end
+  
+  def explain_balance
+    @me = session[:account].person
+    @other = Person.find(params[:other])
+    charges = Charge.find_by_sql(["select * from charges where (creditor_id = ? and debtor_id = ?) or (debtor_id = ? and creditor_id = ?)",
+      @other, @me, @other, @me])
+  end
 end

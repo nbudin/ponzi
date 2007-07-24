@@ -22,8 +22,6 @@
 								cc = "blackout" 
 							elsif balance < 0.0
 								cc = "debt"
-							elsif balance > 0.0
-								cc = "credit"
 							else
 								cc = ""
 							end
@@ -51,6 +49,15 @@
             <%= display_balance balance %> 
             <%= balance < 0.0 ? "to" : "by" %>
             <b><%= other.name %></b>.
+            
+            (<%= link_to "Why?", :action => "explain_balance", :other => other.id %>)
+            
+            <% if balance < 0.0 -%>
+                <%= button_to "I paid #{other.firstname}", :action => "settle", :other => other.id %>
+            <% else -%>
+                <%= button_to "#{other.firstname} paid me", :action => "settle", :other => other.id %>
+            <% end -%>
+            
           </li>
         <% end -%>
       <% end -%>

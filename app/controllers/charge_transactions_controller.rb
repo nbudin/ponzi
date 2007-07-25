@@ -67,7 +67,7 @@ class ChargeTransactionsController < ApplicationController
     respond_to do |format|
       if @charge_transaction.save
         flash[:notice] = 'ChargeTransaction was successfully created.'
-        format.html { redirect_to charge_transaction_url(@charge_transaction) }
+        format.html { redirect_to :controller => "main", :action => "index" }
         format.xml  { head :created, :location => charge_transaction_url(@charge_transaction) }
       else
         format.html { render :action => "new" }

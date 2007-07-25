@@ -2,11 +2,11 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 3) do
+ActiveRecord::Schema.define(:version => 4) do
 
   create_table "charge_transactions", :force => true do |t|
-    t.column "description",      :string
-    t.column "transaction_date", :date
+    t.column "description", :string
+    t.column "created_at",  :date
   end
 
   create_table "charges", :force => true do |t|
@@ -14,11 +14,6 @@ ActiveRecord::Schema.define(:version => 3) do
     t.column "creditor_id",    :integer
     t.column "debtor_id",      :integer
     t.column "amount",         :float
-  end
-
-  create_table "engine_schema_info", :id => false, :force => true do |t|
-    t.column "engine_name", :string
-    t.column "version",     :integer
   end
 
   create_table "housemates", :force => true do |t|

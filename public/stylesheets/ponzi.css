@@ -97,3 +97,21 @@ ul#outstanding form, ul#outstanding div {
     text-align: right;
     margin-left: 2em;
 }
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tr.headers {
+    background-color: #030;
+    color: #cfc;
+}
+
+tr.even {
+    background-color: #ada;
+}
+
+tr.odd {
+    background-color: #9c9;
+}

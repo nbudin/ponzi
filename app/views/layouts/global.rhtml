@@ -37,7 +37,7 @@
     
     <% if session[:account] -%>
         <div id="financials">
-            <b>Balance:</b> <%= app_profile.balance %>
+            <b>Balance:</b> <%= display_balance app_profile.balance %>
         </div>
     <% end -%>
 </div>

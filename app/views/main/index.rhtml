@@ -53,9 +53,11 @@
             (<%= link_to "Why?", :action => "explain_balance", :other => other.id %>)
             
             <% if balance < 0.0 -%>
-                <%= button_to "I paid #{other.firstname}", :action => "settle", :other => other.id %>
+                <%= button_to "I paid #{other.firstname}", { :action => "settle", 
+					:other => other.id }, :confirm => "Are you sure you paid #{other.name} $#{balance}?" %>
             <% else -%>
-                <%= button_to "#{other.firstname} paid me", :action => "settle", :other => other.id %>
+                <%= button_to "#{other.firstname} paid me", { :action => "settle", 
+					:other => other.id }, :confirm => "Are you sure #{other.name} paid you $#{balance}?" %>
             <% end -%>
             
           </li>

@@ -1,0 +1,23 @@
+<h1>Your pending transactions with <%= @other.name %></h1>
+
+<p><b>Your current total balance with <%= @other.firstname %>:
+    </b> <%= display_balance @balance %></p>
+
+<table>
+    <tr class="headers">
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Description</th>
+        <th>Running Balance</th>
+    </tr>
+    <% balance = 0.0 -%>
+    <% @charges.each do |charge| -%>
+        <% balance += charge.balance(@me) %>
+        <tr class="<%=cycle "even", "odd" %>">
+            <td><%= charge.charge_transaction.created_at.strftime("%m/%d/%Y") %></td>
+            <td><%= display_balance charge.balance(@me) %></td>
+            <td><%= charge.charge_transaction.description %></td>
+            <td><%= display_balance balance %></td>
+        </tr>
+     <% end -%>
+</table>

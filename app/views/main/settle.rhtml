@@ -1,0 +1,11 @@
+<h1>Thank you</h1>
+
+<p>
+    <% if @balance < 0.0 -%>
+        You have paid <%= @other.person.name %> <%= display_balance @balance%>.
+    <% else -%>
+        <%= @other.person.name %> has paid you <%= display_balance @balance%>.
+    <% end -%>
+</p>
+
+<p><%= link_to "Back to main screen", :action => "index" %></p>

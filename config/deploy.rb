@@ -24,9 +24,9 @@ set :repository, "http://svn.natbudin.com/svn/#{application}"
 # be used to single out a specific subset of boxes in a particular role, like
 # :primary => true.
 
-role :web, "ponzi.natbudin.com"
-role :app, "ponzi.natbudin.com"
-role :db,  "ponzi.natbudin.com", :primary => true
+role :web, "sakai.natbudin.com"
+role :app, "sakai.natbudin.com"
+role :db,  "sakai.natbudin.com", :primary => true
 
 # =============================================================================
 # OPTIONAL VARIABLES

@@ -14,7 +14,7 @@
     <% @charges.each do |charge| -%>
         <% balance += charge.balance(@me) %>
         <tr class="<%=cycle "even", "odd" %>">
-            <td><%= charge.charge_transaction.created_at.strftime("%m/%d/%Y") %></td>
+            <td><%= charge.charge_transaction.created_at ? charge.charge_transaction.created_at.strftime("%m/%d/%Y") : "" %></td>
             <td><%= display_balance charge.balance(@me) %></td>
             <td><%= charge.charge_transaction.description %></td>
             <td><%= display_balance balance %></td>

@@ -82,6 +82,7 @@
             <%= f.text_field "amount", :label => "Total amount", :field_prefix => "$" %>
             <label for="other_people[]">Others involved in the transaction:</label>
             <%= select_tag "transaction[other_people][]", options_for_select(Housemate.find(:all).collect { |h| [h.person.name, h.person.id] }), :multiple => true  %>
+            <p><i>If you're splitting a transaction between multiple people, make sure your name is selected too!</i></p>
             <div style="clear: both;">
               <%= submit_tag %>
             </div>

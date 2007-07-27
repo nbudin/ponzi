@@ -73,10 +73,14 @@ div#debt {
 div#login {
     width: 350px;
     background-color: #ccc;
-    text-align: center;
     margin-left: auto;
     margin-right: auto;
     border: 1px black solid;
+    text-align: center;
+}
+
+form#auth_form {
+    text-align: left;
 }
 
 ul#outstanding {

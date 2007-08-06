@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 4) do
+ActiveRecord::Schema.define(:version => 6) do
 
   create_table "charge_transactions", :force => true do |t|
     t.column "description", :string
@@ -16,9 +16,23 @@ ActiveRecord::Schema.define(:version => 4) do
     t.column "amount",         :float
   end
 
-  create_table "engine_schema_info", :id => false, :force => true do |t|
-    t.column "engine_name", :string
-    t.column "version",     :integer
+  create_table "chore_groups", :force => true do |t|
+    t.column "name",                    :string
+    t.column "description",             :text
+    t.column "initial_assignee_id",     :integer
+    t.column "initial_assignment_time", :datetime
+  end
+
+  create_table "chores", :force => true do |t|
+    t.column "name",             :string
+    t.column "description",      :text
+    t.column "frequency_amount", :integer
+    t.column "frequency_unit",   :string
+  end
+
+  create_table "chores_chore_groups", :id => false, :force => true do |t|
+    t.column "chore_id",       :integer
+    t.column "chore_group_id", :integer
   end
 
   create_table "housemates", :force => true do |t|

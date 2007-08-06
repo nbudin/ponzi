@@ -20,4 +20,26 @@ class Housemate < ActiveRecord::Base
     end
     return b
   end
+  
+  def chore_groups(time)
+    ChoreGroup.find(:all).select do |cg|
+      cg.assignee(time) == self
+    end
+  end
+  
+  def current_chore_groups()
+    chore_groups(Time.new)
+  end
+  
+  def chores(time)
+    c = []
+    chore_groups(time).each do |cg|
+      c += cg.chores
+    end
+    return c
+  end
+  
+  def current_chores()
+    chores(Time.new)
+  end
 end

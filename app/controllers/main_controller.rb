@@ -22,6 +22,8 @@ class MainController < ApplicationController
       @debt[p] = balances
     end
     @transactions = ChargeTransaction.find :all
+    
+    @choregroups = ChoreGroup.find :all
   end
   
   def new_transaction

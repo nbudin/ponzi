@@ -70,6 +70,31 @@ div#debt {
     text-align: center;
 }
 
+div#chores {
+    text-align: center;
+}
+
+div#chores ul {
+    text-align: left;
+    border: 1px black solid;
+    background-color: #ccc;
+}
+
+div#chorebox ul {
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+}
+
+div#sidebar h2 {
+    text-align: right;
+    border-bottom: 1px #666 solid;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    background: #ddd;
+    font-size: 110%;
+}
+
 div#login {
     width: 350px;
     background-color: #ccc;

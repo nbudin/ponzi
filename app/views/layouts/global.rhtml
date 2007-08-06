@@ -36,7 +36,20 @@
     </div>
     
     <% if session[:account] -%>
-        <div id="financials">
+        <div id="chorebox">
+            <h2>Chores</h2>
+            <ul>
+                <% app_profile.current_chores.each do |chore| %>
+                    <li>
+                        <b><%= chore.name%></b>
+                        <%= frequencyize chore.frequency_amount %> a
+                        <%= chore.frequency_unit %>
+                    </li>
+                <% end -%>
+            </ul>
+        </div>
+        <div id="financebox">
+            <h2>Finance</h2>
             <b>Balance:</b> <%= display_balance app_profile.balance %>
         </div>
     <% end -%>

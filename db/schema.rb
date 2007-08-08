@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 6) do
+ActiveRecord::Schema.define(:version => 9) do
 
   create_table "charge_transactions", :force => true do |t|
     t.column "description", :string
@@ -16,11 +16,21 @@ ActiveRecord::Schema.define(:version => 6) do
     t.column "amount",         :float
   end
 
+  create_table "chore_group_candidates", :force => true do |t|
+    t.column "position",       :integer
+    t.column "chore_group_id", :integer
+    t.column "housemate_id",   :integer
+  end
+
   create_table "chore_groups", :force => true do |t|
     t.column "name",                    :string
     t.column "description",             :text
-    t.column "initial_assignee_id",     :integer
     t.column "initial_assignment_time", :datetime
+  end
+
+  create_table "chore_groups_chores", :id => false, :force => true do |t|
+    t.column "chore_id",       :integer
+    t.column "chore_group_id", :integer
   end
 
   create_table "chores", :force => true do |t|
@@ -28,15 +38,13 @@ ActiveRecord::Schema.define(:version => 6) do
     t.column "description",      :text
     t.column "frequency_amount", :integer
     t.column "frequency_unit",   :string
-  end
-
-  create_table "chores_chore_groups", :id => false, :force => true do |t|
-    t.column "chore_id",       :integer
-    t.column "chore_group_id", :integer
+    t.column "forced_timing",    :integer
   end
 
   create_table "housemates", :force => true do |t|
-    t.column "person_id", :integer
+    t.column "person_id",      :integer
+    t.column "preferred_hour", :integer
+    t.column "preferred_dow",  :integer
   end
 
 end

@@ -1,5 +1,7 @@
 class Housemate < ActiveRecord::Base
   belongs_to :person
+  has_many :chore_group_candidates
+  has_many :chore_groups, :through => :chore_group_candidates
   
   def balance
     b = 0.0
@@ -21,25 +23,25 @@ class Housemate < ActiveRecord::Base
     return b
   end
   
-  def chore_groups(time)
-    ChoreGroup.find(:all).select do |cg|
-      cg.assignee(time) == self
+  def chore_groups_at(time)
+    chore_groups.select do |cg|
+      cg.assignee_at(time) == self
     end
   end
   
   def current_chore_groups()
-    chore_groups(Time.new)
+    chore_groups_at(Time.new)
   end
   
-  def chores(time)
+  def chores_at(time)
     c = []
-    chore_groups(time).each do |cg|
+    chore_groups_at(time).each do |cg|
       c += cg.chores
     end
     return c
   end
   
   def current_chores()
-    chores(Time.new)
+    chores_at(Time.new)
   end
 end

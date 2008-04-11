@@ -46,10 +46,10 @@ class ChargeTransactionsController < ApplicationController
         other = Person.find p
         charge = Charge.new
         if t[:is_creditor] == '0'
-          charge.debtor = session[:account].person
+          charge.debtor = logged_in_person
           charge.creditor = other
         elsif t[:is_creditor] == '1'
-          charge.creditor = session[:account].person
+          charge.creditor = logged_in_person
           charge.debtor = other
         else
           flash[:error_messages] = ["You must select who paid in the transaction."]

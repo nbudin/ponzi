@@ -5,13 +5,19 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '1.2.6'
+RAILS_GEM_VERSION = '2.0.2'
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
+require File.join(File.dirname(__FILE__), '../vendor/plugins/engines/boot')
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence those specified here
+
+  config.action_controller.session = {
+    :session_key => '_ponzi_natbudin_com_session',
+    :secret      => '4f6f4b547e66155293c31a7b92b94297d340fc61670af779602b923165d0233c0a76f2141ea62c033409da76540e075630c2d79d1911111f003dd99446a9835b'
+  }
   
   # Skip frameworks you're not going to use (only works if using vendor/rails)
   # config.frameworks -= [ :action_web_service, :action_mailer ]

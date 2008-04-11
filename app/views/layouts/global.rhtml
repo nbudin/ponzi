@@ -26,7 +26,7 @@
       <% if session[:account] -%>
           <%= link_to image_tag('user.png'),
     		:controller => 'account', :action => 'edit_profile' %>
-          <%= link_to  session[:account].person.name, 
+          <%= link_to  logged_in_person.name, 
     		:controller => 'account', :action => 'edit_profile' %>
           <br/>
           <%= link_to "Log out", :controller => 'auth', :action => 'logout' %>
@@ -35,7 +35,7 @@
       <% end -%>
     </div>
     
-    <% if session[:account] -%>
+    <% if logged_in? -%>
         <div id="chorebox">
             <h2>Chores</h2>
             <ul>

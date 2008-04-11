@@ -18,12 +18,12 @@
             </th>
             <% @people.each do |person| -%>
                 <th style="vertical-align: top;"
-                    <% if session[:account] and session[:account].person == person%>class="me"<%end%>
+                    <% if logged_in_person == person%>class="me"<%end%>
                     ><%=person.name%></th>
             <% end -%>
         </tr>
         <% @people.each do |debtor| -%>
-            <tr<% if session[:account] and session[:account].person == debtor%> class="me"<%end%>>
+            <tr<% if logged_in_person == debtor%> class="me"<%end%>>
                 <th><%=debtor.name%></th>
                 <% @people.each do |creditor| -%>
                     <% balance = @debt[debtor][creditor] -%>
@@ -35,7 +35,7 @@
 							else
 								cc = ""
 							end
-							if session[:account] and session[:account].person == creditor and cc == ""
+							if logged_in_person == creditor and cc == ""
 								cc = "me"
 							end -%>
                         class="<%=cc%>">
@@ -51,7 +51,7 @@
     <ul id="outstanding">
       <% has_outstanding = false -%>
       <% @people.each do |other| -%>
-        <% balance = @debt[session[:account].person][other] -%>
+        <% balance = @debt[logged_in_person][other] -%>
         <% if balance != 0.0 -%>
           <% has_outstanding = true %>
           <li>

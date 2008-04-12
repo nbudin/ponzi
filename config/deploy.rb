@@ -2,7 +2,7 @@
 # (http://manuals.rubyonrails.com/read/book/17). It allows you to automate
 # (among other things) the deployment of your application.
 
-require 'mongrel_cluster/recipes'
+#require 'mongrel_cluster/recipes'
 
 # =============================================================================
 # REQUIRED VARIABLES
@@ -35,7 +35,7 @@ set :deploy_to, "/var/www/ponzi" # defaults to "/u/apps/#{application}"
 #set :use_sudo, true
 set :checkout, "export"
 set :user, "www-data"            # defaults to the currently logged in user
-set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
+#set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
 set :scm, :subversion               # defaults to :subversion
 # set :svn, "/path/to/svn"       # defaults to searching the PATH
 # set :darcs, "/path/to/darcs"   # defaults to searching the PATH
@@ -79,3 +79,10 @@ set :scm, :subversion               # defaults to :subversion
 #   it will be treated as the contents of the template to render. Any other keys
 #   are treated as local variables, which are made available to the (ERb)
 #   template.
+
+namespace :deploy do
+  desc "Tell Passenger to restart this app"
+  task :restart, :roles => :app do
+    run "touch #{current_path}/tmp/restart.txt"
+  end
+end

@@ -46,7 +46,7 @@ class MainController < ApplicationController
   end
   
   def explain_balance
-    @me = session[:account].person
+    @me = logged_in_person
     @other = Person.find(params[:other])
     charges = Charge.find_by_sql(["select * from charges left join charge_transactions t on charges.transaction_id = t.id where (creditor_id = ? and debtor_id = ?) or (debtor_id = ? and creditor_id = ?) order by t.created_at",
       @other, @me, @other, @me])
@@ -62,14 +62,14 @@ class MainController < ApplicationController
   end
   
   def settle
-    @me = Housemate.find_by_person_id(session[:account].person)
+    @me = Housemate.find_by_person_id(logged_in_person)
     @other = Housemate.find_by_person_id(params[:other])
     
     t = ChargeTransaction.new :description => "Settling debt"
     c = Charge.new :charge_transaction => t
     
-    @balance = @me.relative_balance(@other)
-    c.amount = @balance
+    @balance = @me.relative_balance(@other.person)
+    c.amount = @balance.abs
     
     if @balance < 0.0
       c.creditor = @me.person

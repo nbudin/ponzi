@@ -91,7 +91,7 @@
             <%= f.text_field "description" %>
             <%= f.text_field "amount", :label => "Total amount", :field_prefix => "$" %>
             <label for="other_people[]">Others involved in the transaction:</label>
-            <div style="margin-left: 28%">
+            <div style="margin-left: 28%; clear: both;">
               <% Housemate.find(:all).each do |h| -%>
                 <%= check_box_tag "transaction[other_people][]", h.person.id, h.person.name %>
                 <%= h.person.name %>

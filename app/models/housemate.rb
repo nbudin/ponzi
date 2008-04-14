@@ -15,11 +15,8 @@ class Housemate < ActiveRecord::Base
   
   def relative_balance(other)
     b = 0.0
-    charges = Charge.find_by_sql(["select * from charges where (creditor_id = ? and debtor_id = ?) or (debtor_id = ? and creditor_id = ?)",
-      other.id, person.id, other.id, person.id])
-    charges.each do |charge|
-      b += charge.balance(person)
-    end
+    b += Charge.sum('amount', :conditions => ["creditor_id = ? and debtor_id = ?", person.id, other.id])
+    b -= Charge.sum('amount', :conditions => ["creditor_id = ? and debtor_id = ?", other.id, person.id])
     return b
   end
   

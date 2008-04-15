@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 9) do
+ActiveRecord::Schema.define(:version => 10) do
 
   create_table "charge_transactions", :force => true do |t|
     t.string "description"
@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(:version => 9) do
     t.integer "debtor_id"
     t.float   "amount"
   end
+
+  add_index "charges", ["transaction_id"], :name => "index_charges_on_transaction_id"
+  add_index "charges", ["debtor_id"], :name => "index_charges_on_debtor_id"
+  add_index "charges", ["creditor_id"], :name => "index_charges_on_creditor_id"
+  add_index "charges", ["debtor_id", "creditor_id"], :name => "index_charges_on_debtor_id_and_creditor_id"
 
   create_table "chore_group_candidates", :force => true do |t|
     t.integer "position"
@@ -52,6 +57,14 @@ ActiveRecord::Schema.define(:version => 9) do
     t.integer "person_id"
     t.integer "preferred_hour"
     t.integer "preferred_dow"
+  end
+
+  create_table "permissions", :force => true do |t|
+    t.integer "role_id"
+    t.string  "permission"
+    t.integer "permissioned_id"
+    t.string  "permissioned_type"
+    t.integer "person_id"
   end
 
 end

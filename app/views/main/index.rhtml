@@ -26,7 +26,7 @@
             <tr<% if logged_in_person == debtor%> class="me"<%end%>>
                 <th><%=debtor.name%></th>
                 <% @people.each do |creditor| -%>
-                    <% balance = @debt[debtor][creditor] -%>
+                    <% balance = debtor.housemate.relative_balance(creditor) -%>
                     <td style="text-align: center;"
                         <% 	if debtor == creditor
 								cc = "blackout" 
@@ -51,7 +51,7 @@
     <ul id="outstanding">
       <% has_outstanding = false -%>
       <% @people.each do |other| -%>
-        <% balance = @debt[logged_in_person][other] -%>
+        <% balance = logged_in_person.housemate.relative_balance(other) -%>
         <% if balance != 0.0 -%>
           <% has_outstanding = true %>
           <li>

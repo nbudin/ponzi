@@ -16,8 +16,8 @@ class Housemate < ActiveRecord::Base
   
   def relative_balance(other)
     b = 0.0
-    b += Charge.sum('amount', :conditions => ["creditor_id = ? and debtor_id = ?", person.id, other.id])
-    b -= Charge.sum('amount', :conditions => ["creditor_id = ? and debtor_id = ?", other.id, person.id])
+    b += (Charge.sum('amount', :conditions => ["creditor_id = ? and debtor_id = ?", person.id, other.id]) || 0.0)
+    b -= (Charge.sum('amount', :conditions => ["creditor_id = ? and debtor_id = ?", other.id, person.id]) || 0.0)
     return b
   end
   

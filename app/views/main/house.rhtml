@@ -1,12 +1,14 @@
-<div id="chores">
-    <h1><%=h @house.name %> Chore Board for <%=Time.new.strftime("%B")%></h1>
-    
-    <ul>
-        <% @choregroups.each do |choregroup| %>
-            <li><%= choregroup.name%> - <%= choregroup.current_assignee.person.name %></li>
-        <% end %>
-    </ul>
-</div>
+<% if @choregroups.length > 0 -%>
+  <div id="chores">
+      <h1><%=h @house.name %> Chore Board for <%=Time.new.strftime("%B")%></h1>
+
+      <ul>
+          <% @choregroups.each do |choregroup| %>
+              <li><%= choregroup.name%> - <%= choregroup.current_assignee.person.name %></li>
+          <% end %>
+      </ul>
+  </div>
+<% end -%>
 
 <div id="debt">
     <h1><%=h @house.name %> Debt Board</h1>

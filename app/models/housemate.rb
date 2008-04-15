@@ -1,4 +1,5 @@
 class Housemate < ActiveRecord::Base
+  has_and_belongs_to_many :houses
   belongs_to :person
   has_many :chore_group_candidates
   has_many :chore_groups, :through => :chore_group_candidates

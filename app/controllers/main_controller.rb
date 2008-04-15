@@ -2,8 +2,16 @@ class MainController < ApplicationController
   require_login
   
   def index
-    @people = Housemate.find(:all).collect { |h| h.person }    
-    @choregroups = ChoreGroup.find :all
+    @houses = logged_in_person.housemate.houses
+    if @houses.length == 1
+      redirect_to :action => "house", :id => @houses[0].id
+    end
+  end
+  
+  def house
+    @house = House.find(params[:id])
+    @people = @house.housemates.collect { |h| h.person }    
+    @choregroups = @house.chore_groups
   end
   
   def new_transaction

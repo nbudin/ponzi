@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 10) do
+ActiveRecord::Schema.define(:version => 11) do
 
   create_table "charge_transactions", :force => true do |t|
     t.string "description"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 10) do
     t.string   "name"
     t.text     "description"
     t.datetime "initial_assignment_time"
+    t.integer  "house_id"
   end
 
   create_table "chore_groups_chores", :id => false, :force => true do |t|
@@ -57,6 +58,17 @@ ActiveRecord::Schema.define(:version => 10) do
     t.integer "person_id"
     t.integer "preferred_hour"
     t.integer "preferred_dow"
+  end
+
+  create_table "housemates_houses", :id => false, :force => true do |t|
+    t.integer "house_id"
+    t.integer "housemate_id"
+  end
+
+  create_table "houses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "permissions", :force => true do |t|

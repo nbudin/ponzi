@@ -1,4 +1,5 @@
 class ChoreGroup < ActiveRecord::Base
+  belongs_to :house
   has_and_belongs_to_many :chores
   has_many :chore_group_candidates
   has_many :assignees, :through => :chore_group_candidates, :source => :housemate,

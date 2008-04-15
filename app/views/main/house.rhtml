@@ -1,0 +1,109 @@
+<div id="chores">
+    <h1><%=h @house.name %> Chore Board for <%=Time.new.strftime("%B")%></h1>
+    
+    <ul>
+        <% @choregroups.each do |choregroup| %>
+            <li><%= choregroup.name%> - <%= choregroup.current_assignee.person.name %></li>
+        <% end %>
+    </ul>
+</div>
+
+<div id="debt">
+    <h1><%=h @house.name %> Debt Board</h1>
+    
+    <table class="debtboard">
+        <tr>
+            <th>
+                Owes &#8599;
+            </th>
+            <% @people.each do |person| -%>
+                <th style="vertical-align: top;"
+                    <% if logged_in_person == person%>class="me"<%end%>
+                    ><%=person.name%></th>
+            <% end -%>
+        </tr>
+        <% @people.each do |debtor| -%>
+            <tr<% if logged_in_person == debtor%> class="me"<%end%>>
+                <th><%=debtor.name%></th>
+                <% @people.each do |creditor| -%>
+                    <% balance = debtor.housemate.relative_balance(creditor) -%>
+                    <td style="text-align: center;"
+                        <% 	if debtor == creditor
+								cc = "blackout" 
+							elsif balance < 0.0
+								cc = "debt"
+							else
+								cc = ""
+							end
+							if logged_in_person == creditor and cc == ""
+								cc = "me"
+							end -%>
+                        class="<%=cc%>">
+                        <% if debtor != creditor and balance < 0.0 -%>
+                          <%= money (balance*-1)%>
+                        <% end -%>
+                    </td>
+                <% end -%>
+            </tr>
+        <% end -%>
+    </table>
+    
+    <ul id="outstanding">
+      <% has_outstanding = false -%>
+      <% @people.each do |other| -%>
+        <% balance = logged_in_person.housemate.relative_balance(other) -%>
+        <% if balance != 0.0 -%>
+          <% has_outstanding = true %>
+          <li>
+            You <%= balance < 0.0 ? "owe" : "are owed" %>
+            <%= display_balance balance %> 
+            <%= balance < 0.0 ? "to" : "by" %>
+            <b><%= other.name %></b>.
+            
+            (<%= link_to "Why?", :action => "explain_balance", :other => other.id %>)
+            
+            <% if balance < 0.0 -%>
+                <%= button_to "I paid #{other.firstname}", { :action => "settle", 
+					:other => other.id }, :confirm => "Are you sure you paid #{other.name} $#{balance}?" %>
+            <% else -%>
+                <%= button_to "#{other.firstname} paid me", { :action => "settle", 
+					:other => other.id }, :confirm => "Are you sure #{other.name} paid you $#{balance}?" %>
+            <% end -%>
+            
+          </li>
+        <% end -%>
+      <% end -%>
+      <% if not has_outstanding -%>
+        <li>
+          You have no outstanding balances.
+        </li>
+      <% end -%>
+    </ul>
+    
+    <div id="newtransaction">
+        <p style="margin: 0"><b><%= link_to_function("Enter a new transaction", update_page do |page|
+            page.show 'newtransaction_form'
+          end)%></b></p>
+        
+        
+        <% ae_form_for "transaction", @charge_transaction, :url => charge_transactions_path, :html => {:style => 'display: none; margin-top: 1em;', :id => 'newtransaction_form' } do |f|%>
+            <%= f.select "is_creditor", [["", ""], ["me", "1"], ["other people", "0"]], :label => "Who paid money in this transaction" %>
+            <%= f.text_field "description" %>
+            <%= f.text_field "amount", :label => "Total amount", :field_prefix => "$" %>
+            <label for="other_people[]">Others involved in the transaction:</label>
+            <div style="margin-left: 28%; clear: both;">
+              <% Housemate.find(:all).each do |h| -%>
+                <%= check_box_tag "transaction[other_people][]", h.person.id, h.person.name %>
+                <%= h.person.name %>
+                <br />
+              <% end -%>
+              <p><i>If you're splitting a transaction between multiple people, make sure your name is selected too!</i></p>
+            </div>
+            <div style="clear: both;">
+              <%= submit_tag %>
+            </div>
+        <% end %>
+        
+        <div style="clear: both;"></div>
+    </div>
+</div>

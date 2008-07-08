@@ -24,17 +24,17 @@ set :repository, "http://svn.natbudin.com/svn/#{application}"
 # be used to single out a specific subset of boxes in a particular role, like
 # :primary => true.
 
-role :web, "sakai.natbudin.com"
-role :app, "sakai.natbudin.com"
-role :db,  "sakai.natbudin.com", :primary => true
+role :web, "century.dreamhost.com"
+role :app, "century.dreamhost.com"
+role :db,  "century.dreamhost.com", :primary => true
 
 # =============================================================================
 # OPTIONAL VARIABLES
 # =============================================================================
-set :deploy_to, "/var/www/ponzi" # defaults to "/u/apps/#{application}"
+set :deploy_to, "/home/natbudin/ponzi.natbudin.com" # defaults to "/u/apps/#{application}"
 #set :use_sudo, true
 set :checkout, "export"
-set :user, "www-data"            # defaults to the currently logged in user
+set :user, "natbudin"            # defaults to the currently logged in user
 #set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
 set :scm, :subversion               # defaults to :subversion
 # set :svn, "/path/to/svn"       # defaults to searching the PATH

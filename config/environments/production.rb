@@ -17,8 +17,15 @@ config.action_controller.perform_caching             = true
 # Disable delivery errors if you bad email addresses should just be ignored
 # config.action_mailer.raise_delivery_errors = false
 
-ActionMailer::Base.smtp_settings = {
-  :address  => "ponzi.natbudin.com",
-  :port  => 25, 
-  :domain  => 'ponzi.natbudin.com'
-    }
+config.action_mailer.delivery_method = :sendmail
+config.action_mailer.smtp_settings = {
+  :address => "mail.ponzi.natbudin.com",
+  :port => 25,
+  :domain => "ponzi.natbudin.com",
+  :authentication => :login,
+  :user_name => "noreply@ponzi.natbudin.com",
+  :password => "pyramid",
+}
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_charset = 'utf-8'

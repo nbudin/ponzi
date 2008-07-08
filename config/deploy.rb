@@ -13,7 +13,7 @@
 # form the root of the application path.
 
 set :application, "ponzi"
-set :repository, "http://svn.natbudin.com/svn/#{application}"
+set :repository, "http://svn.aegames.org/svn/#{application}"
 
 # =============================================================================
 # ROLES

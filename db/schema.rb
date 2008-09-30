@@ -71,12 +71,4 @@ ActiveRecord::Schema.define(:version => 11) do
     t.datetime "updated_at"
   end
 
-  create_table "permissions", :force => true do |t|
-    t.integer "role_id"
-    t.string  "permission"
-    t.integer "permissioned_id"
-    t.string  "permissioned_type"
-    t.integer "person_id"
-  end
-
 end

@@ -13,7 +13,7 @@
 # form the root of the application path.
 
 set :application, "ponzi"
-set :repository, "http://svn.aegames.org/svn/#{application}"
+set :repository, "git://github.com/nbudin/#{application}.git"
 
 # =============================================================================
 # ROLES
@@ -32,15 +32,13 @@ role :db,  "sakai.natbudin.com", :primary => true
 # OPTIONAL VARIABLES
 # =============================================================================
 set :deploy_to, "/var/www/ponzi.natbudin.com" # defaults to "/u/apps/#{application}"
-#set :use_sudo, true
+set :use_sudo, false
 set :checkout, "export"
 set :user, "www-data"            # defaults to the currently logged in user
-#set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
-set :scm, :subversion               # defaults to :subversion
-# set :svn, "/path/to/svn"       # defaults to searching the PATH
-# set :darcs, "/path/to/darcs"   # defaults to searching the PATH
-# set :cvs, "/path/to/cvs"       # defaults to searching the PATH
-# set :gateway, "gate.host.com"  # default to no gateway
+set :deploy_via, :remote_cache
+set :scm, :git               # defaults to :subversion
+set :git_enable_submodules, 1
+
 
 # =============================================================================
 # SSH OPTIONS
@@ -55,34 +53,15 @@ set :scm, :subversion               # defaults to :subversion
 # a role (or set of roles) that each task should be executed on. You can also
 # narrow the set of servers to a subset of a role by specifying options, which
 # must match the options given for the servers to select (like :primary => true)
-
-# Tasks may take advantage of several different helper methods to interact
-# with the remote server(s). These are:
-#
-# * run(command, options={}, &block): execute the given command on all servers
-#   associated with the current task, in parallel. The block, if given, should
-#   accept three parameters: the communication channel, a symbol identifying the
-#   type of stream (:err or :out), and the data. The block is invoked for all
-#   output from the command, allowing you to inspect output and act
-#   accordingly.
-# * sudo(command, options={}, &block): same as run, but it executes the command
-#   via sudo.
-# * delete(path, options={}): deletes the given file or directory from all
-#   associated servers. If :recursive => true is given in the options, the
-#   delete uses "rm -rf" instead of "rm -f".
-# * put(buffer, path, options={}): creates or overwrites a file at "path" on
-#   all associated servers, populating it with the contents of "buffer". You
-#   can specify :mode as an integer value, which will be used to set the mode
-#   on the file.
-# * render(template, options={}) or render(options={}): renders the given
-#   template and returns a string. Alternatively, if the :template key is given,
-#   it will be treated as the contents of the template to render. Any other keys
-#   are treated as local variables, which are made available to the (ERb)
-#   template.
-
 namespace :deploy do
   desc "Tell Passenger to restart this app"
   task :restart, :roles => :app do
     run "touch #{current_path}/tmp/restart.txt"
+  end
+
+  desc "Link in database config"
+  task :after_update_code do
+    run "rm -f #{release_path}/config/database.yml"
+    run "ln -nfs #{deploy_to}/#{shared_dir}/config/database.yml #{release_path}/config/database.yml"
   end
 end

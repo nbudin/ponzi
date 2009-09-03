@@ -9,7 +9,7 @@ class MainController < ApplicationController
   end
   
   def house
-    @house = House.find(params[:id])
+    @house = House.find(params[:id], :include => [:housemates, :chore_groups])
     @people = @house.housemates.collect { |h| h.person }    
     @choregroups = @house.chore_groups
   end
@@ -36,8 +36,8 @@ class MainController < ApplicationController
   def explain_balance
     @me = logged_in_person
     @other = Person.find(params[:other])
-    charges = Charge.find_by_sql(["select * from charges left join charge_transactions t on charges.transaction_id = t.id where (creditor_id = ? and debtor_id = ?) or (debtor_id = ? and creditor_id = ?) order by t.created_at",
-      @other, @me, @other, @me])
+    charges = Charge.all(:joins => :charge_transaction, :conditions => ["(creditor_id = ? and debtor_id = ?) or (debtor_id = ? and creditor_id = ?)", @other, @me, @other, @me],
+      :include => [:creditor, :debtor], :order => "charge_transactions.created_at")
     @charges = []
     @balance = 0.0
     charges.each do |charge|

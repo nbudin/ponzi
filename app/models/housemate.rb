@@ -2,22 +2,29 @@ class Housemate < ActiveRecord::Base
   has_and_belongs_to_many :houses
   belongs_to :person
   has_many :chore_group_candidates
-  has_many :chore_groups, :through => :chore_group_candidates
+  has_many :chore_groups, :through => :chore_group_candidates, :include => [:assignees]
+  has_many :debts, :class_name => "Charge", :primary_key => :person_id, :foreign_key => 'debtor_id', :include => [:creditor, :debtor]
+  has_many :credits, :class_name => "Charge", :primary_key => :person_id, :foreign_key => 'creditor_id', :include => [:creditor, :debtor]
   
   def balance
     b = 0.0
-    charges = Charge.find_by_sql(["select * from charges where creditor_id = ? or debtor_id = ?",
-      person, person])
-    charges.each do |charge|
-      b += charge.balance(person)
+    credits.each do |charge|
+      b += charge.amount
+    end
+    debts.each do |charge|
+      b -= charge.amount
     end
     return b
   end
   
   def relative_balance(other)
     b = 0.0
-    b += (Charge.sum('amount', :conditions => ["creditor_id = ? and debtor_id = ?", person.id, other.id]) || 0.0)
-    b -= (Charge.sum('amount', :conditions => ["creditor_id = ? and debtor_id = ?", other.id, person.id]) || 0.0)
+    credits.select { |c| c.debtor == other }.each do |charge|
+      b += charge.amount
+    end
+    debts.select { |c| c.creditor == other }.each do |charge|
+      b -= charge.amount
+    end
     return b
   end
   

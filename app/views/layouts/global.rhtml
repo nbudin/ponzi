@@ -23,7 +23,7 @@
 <div id="sidebar">
     <h1><%= link_to "Ponzi", :controller => "main", :action => "index" %></h1>
     <div id="authbox">
-      <% if session[:account] -%>
+      <% if logged_in? -%>
           <%= link_to image_tag('user.png'),
     		:controller => 'account', :action => 'edit_profile' %>
           <%= link_to  logged_in_person.name, 
@@ -57,9 +57,7 @@
 
 <% if flash[:error_messages] -%>
 	<ul id="errors">
-		<% flash[:error_messages].each do |error| -%>
-			<li><%= error %></li>
-		<% end -%>
+		<li><%= flash[:error_messages] %></li>
 	</ul>
 <% end %>
 

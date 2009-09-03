@@ -66,6 +66,16 @@ div#newtransaction {
     width: auto;
 }
 
+#newtransaction form {
+	margin-left: 1em;
+}
+
+#newtransaction form label {
+	display: block;
+	margin-left: -1em;
+	font-weight: bold;
+}
+
 div#debt {
     text-align: center;
 }

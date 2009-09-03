@@ -88,12 +88,25 @@
           end)%></b></p>
         
         
-        <% ae_form_for "transaction", @charge_transaction, :url => charge_transactions_path, :html => {:style => 'display: none; margin-top: 1em;', :id => 'newtransaction_form' } do |f|%>
-            <%= f.select "is_creditor", [["", ""], ["me", "1"], ["other people", "0"]], :label => "Who paid money in this transaction" %>
+        <% form_for "transaction", @charge_transaction, :url => charge_transactions_path, :html => {:style => 'display: none; margin-top: 1em;', :id => 'newtransaction_form' } do |f|%>
+		  <p>
+		    <label for="transaction_is_creditor">Who paid money in this transaction?</label>
+            <%= f.select "is_creditor", [["", ""], ["me", "1"], ["other people", "0"]] %>
+	      </p>
+		  
+		  <p>
+			<label for="transaction_description">Description</label>
             <%= f.text_field "description" %>
-            <%= f.text_field "amount", :label => "Total amount", :field_prefix => "$" %>
-            <label for="other_people[]">Others involved in the transaction:</label>
-            <div style="margin-left: 28%; clear: both;">
+		  </p>
+			
+	      <p>
+			<label for="transaction_amount">Total amount:</label>
+            $<%= f.text_field "amount", :field_prefix => "$" %>
+		  </p>
+            
+		  <p>
+			<label for="other_people[]">Others involved in the transaction:</label>
+            <div>
               <% @house.housemates.each do |h| -%>
                 <%= check_box_tag "transaction[other_people][]", h.person.id, h.person.name %>
                 <%= h.person.name %>
@@ -101,6 +114,7 @@
               <% end -%>
               <p><i>If you're splitting a transaction between multiple people, make sure your name is selected too!</i></p>
             </div>
+		  </p>
             <div style="clear: both;">
               <%= submit_tag %>
             </div>

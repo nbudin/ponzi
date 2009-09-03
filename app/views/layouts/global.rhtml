@@ -39,7 +39,7 @@
         <div id="chorebox">
             <h2>Chores</h2>
             <ul>
-                <% app_profile.current_chores.each do |chore| %>
+                <% @current_chores.each do |chore| %>
                     <li>
                         <b><%= chore.name%></b>
                         <%= frequencyize chore.frequency_amount %> a

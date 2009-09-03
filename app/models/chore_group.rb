@@ -4,7 +4,6 @@ class ChoreGroup < ActiveRecord::Base
   has_many :chore_group_candidates
   has_many :assignees, :through => :chore_group_candidates, :source => :housemate,
     :order => :position
-  belongs_to :initial_assignee, :class_name => "Housemate", :foreign_key => :initial_assignee_id
   
   def assignee_at(time)
     def month_num(t)

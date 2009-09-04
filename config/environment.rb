@@ -1,6 +1,6 @@
 # Be sure to restart your web server when you modify this file.
 
-RAILS_GEM_VERSION = '2.3.3' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.4' unless defined? RAILS_GEM_VERSION
 
 # Uncomment below to force Rails into production mode when 
 # you don't control web/app server and can't set it the proper way

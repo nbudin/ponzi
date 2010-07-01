@@ -1,10 +1,26 @@
 class Housemate < ActiveRecord::Base
+  devise :cas_authenticatable, :trackable
+  
   has_and_belongs_to_many :houses
-  belongs_to :person
   has_many :chore_group_candidates
   has_many :chore_groups, :through => :chore_group_candidates, :include => [:assignees]
-  has_many :debts, :class_name => "Charge", :primary_key => :person_id, :foreign_key => 'debtor_id', :include => [:creditor, :debtor]
-  has_many :credits, :class_name => "Charge", :primary_key => :person_id, :foreign_key => 'creditor_id', :include => [:creditor, :debtor]
+  has_many :debts, :class_name => "::Charge", :foreign_key => 'debtor_id', :include => [:creditor, :debtor]
+  has_many :credits, :class_name => "::Charge", :foreign_key => 'creditor_id', :include => [:creditor, :debtor]
+  
+  def cas_extra_attributes=(attrs)
+    attrs.each do |key, value|
+      case key.to_sym
+      when :firstname
+        self.firstname = value
+      when :lastname
+        self.lastname = value
+      end
+    end
+  end
+  
+  def name
+    "#{firstname} #{lastname}"
+  end
   
   def balance
     b = 0.0

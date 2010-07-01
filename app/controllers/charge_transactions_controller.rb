@@ -2,7 +2,7 @@ class ChargeTransactionsController < ApplicationController
   # GET /charge_transactions
   # GET /charge_transactions.xml
   def index
-    @charge_transactions = ChargeTransaction.find(:all)
+    @charge_transactions = ChargeTransaction.all
 
     respond_to do |format|
       format.html # index.rhtml
@@ -43,13 +43,13 @@ class ChargeTransactionsController < ApplicationController
       
       amount = t[:amount].to_f
       t[:other_people].each do |p|
-        other = Person.find p
+        other = Housemate.find p
         charge = Charge.new
         if t[:is_creditor] == '0'
-          charge.debtor = logged_in_person
+          charge.debtor = current_housemate
           charge.creditor = other
         elsif t[:is_creditor] == '1'
-          charge.creditor = logged_in_person
+          charge.creditor = current_housemate
           charge.debtor = other
         else
           flash[:error_messages] = ["You must select who paid in the transaction."]

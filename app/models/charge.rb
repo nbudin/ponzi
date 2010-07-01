@@ -1,7 +1,15 @@
 class Charge < ActiveRecord::Base
   belongs_to :charge_transaction, :foreign_key => "transaction_id"
-  belongs_to :creditor, :foreign_key => "creditor_id", :class_name => "Person"
-  belongs_to :debtor, :foreign_key => "debtor_id", :class_name => "Person"
+  belongs_to :creditor, :foreign_key => "creditor_id", :class_name => "Housemate"
+  belongs_to :debtor, :foreign_key => "debtor_id", :class_name => "Housemate"
+  
+  scope :between, lambda { |me, other|
+    where(
+      ["(creditor_id = ? and debtor_id = ?) or (debtor_id = ? and creditor_id = ?)", other, me, other, me]
+    ).includes([:creditor, :debtor])
+  }
+  
+  scope :latest_first, joins(:charge_transaction).order("charge_transactions.created_at desc")
   
   def balance(person)
     if person == debtor and person == creditor

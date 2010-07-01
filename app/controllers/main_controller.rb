@@ -1,16 +1,17 @@
 class MainController < ApplicationController
-  require_login
+
+  before_filter :authenticate_housemate!
   
   def index
-    @houses = logged_in_person.housemate.houses
+    @houses = current_housemate.houses
     if @houses.length == 1
       redirect_to :action => "house", :id => @houses[0].id
     end
   end
   
   def house
-    @house = House.find(params[:id], :include => [:housemates, :chore_groups])
-    @people = @house.housemates.collect { |h| h.person }    
+    @house = House.find(params[:id])
+    @people = @house.housemates
     @choregroups = @house.chore_groups
   end
   
@@ -34,10 +35,9 @@ class MainController < ApplicationController
   end
   
   def explain_balance
-    @me = logged_in_person
-    @other = Person.find(params[:other])
-    charges = Charge.all(:joins => :charge_transaction, :conditions => ["(creditor_id = ? and debtor_id = ?) or (debtor_id = ? and creditor_id = ?)", @other, @me, @other, @me],
-      :include => [:creditor, :debtor], :order => "charge_transactions.created_at")
+    @me = current_housemate
+    @other = Housemate.find(params[:other])
+    charges = Charge.between(@me, @other).latest_first
     @charges = []
     @balance = 0.0
     charges.each do |charge|
@@ -50,21 +50,21 @@ class MainController < ApplicationController
   end
   
   def settle
-    @me = Housemate.find_by_person_id(logged_in_person)
-    @other = Housemate.find_by_person_id(params[:other])
+    @me = current_housemate
+    @other = Housemate.find(params[:other])
     
     t = ChargeTransaction.new :description => "Settling debt"
     c = Charge.new :charge_transaction => t
     
-    @balance = @me.relative_balance(@other.person)
+    @balance = @me.relative_balance(@other)
     c.amount = @balance.abs
     
     if @balance < 0.0
-      c.creditor = @me.person
-      c.debtor = @other.person
+      c.creditor = @me
+      c.debtor = @other
     else
-      c.creditor = @other.person
-      c.debtor = @me.person
+      c.creditor = @other
+      c.debtor = @me
     end
     
     c.save

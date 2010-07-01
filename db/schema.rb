@@ -1,5 +1,5 @@
 # This file is auto-generated from the current state of the database. Instead of editing this file, 
-# please use the migrations feature of ActiveRecord to incrementally modify your database, and
+# please use the migrations feature of Active Record to incrementally modify your database, and
 # then regenerate this schema definition.
 #
 # Note that this schema.rb definition is the authoritative source for your database schema. If you need
@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 11) do
+ActiveRecord::Schema.define(:version => 20100617205612) do
 
   create_table "charge_transactions", :force => true do |t|
     t.string "description"
@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(:version => 11) do
     t.float   "amount"
   end
 
-  add_index "charges", ["transaction_id"], :name => "index_charges_on_transaction_id"
-  add_index "charges", ["debtor_id"], :name => "index_charges_on_debtor_id"
   add_index "charges", ["creditor_id"], :name => "index_charges_on_creditor_id"
   add_index "charges", ["debtor_id", "creditor_id"], :name => "index_charges_on_debtor_id_and_creditor_id"
+  add_index "charges", ["debtor_id"], :name => "index_charges_on_debtor_id"
+  add_index "charges", ["transaction_id"], :name => "index_charges_on_transaction_id"
 
   create_table "chore_group_candidates", :force => true do |t|
     t.integer "position"
@@ -55,10 +55,20 @@ ActiveRecord::Schema.define(:version => 11) do
   end
 
   create_table "housemates", :force => true do |t|
-    t.integer "person_id"
-    t.integer "preferred_hour"
-    t.integer "preferred_dow"
+    t.integer  "preferred_hour"
+    t.integer  "preferred_dow"
+    t.string   "username"
+    t.integer  "sign_in_count",      :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "email"
   end
+
+  add_index "housemates", ["username"], :name => "index_housemates_on_username", :unique => true
 
   create_table "housemates_houses", :id => false, :force => true do |t|
     t.integer "house_id"
@@ -69,6 +79,19 @@ ActiveRecord::Schema.define(:version => 11) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "permissions", :force => true do |t|
+    t.integer "role_id"
+    t.string  "permission"
+    t.integer "permissioned_id"
+    t.string  "permissioned_type"
+    t.integer "person_id"
+  end
+
+  create_table "plugin_schema_info", :id => false, :force => true do |t|
+    t.string  "plugin_name"
+    t.integer "version"
   end
 
 end

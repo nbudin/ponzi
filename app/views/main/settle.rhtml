@@ -2,9 +2,9 @@
 
 <p>
     <% if @balance < 0.0 -%>
-        You have paid <%= @other.person.name %> <%= display_balance @balance%>.
+        You have paid <%= @other.name %> <%= display_balance @balance%>.
     <% else -%>
-        <%= @other.person.name %> has paid you <%= display_balance @balance%>.
+        <%= @other.name %> has paid you <%= display_balance @balance%>.
     <% end -%>
 </p>
 

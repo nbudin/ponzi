@@ -1,4 +1,4 @@
-<%= form_tag :action => "create_transaction" %>
+<%= form_tag :action => "create_transaction" do %>
 <h1>Create a transaction</h1>
 
 <p>The total amount of this transaction is <b>$<%= sprintf("%.02f", @amount) %></b></p>
@@ -19,4 +19,4 @@
 </table>
 
 <%= submit_tag %>
-<%= end_form_tag %>
+<% end %>

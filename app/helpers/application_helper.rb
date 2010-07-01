@@ -16,6 +16,6 @@ module ApplicationHelper
       c = 'credit'
     end
     
-    return "<span class=\"#{c}\">#{money amount}</span>"
+    return "<span class=\"#{c}\">#{money amount}</span>".html_safe
   end
 end

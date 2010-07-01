@@ -20,15 +20,15 @@
             </th>
             <% @people.each do |person| -%>
                 <th style="vertical-align: top;"
-                    <% if logged_in_person == person%>class="me"<%end%>
+                    <% if current_housemate == person%>class="me"<%end%>
                     ><%=person.name%></th>
             <% end -%>
         </tr>
         <% @people.each do |debtor| -%>
-            <tr<% if logged_in_person == debtor%> class="me"<%end%>>
+            <tr<% if current_housemate == debtor%> class="me"<%end%>>
                 <th><%=debtor.name%></th>
                 <% @people.each do |creditor| -%>
-                    <% balance = debtor.housemate.relative_balance(creditor) -%>
+                    <% balance = debtor.relative_balance(creditor) -%>
                     <td style="text-align: center;"
                         <% 	if debtor == creditor
 								cc = "blackout" 
@@ -37,7 +37,7 @@
 							else
 								cc = ""
 							end
-							if logged_in_person == creditor and cc == ""
+							if current_housemate == creditor and cc == ""
 								cc = "me"
 							end -%>
                         class="<%=cc%>">
@@ -53,7 +53,7 @@
     <ul id="outstanding">
       <% has_outstanding = false -%>
       <% @people.each do |other| -%>
-        <% balance = logged_in_person.housemate.relative_balance(other) -%>
+        <% balance = current_housemate.relative_balance(other) -%>
         <% if balance != 0.0 -%>
           <% has_outstanding = true %>
           <li>
@@ -108,8 +108,8 @@
 			<label for="other_people[]">Others involved in the transaction:</label>
             <div>
               <% @house.housemates.each do |h| -%>
-                <%= check_box_tag "transaction[other_people][]", h.person.id, h.person.name %>
-                <%= h.person.name %>
+                <%= check_box_tag "transaction[other_people][]", h.id, h.name %>
+                <%= h.name %>
                 <br />
               <% end -%>
               <p><i>If you're splitting a transaction between multiple people, make sure your name is selected too!</i></p>

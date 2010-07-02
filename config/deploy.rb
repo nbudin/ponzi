@@ -46,6 +46,28 @@ set :git_enable_submodules, 1
 # ssh_options[:keys] = %w(/path/to/my/key /path/to/another/key)
 # ssh_options[:port] = 25
 
+namespace :bundler do
+  task :create_symlink, :roles => :app do
+    shared_dir = File.join(shared_path, 'bundle')
+    release_dir = File.join(current_release, '.bundle')
+    run("mkdir -p #{shared_dir} && ln -s #{shared_dir} #{release_dir}")
+  end
+  
+  task :bundle_new_release, :roles => :app do
+    bundler.create_symlink
+    run "cd #{release_path} && bundle install --without test"
+  end
+  
+  task :lock, :roles => :app do
+    run "cd #{current_release} && bundle lock;"
+  end
+  
+  task :unlock, :roles => :app do
+    run "cd #{current_release} && bundle unlock;"
+  end
+end
+
+
 # =============================================================================
 # TASKS
 # =============================================================================
@@ -58,10 +80,11 @@ namespace :deploy do
   task :restart, :roles => :app do
     run "touch #{current_path}/tmp/restart.txt"
   end
+end
 
-  desc "Link in database config"
-  task :after_update_code do
-    run "rm -f #{release_path}/config/database.yml"
-    run "ln -nfs #{deploy_to}/#{shared_dir}/config/database.yml #{release_path}/config/database.yml"
-  end
+# HOOKS
+after "deploy:update_code" do
+  bundler.bundle_new_release
+  run "rm -f #{release_path}/config/database.yml"
+  run "ln -nfs #{deploy_to}/#{shared_dir}/config/database.yml #{release_path}/config/database.yml"
 end

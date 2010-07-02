@@ -15,7 +15,7 @@ dependencies:
   devise: 
     group: 
     - :default
-    version: ">= 0"
+    version: = 1.1.rc1
   json_pure: 
     group: 
     - :default
@@ -67,15 +67,12 @@ specs:
     version: 3.0.0.beta4
 - ae_users_migrator: 
     version: 1.0.2
-- bcrypt-ruby: 
-    version: 2.1.2
 - bundler: 
     version: 0.9.26
 - warden: 
     version: 0.10.7
 - devise: 
     version: 1.1.rc1
-    source: 1
 - rubycas-client: 
     version: 2.1.0
 - devise_cas_authenticatable: 
@@ -91,14 +88,12 @@ specs:
     version: 3.0.0.beta4
 - rails: 
     version: 3.0.0.beta4
-hash: 02edd4404eac913abcdabf64e8626273828d663d
+hash: 782fc16fb768a0464880650454ae2c71460553f4
 sources: 
-- Path: 
-    path: !ruby/object:Pathname 
-      path: /Users/nbudin/code/devise_cas_authenticatable
 - Git: 
-    uri: git://github.com/plataformatec/devise.git
-    git: git://github.com/plataformatec/devise.git
-    ref: ac0105d15f5bcc78f7a4b496eb52b0a5e9a27100
+    uri: git://github.com/nbudin/devise_cas_authenticatable
+    branch: devise1.1
+    git: git://github.com/nbudin/devise_cas_authenticatable
+    ref: 7faed6b7fe96f32d53746725e800b883ca136b9f
 - Rubygems: 
     uri: http://rubygems.org

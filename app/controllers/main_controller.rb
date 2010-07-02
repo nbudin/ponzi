@@ -1,12 +1,15 @@
 class MainController < ApplicationController
 
-  before_filter :authenticate_housemate!
+  before_filter :force_login, :except => [:login]
   
   def index
     @houses = current_housemate.houses
     if @houses.length == 1
       redirect_to :action => "house", :id => @houses[0].id
     end
+  end
+  
+  def login
   end
   
   def house
@@ -69,5 +72,10 @@ class MainController < ApplicationController
     
     c.save
     t.save
+  end
+  
+  protected
+  def force_login
+    redirect_to :action => :login unless housemate_signed_in?
   end
 end

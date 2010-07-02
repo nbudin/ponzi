@@ -9,9 +9,9 @@ gem 'json_pure'
 gem 'mysql'
 #gem 'sqlite3-ruby', :require => 'sqlite3'
 
-gem "devise", :git => "git://github.com/plataformatec/devise.git"
-gem 'devise_cas_authenticatable', :path => "/Users/nbudin/code/devise_cas_authenticatable"
-#gem 'devise_cas_authenticatable', :git => "git://github.com/nbudin/devise_cas_authenticatable.git", :branch => "devise1.1"
+gem "devise", "1.1.rc1"
+#gem 'devise_cas_authenticatable', :path => '/Users/nbudin/code/devise_cas_authenticatable'
+gem 'devise_cas_authenticatable', :git => "git://github.com/nbudin/devise_cas_authenticatable", :branch => "devise1.1"
 
 gem 'ae_users_migrator'
 

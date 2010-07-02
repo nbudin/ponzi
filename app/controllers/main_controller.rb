@@ -10,6 +10,7 @@ class MainController < ApplicationController
   end
   
   def login
+    redirect_to :action => "index" if housemate_signed_in?
   end
   
   def house

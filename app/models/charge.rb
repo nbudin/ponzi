@@ -2,6 +2,8 @@ class Charge < ActiveRecord::Base
   belongs_to :charge_transaction, :foreign_key => "transaction_id"
   belongs_to :creditor, :foreign_key => "creditor_id", :class_name => "Housemate"
   belongs_to :debtor, :foreign_key => "debtor_id", :class_name => "Housemate"
+  composed_of :amount, :class_name => "Money", :mapping => [%w(cents cents), %w(currency currency_as_string)],
+    :constructor => Proc.new { |cents, currency| Money.new(cents || 0, currency || Money.default_currency) }
   
   scope :between, lambda { |me, other|
     where(
@@ -13,13 +15,13 @@ class Charge < ActiveRecord::Base
   
   def balance(person)
     if person == debtor and person == creditor
-      return 0
+      return Money.new(0)
     elsif person == debtor
-      return -amount
+      return amount * -1
     elsif person == creditor
       return amount
     else
-      return 0
+      return Money.new(0)
     end
   end
   
@@ -29,5 +31,13 @@ class Charge < ActiveRecord::Base
     elsif person == creditor
       return debtor
     end
+  end
+  
+  def self.total_balance(charges, housemate)
+    b = Money.new(0.0)
+    charges.each do |charge|
+      b += charge.balance(housemate)
+    end
+    return b
   end
 end

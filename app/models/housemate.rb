@@ -23,25 +23,11 @@ class Housemate < ActiveRecord::Base
   end
   
   def balance
-    b = 0.0
-    credits.each do |charge|
-      b += charge.amount
-    end
-    debts.each do |charge|
-      b -= charge.amount
-    end
-    return b
+    Charge.total_balance(Charge.involving(self).all, self)
   end
   
   def relative_balance(other)
-    b = 0.0
-    credits.select { |c| c.debtor == other }.each do |charge|
-      b += charge.amount
-    end
-    debts.select { |c| c.creditor == other }.each do |charge|
-      b -= charge.amount
-    end
-    return b
+    Charge.total_balance(Charge.between(self, other).all, self)
   end
   
   def chore_groups_at(time)

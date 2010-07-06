@@ -41,7 +41,7 @@ class ChargeTransactionsController < ApplicationController
       
       @charge_transaction.description = t[:description]
       
-      amount = t[:amount].to_f
+      amount = Money.new(t[:amount].to_f * 100)
       t[:other_people].each do |p|
         other = Housemate.find p
         charge = Charge.new

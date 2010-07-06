@@ -8,6 +8,10 @@ dependencies:
     group: 
     - :default
     version: ">= 0"
+  money: 
+    group: 
+    - :default
+    version: ~> 3.0.3
   ae_users_migrator: 
     group: 
     - :default
@@ -80,6 +84,8 @@ specs:
     source: 0
 - json_pure: 
     version: 1.4.3
+- money: 
+    version: 3.0.4
 - mysql: 
     version: 2.8.1
 - thor: 
@@ -88,7 +94,7 @@ specs:
     version: 3.0.0.beta4
 - rails: 
     version: 3.0.0.beta4
-hash: 782fc16fb768a0464880650454ae2c71460553f4
+hash: cc19fabd319666fc54d05a759e8a4716ab183d42
 sources: 
 - Git: 
     uri: git://github.com/nbudin/devise_cas_authenticatable

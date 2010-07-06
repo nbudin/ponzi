@@ -61,7 +61,7 @@ class MainController < ApplicationController
     c = Charge.new :charge_transaction => t
     
     @balance = @me.relative_balance(@other)
-    c.amount = @balance.abs
+    c.amount = Money.new(@balance.cents.abs, @balance.currency)
     
     if @balance < 0.0
       c.creditor = @me

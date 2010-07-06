@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100617205612) do
+ActiveRecord::Schema.define(:version => 20100706165149) do
 
   create_table "charge_transactions", :force => true do |t|
     t.string "description"
@@ -20,7 +20,8 @@ ActiveRecord::Schema.define(:version => 20100617205612) do
     t.integer "transaction_id"
     t.integer "creditor_id"
     t.integer "debtor_id"
-    t.float   "amount"
+    t.integer "cents",          :default => 0, :null => false
+    t.string  "currency"
   end
 
   add_index "charges", ["creditor_id"], :name => "index_charges_on_creditor_id"

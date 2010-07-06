@@ -10,9 +10,7 @@
         <th>Description</th>
         <th>Running Balance</th>
     </tr>
-    <% balance = 0.0 -%>
-    <% @charges.each do |charge| -%>
-        <% balance += charge.balance(@me) %>
+    <%= each_charge_with_running_balance(@charges, @me, @balance) do |charge, balance| -%>
         <tr class="<%=cycle "even", "odd" %>">
             <td>
               <% if charge.charge_transaction -%>

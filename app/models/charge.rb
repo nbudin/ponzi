@@ -7,7 +7,13 @@ class Charge < ActiveRecord::Base
   
   scope :between, lambda { |me, other|
     where(
-      ["(creditor_id = ? and debtor_id = ?) or (debtor_id = ? and creditor_id = ?)", other, me, other, me]
+      ["(creditor_id = ? and debtor_id = ?) or (debtor_id = ? and creditor_id = ?)", other.id, me.id, other.id, me.id]
+    ).includes([:creditor, :debtor])
+  }
+  
+  scope :involving, lambda { |me|
+    where(
+      ["creditor_id = ? or debtor_id = ?", me.id, me.id]
     ).includes([:creditor, :debtor])
   }
   

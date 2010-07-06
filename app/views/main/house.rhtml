@@ -101,7 +101,7 @@
 			
 	      <p>
 			<label for="transaction_amount">Total amount:</label>
-            $<%= f.text_field "amount", :field_prefix => "$" %>
+            <%=  Money.default_currency.symbol %><%= f.text_field "amount", :field_prefix => Money.default_currency.symbol %>
 		  </p>
             
 		  <p>

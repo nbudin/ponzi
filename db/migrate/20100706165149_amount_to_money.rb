@@ -16,6 +16,7 @@ class AmountToMoney < ActiveRecord::Migration
     
     Charge.all.each do |charge|
       charge.cents = (charge.raw_amount * 100.0).round
+      charge.currency = "USD"
       charge.save!
     end
     
@@ -26,7 +27,7 @@ class AmountToMoney < ActiveRecord::Migration
     add_column :charges, :amount, :float
     
     Charge.all.each do |charge|
-      charge.raw_amount = charge.cents.to_f / 100.0
+      charge.raw_amount = charge.as_us_dollar.cents.to_f / 100.0
       charge.save!
     end
     

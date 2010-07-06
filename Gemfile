@@ -13,6 +13,7 @@ gem "devise", "1.1.rc1"
 #gem 'devise_cas_authenticatable', :path => '/Users/nbudin/code/devise_cas_authenticatable'
 gem 'devise_cas_authenticatable', :git => "git://github.com/nbudin/devise_cas_authenticatable", :branch => "devise1.1"
 gem 'money', '~> 3.0.3'
+gem 'eu_central_bank'
 
 gem 'ae_users_migrator'
 

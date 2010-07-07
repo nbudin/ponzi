@@ -24,17 +24,17 @@ set :repository, "git://github.com/nbudin/#{application}.git"
 # be used to single out a specific subset of boxes in a particular role, like
 # :primary => true.
 
-role :web, "sakai.natbudin.com"
-role :app, "sakai.natbudin.com"
-role :db,  "sakai.natbudin.com", :primary => true
+role :web, "lome.dreamhost.com"
+role :app, "lome.dreamhost.com"
+role :db,  "lome.dreamhost.com", :primary => true
 
 # =============================================================================
 # OPTIONAL VARIABLES
 # =============================================================================
-set :deploy_to, "/var/www/ponzi.natbudin.com" # defaults to "/u/apps/#{application}"
+set :deploy_to, "/home/ponzi/ponzi.natbudin.com" # defaults to "/u/apps/#{application}"
 set :use_sudo, false
 set :checkout, "export"
-set :user, "www-data"            # defaults to the currently logged in user
+set :user, "ponzi"            # defaults to the currently logged in user
 set :deploy_via, :remote_cache
 set :scm, :git               # defaults to :subversion
 set :git_enable_submodules, 1

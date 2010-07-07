@@ -24,6 +24,10 @@ dependencies:
     group: 
     - :default
     version: = 1.1.rc1
+  bundler: 
+    group: 
+    - :default
+    version: ">= 0"
   json_pure: 
     group: 
     - :default
@@ -102,7 +106,7 @@ specs:
     version: 3.0.0.beta4
 - rails: 
     version: 3.0.0.beta4
-hash: 65a28478ee398ee706aa7e90b290df7a5542a48c
+hash: c8831c8dad9a9f07bc9001108937c92f89c9873e
 sources: 
 - Git: 
     uri: git://github.com/nbudin/devise_cas_authenticatable

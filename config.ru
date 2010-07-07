@@ -2,6 +2,7 @@
 
 ENV['GEM_PATH'] = "#{File.expand_path('~/.gem')}:#{ENV['GEM_PATH']}"
 require 'rubygems'
+gem 'bundler'
 require 'bundler'
 
 

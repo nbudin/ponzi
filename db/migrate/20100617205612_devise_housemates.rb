@@ -59,5 +59,6 @@ class DeviseHousemates < ActiveRecord::Migration
   end
 
   def self.down
+    raise ActiveRecord::IrreversibleMigration
   end
 end

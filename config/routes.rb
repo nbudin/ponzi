@@ -1,4 +1,4 @@
-Ponzi::Application.routes.draw do |map|
+Ponzi::Application.routes.draw do
   devise_for :housemates
   
   # The priority is based upon order of creation:

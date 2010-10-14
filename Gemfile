@@ -1,18 +1,17 @@
 source 'http://rubygems.org'
 
 gem 'bundler'
-gem 'rails', '3.0.0.beta4'
+gem 'rails', '~> 3.0.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'json_pure'
 gem 'mysql'
-#gem 'sqlite3-ruby', :require => 'sqlite3'
 
-gem "devise", "1.1.rc1"
-#gem 'devise_cas_authenticatable', :path => '/Users/nbudin/code/devise_cas_authenticatable'
-gem 'devise_cas_authenticatable', :git => "git://github.com/nbudin/devise_cas_authenticatable", :branch => "devise1.1"
+gem "devise", "~> 1.1.2"
+gem 'devise_cas_authenticatable', :path => '/Users/nbudin/code/devise_cas_authenticatable'
+#gem 'devise_cas_authenticatable', :git => "git://github.com/nbudin/devise_cas_authenticatable", :branch => "devise1.1"
 gem 'money', '~> 3.0.3'
 gem 'eu_central_bank'
 
@@ -35,6 +34,6 @@ gem 'ae_users_migrator'
 
 # Bundle gems for certain environments:
 # gem 'rspec', :group => :test
-# group :test do
-#   gem 'webrat'
-# end
+group :test do
+  gem 'sqlite3-ruby', :require => 'sqlite3'
+end

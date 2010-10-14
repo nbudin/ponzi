@@ -82,17 +82,4 @@ ActiveRecord::Schema.define(:version => 20100706165149) do
     t.datetime "updated_at"
   end
 
-  create_table "permissions", :force => true do |t|
-    t.integer "role_id"
-    t.string  "permission"
-    t.integer "permissioned_id"
-    t.string  "permissioned_type"
-    t.integer "person_id"
-  end
-
-  create_table "plugin_schema_info", :id => false, :force => true do |t|
-    t.string  "plugin_name"
-    t.integer "version"
-  end
-
 end

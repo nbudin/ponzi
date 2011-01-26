@@ -1,7 +1,9 @@
-PATH
-  remote: /Users/nbudin/code/devise_cas_authenticatable
+GIT
+  remote: git://github.com/nbudin/devise_cas_authenticatable
+  revision: 95732dcaaf1fcf87d0916ac46619b431933c8c46
+  branch: devise1.1
   specs:
-    devise_cas_authenticatable (1.0.0.alpha4)
+    devise_cas_authenticatable (0.0.0)
       devise (>= 1.0.6)
       rubycas-client (~> 2.1.0)
 

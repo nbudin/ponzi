@@ -1,8 +1,5 @@
 # This file is used by Rack-based servers to start the application.
 
-#ENV['GEM_PATH'] = "#{File.expand_path('~/.gem')}:#{ENV['GEM_PATH']}"
-#require '.bundle/environment'
-
 begin
   gem 'bundler'
 rescue Gem::LoadError

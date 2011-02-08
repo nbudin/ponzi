@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'bundler'
-gem 'rails', '~> 3.0.1'
+gem 'rails', '~> 3.0.4'
 gem 'mail', '~> 2.2.15'
 
 # Bundle edge Rails instead:

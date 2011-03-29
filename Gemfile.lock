@@ -49,6 +49,9 @@ GEM
     eu_central_bank (0.1.0)
       money (>= 2.3.0)
       nokogiri (>= 1.4.1)
+    hoptoad_notifier (2.4.8)
+      activesupport
+      builder
     i18n (0.5.0)
     json_pure (1.4.6)
     mail (2.2.15)
@@ -99,6 +102,7 @@ DEPENDENCIES
   devise (~> 1.1.2)
   devise_cas_authenticatable!
   eu_central_bank
+  hoptoad_notifier
   json_pure
   mail (~> 2.2.15)
   money (~> 3.0.3)

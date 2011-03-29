@@ -90,3 +90,6 @@ after "deploy:update_code" do
   run "rm -f #{release_path}/config/database.yml"
   run "ln -nfs #{deploy_to}/#{shared_dir}/config/database.yml #{release_path}/config/database.yml"
 end
+
+        require './config/boot'
+        require 'hoptoad_notifier/capistrano'

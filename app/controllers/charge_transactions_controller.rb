@@ -53,7 +53,7 @@ class ChargeTransactionsController < ApplicationController
           charge.debtor = other
         else
           flash[:error_messages] = ["You must select who paid in the transaction."]
-          redirect_to :controller => :main, :action => :index
+          return redirect_to(:controller => :main, :action => :index)
         end
         
         charge.amount = amount / (t[:other_people].length)

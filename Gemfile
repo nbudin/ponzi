@@ -14,6 +14,7 @@ gem 'money', '~> 3.0.3'
 gem 'eu_central_bank'
 
 gem 'ae_users_migrator'
+gem 'illyan_client'
 gem 'hoptoad_notifier'
 
 group :test do

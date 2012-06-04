@@ -53,6 +53,8 @@ GEM
       activesupport
       builder
     i18n (0.6.0)
+    illyan_client (1.0.2)
+      activeresource
     json_pure (1.4.6)
     mail (2.2.19)
       activesupport (>= 2.3.6)
@@ -104,6 +106,7 @@ DEPENDENCIES
   devise_cas_authenticatable!
   eu_central_bank
   hoptoad_notifier
+  illyan_client
   json_pure
   mail (~> 2.2.15)
   money (~> 3.0.3)

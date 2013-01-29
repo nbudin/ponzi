@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'bundler'
-gem 'rails', '3.0.19'
+gem 'rails', '3.0.20'
 gem 'mail', '~> 2.2.15'
 
 gem 'json_pure'

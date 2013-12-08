@@ -19,7 +19,7 @@ class Housemate < ActiveRecord::Base
   end
   
   def name
-    "#{firstname} #{lastname}"
+    "#{firstname} #{lastname}".presence || email
   end
   
   def balance

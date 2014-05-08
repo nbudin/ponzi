@@ -42,5 +42,7 @@ module Ponzi
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+    
+    config.rails_lts_options = { :default => :hardened }
   end
 end

@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'bundler'
-gem 'rails', '3.0.20'
+gem 'rails', :git => 'https://github.com/makandra/rails.git', :branch => '3-0-lts'
 gem 'mail', '~> 2.2.15'
 
 gem 'json_pure'

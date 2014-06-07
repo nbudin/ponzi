@@ -15,7 +15,7 @@ gem 'eu_central_bank'
 
 gem 'ae_users_migrator'
 gem 'illyan_client'
-gem 'hoptoad_notifier'
+gem 'rollbar'
 
 group :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'

@@ -17,6 +17,8 @@ gem 'ae_users_migrator'
 gem 'illyan_client'
 gem 'rollbar'
 
+gem 'pry', :groups => [:development, :test]
+
 group :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'
 end

@@ -4,7 +4,7 @@
   <title>Ponzi</title>
   <%= stylesheet_link_tag "ponzi.css" %>
   <% if Rollbar.configuration.enabled -%>
-    <%= javascript_include_tag :rollbar %>
+    <%= javascript_include_tag 'rollbar.js' %>
   <% end -%>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>

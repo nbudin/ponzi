@@ -2,7 +2,19 @@
 <html>
 <head>
   <title>Ponzi</title>
-  <%= stylesheet_link_tag :all %>
+  <%= stylesheet_link_tag "ponzi.css" %>
+  <% if Rollbar.configuration.enabled -%>
+    <script>
+    var _rollbarConfig = {
+        accessToken: <%= Rollbar.configuration.access_token.to_json %>,
+        captureUncaught: true,
+        payload: {
+            environment: "production"
+        }
+    };
+    </script>
+    <%= javascript_include_tag :rollbar %>
+  <% end -%>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>

@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+ruby '1.9.3'
+
 gem 'bundler'
 gem 'rails', :git => 'https://github.com/makandra/rails.git', :branch => '3-0-lts'
 gem 'mail', '~> 2.2.15'

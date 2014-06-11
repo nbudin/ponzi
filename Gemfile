@@ -17,6 +17,9 @@ gem 'ae_users_migrator'
 gem 'illyan_client'
 gem 'rollbar'
 
+gem 'unicorn', :group => :production
+gem 'pg', :group => :production
+
 gem 'pry', :groups => [:development, :test]
 
 group :test do

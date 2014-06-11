@@ -76,6 +76,7 @@ GEM
       activeresource
     json (1.8.1)
     json_pure (1.4.6)
+    kgio (2.7.4)
     mail (2.2.20)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -87,6 +88,7 @@ GEM
     multi_json (1.10.1)
     mysql (2.8.1)
     nokogiri (1.4.3.1)
+    pg (0.17.1)
     polyglot (0.3.5)
     pry (0.9.12.6)
       coderay (~> 1.0)
@@ -98,6 +100,7 @@ GEM
     rack-test (0.5.7)
       rack (>= 1.0)
     railslts-version (3.0.20.3)
+    raindrops (0.10.0)
     rake (10.3.2)
     rdoc (3.12.2)
       json (~> 1.4)
@@ -112,6 +115,10 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.39)
+    unicorn (4.5.0)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
     warden (0.10.7)
       rack (>= 1.0.0)
 
@@ -129,7 +136,9 @@ DEPENDENCIES
   mail (~> 2.2.15)
   money (~> 3.0.3)
   mysql
+  pg
   pry
   rails!
   rollbar
   sqlite3-ruby
+  unicorn

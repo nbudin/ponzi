@@ -19,6 +19,8 @@ gem 'rollbar'
 
 gem 'unicorn', :group => :production
 gem 'pg', :group => :production
+gem 'newrelic_rpm'
+gem 'rails_12factor'
 
 gem 'pry', :groups => [:development, :test]
 

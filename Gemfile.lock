@@ -87,6 +87,7 @@ GEM
     money (3.0.3)
     multi_json (1.10.1)
     mysql (2.8.1)
+    newrelic_rpm (3.8.1.221)
     nokogiri (1.4.3.1)
     pg (0.17.1)
     polyglot (0.3.5)
@@ -99,6 +100,11 @@ GEM
       rack (>= 1.0.0)
     rack-test (0.5.7)
       rack (>= 1.0)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.2)
+    rails_stdout_logging (0.0.3)
     railslts-version (3.0.20.3)
     raindrops (0.10.0)
     rake (10.3.2)
@@ -136,9 +142,11 @@ DEPENDENCIES
   mail (~> 2.2.15)
   money (~> 3.0.3)
   mysql
+  newrelic_rpm
   pg
   pry
   rails!
+  rails_12factor
   rollbar
   sqlite3-ruby
   unicorn

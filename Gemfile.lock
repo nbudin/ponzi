@@ -1,12 +1,4 @@
 GIT
-  remote: git://github.com/nbudin/devise_cas_authenticatable
-  revision: c229ca68b85bce16ca4ffb8c412a474ea3582397
-  specs:
-    devise_cas_authenticatable (1.0.0.alpha4)
-      devise (>= 1.0.6)
-      rubycas-client (~> 2.1.0)
-
-GIT
   remote: https://github.com/makandra/rails.git
   revision: 1487be662fa2c6a0361f014b336ed46fd82a9b4b
   branch: 3-0-lts
@@ -66,6 +58,9 @@ GEM
     devise (1.1.2)
       bcrypt-ruby (~> 2.1.2)
       warden (~> 0.10.7)
+    devise_cas_authenticatable (1.2.1)
+      devise (>= 1.0.6)
+      rubycas-client (>= 2.2.1)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     eu_central_bank (0.1.0)
@@ -75,7 +70,6 @@ GEM
     illyan_client (1.0.2)
       activeresource
     json (1.8.1)
-    json_pure (1.4.6)
     kgio (2.7.4)
     mail (2.2.20)
       activesupport (>= 2.3.6)
@@ -112,7 +106,7 @@ GEM
       json (~> 1.4)
     rollbar (0.12.20)
       multi_json (~> 1.3)
-    rubycas-client (2.1.0)
+    rubycas-client (2.3.9)
       activesupport
     slop (3.5.0)
     sqlite3-ruby (1.3.1)
@@ -135,10 +129,9 @@ DEPENDENCIES
   ae_users_migrator
   bundler
   devise (~> 1.1.2)
-  devise_cas_authenticatable!
+  devise_cas_authenticatable
   eu_central_bank
   illyan_client
-  json_pure
   mail (~> 2.2.15)
   money (~> 3.0.3)
   mysql

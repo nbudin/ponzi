@@ -3,6 +3,7 @@
 Devise.setup do |config|
   
   config.cas_base_url = "https://accounts.sugarpond.net/cas"
+  config.cas_logout_url_param = "destination"
   
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
